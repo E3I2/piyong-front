@@ -1,12 +1,12 @@
 import styles from "./Home.module.css";
 import Animation from "../../components/home/animation/Animation";
-import Card from "../../components/home/animation/Card";
+import Info from "../../components/home/info/Info";
 
 function Home() {
   return (
     <>
       <Animation />
-      <Card />
+      <Info />
     </>
   );
 }

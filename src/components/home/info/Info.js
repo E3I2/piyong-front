@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "./Card.module.css";
+import styles from "./Info.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -11,7 +11,7 @@ function Card() {
   return (
     <div className={styles.body}>
       <div className={styles.item} data-aos="fade-up">
-        1
+        <h1>시민들의 안전 지킴이</h1>
       </div>
       <div>dddd</div>
       <div>dddd</div>
