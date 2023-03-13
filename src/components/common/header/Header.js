@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import btnPath from "./img/button.png";
+import logoPath from "./img/ppiyong.png";
+import userPath from "./img/user.png";
 
 function Header() {
   const [isToggled, setIsToggled] = useState(false);
@@ -13,11 +16,11 @@ function Header() {
           setIsToggled(!isToggled);
         }}
       >
-        <img src="./img/button.png" alt="button"></img>
+        <img src={btnPath} alt="button"></img>
       </div>
 
       <div className="Ppiyong">
-        <img src="./img/ppiyong.png" alt="ppiyong"></img>
+        <img src={logoPath} alt="ppiyong"></img>
       </div>
 
       <div
@@ -26,7 +29,7 @@ function Header() {
           setUserToggled(!userToggled);
         }}
       >
-        <img src="./img/user.png" alt="user"></img>
+        <img src={userPath} alt="user"></img>
       </div>
 
       <ul className="HeaderTitle">
