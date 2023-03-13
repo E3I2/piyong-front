@@ -1,0 +1,79 @@
+.title {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 1.88rem;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.inputBox {
+  width: calc(100% - 1%);
+  height: 100%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.titleBox,
+.contentBox {
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.titleBox {
+  height: calc(100% - 85%);
+}
+
+.contentBox {
+  height: calc(100% - 23%);
+}
+
+.titleP,
+.contentP {
+  width: calc(100% - 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1.8rem;
+  margin: 15px 10px;
+}
+
+.titleInput,
+.contentInput {
+  font-family: "Franklin Gothic Medium", Arial, sans-serif;
+  font-size: 1.8rem;
+  width: calc(100% - 10%);
+  margin-right: 30px;
+  border: 1px solid #888888;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.contentInput {
+  resize: none;
+  min-height: 425px;
+  padding-top: 10px;
+}
+
+.btn {
+  margin-right: 50px;
+  margin-bottom: 35px;
+}
+
+.btn2 {
+  margin-left: 50px;
+  margin-bottom: 35px;
+}
+
+.btnBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

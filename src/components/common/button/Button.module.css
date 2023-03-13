@@ -1,0 +1,125 @@
+/* icon 작성하기 && icon 등록하기 */
+.btn1,
+.btn2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 141px;
+  height: 46px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #f96666;
+
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+@media screen and (max-width: 390px) {
+  .btn1,
+  .btn2 {
+    width: 46px;
+    height: 46px;
+  }
+  .btnText {
+    display: none;
+  }
+}
+
+.btnText {
+  margin-left: 8px;
+}
+
+/* 답변 준비중 && 답변 완료 */
+.btn3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 115px;
+  height: 35px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #efefef;
+
+  font-size: 16px;
+  font-weight: 400;
+  color: #484848;
+  letter-spacing: -1px;
+}
+
+.btn4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 115px;
+  height: 35px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #007cba;
+
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+/* 등록 */
+.btn5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 75px;
+  height: 46px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #f96666;
+
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+/* 목록 && 검색 */
+.btn6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 75px;
+  height: 46px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #007cba;
+
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.btn1:hover,
+.btn2:hover,
+.btn3:hover,
+.btn4:hover,
+.btn5:hover,
+.btn6:hover {
+  cursor: pointer;
+}
+
+.btn1:active,
+.btn2:active,
+.btn5:active {
+  background-color: #f93636;
+  transition: 0.2s;
+}
+
+.btn6:active {
+  background-color: #014364;
+  transition: 0.2s;
+}

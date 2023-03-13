@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 10px;
+  background-color: #f5f3fc;
+}
+
+.hr {
+  height: 4px;
+  width: calc(100% - 3%);
+  background-color: #202143;
+  border: 0;
+  margin: auto;
+}

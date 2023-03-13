@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "집 가고 싶다",
+      "state": "답변 완료",
+      "isDone": true
+    },
+    {
+      "id": 2,
+      "title": "개어렵다",
+      "state": "답변 준비중",
+      "isDone": false
+    },
+    {
+      "id": 3,
+      "title": "하기 싫다",
+      "state": "답변 준비중",
+      "isDone": false
+    },
+    {
+      "id": 4,
+      "title": "저녁 뭐 먹지",
+      "state": "답변 준비중",
+      "isDone": false
+    },
+    {
+      "id": 5,
+      "title": "진짜 너무 하기 싫다",
+      "state": "답변 준비중",
+      "isDone": false
+    },
+    {
+      "id": 6,
+      "title": "드디어 여섯번째",
+      "state": "답변 준비중",
+      "isDone": false
+    },
+    {
+      "id": 7,
+      "title": "이제 마지막",
+      "state": "답변 준비중",
+      "isDone": false
+    }
+  ]
+}
