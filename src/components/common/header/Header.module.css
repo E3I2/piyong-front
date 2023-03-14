@@ -6,10 +6,6 @@
   font-style: normal;
 }
 
-ul {
-  padding: 0;
-}
-
 .nav {
   font-family: "Pretendard-Regular";
   font-size: 1.2rem;
@@ -84,7 +80,7 @@ ul {
 }
 
 @media screen and (min-width: 831px) {
-  ul {
+  .active {
     display: flex;
   }
 }

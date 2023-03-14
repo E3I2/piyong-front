@@ -22,11 +22,12 @@ function Header() {
         className={isOpen ? styles.active : styles.links}
         id="links"
         ref={menuRef}
+        style={{ padding: "0" }}
       >
         <li className={styles.link}>순찰일지</li>
         <li className={styles.link}>순찰요청</li>
         <li className={styles.link}>커뮤니티</li>
-        <li className={styles.link}>순찰하기</li>
+        <li className={styles.link}>로그인</li>
       </ul>
       <button
         onClick={() => toogleMenu()}
