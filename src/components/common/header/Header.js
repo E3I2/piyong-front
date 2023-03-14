@@ -32,9 +32,24 @@ function Header() {
         ref={menuRef}
         style={{ padding: "0" }}
       >
-        <li className={styles.link}>순찰일지</li>
-        <li className={styles.link}>순찰요청</li>
-        <li className={styles.link}>커뮤니티</li>
+        <NavLink
+          to="./recode"
+          style={{ textDecoration: "none", color: "#000" }}
+        >
+          <li className={styles.link}>순찰일지</li>
+        </NavLink>
+        <NavLink
+          to="./request"
+          style={{ textDecoration: "none", color: "#000" }}
+        >
+          <li className={styles.link}>순찰요청</li>
+        </NavLink>
+        <NavLink
+          to="./community"
+          style={{ textDecoration: "none", color: "#000" }}
+        >
+          <li className={styles.link}>커뮤니티</li>
+        </NavLink>
         <li className={styles.link}>로그인</li>
       </ul>
       <button
