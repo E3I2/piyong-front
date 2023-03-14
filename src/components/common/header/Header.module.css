@@ -51,9 +51,9 @@
 
 .toogleBtn {
   position: absolute;
-  top: 5px;
+  top: 44px;
   right: 30px;
-  font-size: 1.8rem;
+  font-size: 3rem;
   border: 0;
   background-color: transparent;
   display: none;
@@ -63,6 +63,7 @@
   .nav {
     flex-direction: column;
     align-items: flex-start;
+    padding-left: 30px;
   }
 
   .links {

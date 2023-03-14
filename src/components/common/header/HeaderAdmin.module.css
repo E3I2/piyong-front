@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PilseungGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/PilseungGothic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.nav {
+  font-family: "Pretendard-Regular";
+  font-size: 1.7rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  align-items: center;
+  min-height: 120px;
+  /* box-shadow: 0 10px 5px -2px gray; */
+}
+
+.links,
+.link {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.link {
+  margin: 0 15px;
+}
+
+.link:hover {
+  color: #f96666;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.link:active {
+  color: #c65151;
+  font-size: 1.25rem;
+}
+
+.toogleBtn {
+  position: absolute;
+  top: 44px;
+  right: 30px;
+  font-size: 3rem;
+  border: 0;
+  background-color: transparent;
+  display: none;
+}
+
+@media screen and (max-width: 830px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .link {
+    margin: 8px 0;
+  }
+
+  .toogleBtn {
+    cursor: pointer;
+    display: block;
+  }
+
+  .active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 831px) {
+  .active {
+    display: flex;
+  }
+}
+
+.logoImg {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleBox {
+  text-align: center;
+}
+
+.logoTitle,
+.logoInfo {
+  margin: 0 0 0 1.5rem;
+}
+
+.logoTitle {
+  font-family: "PilseungGothic";
+  font-size: 2.5rem;
+  font-weight: 100;
+  letter-spacing: -0.5px;
+}
+
+.logoInfo {
+  font-size: 1.2rem;
+  color: #f2a72d;
+}
