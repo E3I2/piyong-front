@@ -6,14 +6,23 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "PilseungGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/PilseungGothic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .nav {
   font-family: "Pretendard-Regular";
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   font-weight: 600;
   display: flex;
-  justify-content: space-between;
-  padding: 10px 2rem;
+  justify-content: space-around;
+  padding: 10px 0;
   align-items: center;
+  min-height: 120px;
 }
 
 .links,
@@ -25,7 +34,7 @@
 }
 
 .link {
-  margin: 0 8px;
+  margin: 0 20px;
 }
 
 .link:hover {
@@ -83,4 +92,36 @@
   .active {
     display: flex;
   }
+}
+
+.logoImg {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleBox {
+  text-align: center;
+}
+
+.logoTitle,
+.logoInfo {
+  margin: 0 0 0 1.5rem;
+}
+
+.logoTitle {
+  font-family: "PilseungGothic";
+  font-size: 2.5rem;
+  font-weight: 100;
+  letter-spacing: -0.5px;
+}
+
+.logoInfo {
+  font-size: 1.2rem;
+  color: #f2a72d;
 }
