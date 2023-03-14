@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import logoPath from "./img/ppiyong.png";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,13 +17,15 @@ function Header() {
 
   return (
     <nav className={styles.nav} id="nav">
-      <div className={styles.logoBox} id="logoBox">
-        <img src={logoPath} alt="logo" className={styles.logoImg} />
-        <div className={styles.titleBox}>
-          <p className={styles.logoTitle}>PIYONG</p>
-          <p className={styles.logoInfo}>둔산경찰서</p>
+      <NavLink to="/" style={{ textDecoration: "none", color: "#000" }}>
+        <div className={styles.logoBox} id="logoBox">
+          <img src={logoPath} alt="logo" className={styles.logoImg} />
+          <div className={styles.titleBox}>
+            <p className={styles.logoTitle}>PIYONG</p>
+            <p className={styles.logoInfo}>둔산경찰서</p>
+          </div>
         </div>
-      </div>
+      </NavLink>
       <ul
         className={isOpen ? styles.active : styles.links}
         id="links"
