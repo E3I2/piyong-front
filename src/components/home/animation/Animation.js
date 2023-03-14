@@ -1,24 +1,29 @@
+import { useEffect } from "react";
 import styles from "./Animation.module.css";
 import cloudsPath from "./img/clouds.png";
 import buildingsPath from "./img/buildings.png";
 import roadPath from "./img/road.png";
 import policeCarPath from "./img/police-car.png";
+import Info from "../info/Info";
+import MenuAni from "../info/MenuAni";
 
 function Animation() {
-  let clouds = document.getElementById("clouds");
-  let buildings = document.getElementById("buildings");
-  let road = document.getElementById("road");
-  let car = document.getElementById("car");
-  let btn = document.getElementById("btn");
+  useEffect(() => {
+    let clouds = document.getElementById("clouds");
+    let buildings = document.getElementById("buildings");
+    let road = document.getElementById("road");
+    let car = document.getElementById("car");
+    let btn = document.getElementById("btn");
 
-  window.addEventListener("scroll", function () {
-    let value = window.scrollY;
-    clouds.style.left = value * 0.25 + "px";
-    buildings.style.top = value * 0.5 + "px";
-    road.style.top = value * 0 + "px";
-    car.style.marginRight = value * 4 + "px";
-    btn.style.marginTop = value * 1.5 + "px";
-  });
+    window.addEventListener("scroll", function () {
+      let value = window.scrollY;
+      clouds.style.left = value * 0.25 + "px";
+      buildings.style.top = value * 0.5 + "px";
+      road.style.top = value * 0 + "px";
+      car.style.marginRight = value * 4 + "px";
+      btn.style.marginTop = value * 1.5 + "px";
+    });
+  }, []);
 
   return (
     <div className={styles.body}>
@@ -35,7 +40,7 @@ function Animation() {
           id="buildings"
           className={styles.buildings}
         />
-        <a href="#" id="btn" className={styles.btn}>
+        <a href="#godyoonho" id="btn" className={styles.btn}>
           시작하기
         </a>
         <img src={roadPath} alt="road" id="road" className={styles.road} />

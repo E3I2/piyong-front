@@ -47,7 +47,7 @@ function Header() {
 }
 
 const HeaderCSS = styled.div`
-  width: 100%;
+  width: 100wh;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

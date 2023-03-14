@@ -9,12 +9,10 @@ function Card() {
   }, []);
 
   return (
-    <div className={styles.body}>
+    <div className={styles.body} id="godyoonho">
       <div className={styles.item} data-aos="fade-up">
         <h1>시민들의 안전 지킴이</h1>
       </div>
-      <div>dddd</div>
-      <div>dddd</div>
     </div>
   );
 }
