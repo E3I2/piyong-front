@@ -4,8 +4,6 @@ import cloudsPath from "./img/clouds.png";
 import buildingsPath from "./img/buildings.png";
 import roadPath from "./img/road.png";
 import policeCarPath from "./img/police-car.png";
-import Info from "../info/Info";
-import MenuAni from "../info/MenuAni";
 
 function Animation() {
   useEffect(() => {

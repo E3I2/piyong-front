@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+ul {
+  padding: 0;
+}
+
+.nav {
+  font-family: "Pretendard-Regular";
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 2rem;
+  align-items: center;
+}
+
+.links,
+.link {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.link {
+  margin: 0 8px;
+}
+
+.link:hover {
+  color: #f96666;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.link:active {
+  color: #c65151;
+  font-size: 1.25rem;
+}
+
+.toogleBtn {
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  font-size: 1.8rem;
+  border: 0;
+  background-color: transparent;
+  display: none;
+}
+
+@media screen and (max-width: 830px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .link {
+    margin: 8px 0;
+  }
+
+  .toogleBtn {
+    cursor: pointer;
+    display: block;
+  }
+
+  .active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 831px) {
+  ul {
+    display: flex;
+  }
+}
