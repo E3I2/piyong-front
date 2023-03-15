@@ -1,0 +1,197 @@
+.SearchSection{
+    padding-top: 200px;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    padding-bottom: 3vh;
+    height: 45px;
+
+}
+
+.SearchButton{  
+    float: right;
+    padding: 0;
+    width: 35px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background-color:transparent;
+    
+}
+
+.VodSearch{
+    font-size: 18px;
+    font-weight: 800;
+    padding: 0;
+    float: right;
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    border: none;
+    box-shadow: 0px 4px 8px 0px #cbcbcb;
+    
+}
+
+.BodySection {
+   margin-left: 2.5vh;
+   margin-right: 2.5vh;
+   box-shadow: 4px 4px 8px 8px #cbcbcb;
+   height: 90vh;
+
+}
+
+.BodySectionTitle{
+    margin: 0 auto;
+    width: 92vw;
+    font-size: 32px;
+    height: 100px;
+    text-align: center;
+    line-height: 92px;
+    
+    font-weight: 900;
+    border-bottom: 2px solid #cbcbcb;
+    
+}
+
+.BodySectionVod{
+    margin-top: 3vh;
+    margin-left: 2.5vh;
+    margin-right: 2.5vh;
+    border: 2px solid #cbcbcb;
+    color: white;
+    text-align: center;
+    height: 74vh;
+}
+
+.BodyEndSection{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.BodySectionChartSection{
+    float: left;
+    width: 50vw;
+    height: 74vh;
+}
+
+.BodySectionChartTitle{
+    float: initial;
+    text-align: center;
+    font-size: 36px;
+    color: black;
+}
+
+.BodySectionMafiaTitle{
+    float: initial;
+    text-align: center;
+    font-size: 36px;
+    color: black;
+}
+
+.BodySectionMafiaLine{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 0px;
+    color: black;
+    text-align: center;
+}
+
+.BodySectionMafiaRoadTitle1{
+    font-size: 36px;
+    margin-top: 15px;
+    padding: 0;
+
+}
+
+.BodySectionChart{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: black;
+    padding: 0;
+    position: relative; 
+}
+
+.BodySectionMafiaSection{
+    color: black;
+    float: left;
+    width: 42vw;
+}
+
+.BodySearchResult{
+    height: initial;
+    margin-left: 2.5vh;
+    margin-right: 2.5vh;
+    margin-top: 20px;
+    background-color: #007cba;
+    font-size: 32px;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    text-align: initial;
+
+}
+
+.BodySearchResult2{
+    height: initial;
+    margin-left: 2.5vh;
+    margin-right: 2.5vh;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #2e3070;
+    font-size: 32px;
+    color: white;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: initial;
+
+}
+
+.BodySectionMafiaRoadImg{
+    width: 80px;
+    height: 80px;
+    padding-top: 15px;
+    margin: auto;
+}
+
+@media screen and (max-width: 1740px){
+    .BodySection{
+        height: 173vh;
+    }
+    .BodySectionChartSection{
+        float: initial;
+        margin: auto;
+        width: initial;
+        height: 75vh;
+    }
+
+    .BodySectionMafiaSection{
+        float: initial;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        width: initial;
+        border: 2px solid #cbcbcb;
+    }
+
+}
+
+@media screen and (max-width: 921px) {
+    .BodySectionTitle{
+        width: initial;
+        font-size: 1.5em;
+    }
+
+    .BodySearchResult,
+    .BodySearchResult2 {
+        font-size: 1.3em;
+
+    }
+
+}
