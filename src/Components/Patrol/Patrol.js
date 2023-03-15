@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Patrol.module.css';
-import Board from '../Table/Board';
+import Board from '../MafiaTable/Board';
 
 function Patrol(){
     return <div>
