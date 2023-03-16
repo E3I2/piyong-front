@@ -25,10 +25,22 @@
     height: 42px;
 }
 
+.TrSection{
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .Section{
     border: 1px solid black;
+    text-align: center;
 }
 
 .buttonStyle{
     width: 128px;
+}
+
+.MainTitle{
+    font-size: 65px;
 }

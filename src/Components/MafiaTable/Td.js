@@ -7,9 +7,13 @@ const Td = ({item}) => {
         <>
         <tr>
             <td className={styles.TableIDSection}>{item.id}</td>
+            <td className={styles.TableSection}>{item.create_at}</td>
+            <td className={styles.TableSection}>{item.mafia}</td>
+            <td className={styles.TableSection}>{item.road}</td>
+            {/* <td className={styles.TableIDSection}>{item.id}</td>
             <td className={styles.TableSection}>{item.name}</td>
             <td className={styles.TableSection}>{item.email}</td>
-            <td className={styles.TableSection}>{item.phone}</td>
+            <td className={styles.TableSection}>{item.phone}</td> */}
         </tr>
         </>
     )

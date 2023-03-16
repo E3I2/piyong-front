@@ -17,7 +17,7 @@ function App() {
   return (
     <div>
       <Header></Header>
-      <Admin></Admin>
+      <Patrol></Patrol>
       <Footer></Footer>
     </div>
   );

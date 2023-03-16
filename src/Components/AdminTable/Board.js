@@ -98,8 +98,8 @@ const Board = () => {
       <button className={styles.MainSearchButton}>검색</button>
       </div>
       <br/><br/>
-      <div className={styles.Section}>정보 리스트</div>
-      <table>
+      <div className={styles.MainTitle}>리스트</div>
+      <table className={styles.TrSection}>
         <thead>
           <tr>
             <th className={styles.Section}>Id.</th>
@@ -107,8 +107,7 @@ const Board = () => {
             <th className={styles.Section}>Email</th>
             <th className={styles.Section}>Phone No.</th>
             <th className={styles.Section}>Website</th>
-            <th className={styles.Section}>Edit</th>
-            <th className={styles.Section}>Delete</th>
+            <th className={styles.Section}>Edit & Delete</th>
           </tr>
         </thead>
         <Tr info={info} handleRemove={handleRemove} handleEdit={handleEdit} />

@@ -32,21 +32,19 @@ const Modal = ({ selectedData, handleCancel, handleEditSubmit }) => {
           <div class="p-3">
 
             <div>ID: {edited.id}</div>
-            <div>Name: <input className='border-2 border-gray-100' type='text' name='name' 
+            <div>Name: <input type='text' name='name' 
             value={edited.name} onChange={onEditChange} /></div>
-            <div>Email: <input className='border-2 border-gray-100' type='text' name='email' 
+            <div>Email: <input type='text' name='email' 
             value={edited.email} onChange={onEditChange} /></div>
-            <div>Phone: <input className='border-2 border-gray-100' type='text' name='phone' 
+            <div>Phone: <input type='text' name='phone' 
             value={edited.phone} onChange={onEditChange} /></div>
-            <div>Website: <input className='border-2 border-gray-100' type='text' 
+            <div>Website: <input type='text' 
             name='website' value={edited.website} onChange={onEditChange} /></div>
 
           </div>
-          <div className="flex justify-end items-center w-100 border-t p-3">
-            <button className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white 
-            mr-1 close-modal" onClick={onCancel}>취소</button>
-            <button type='submit' className="bg-blue-600 hover:bg-blue-700 px-3 py-1 
-            rounded text-white">수정</button>
+          <div>
+            <button onClick={onCancel}>취소</button>
+            <button type='submit'>수정</button>
           </div>
         </form>
       </div>
