@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './AdminTable.module.css';
 
 const Post = ({ onSaveData }) => {
     const [form, setForm] = useState({

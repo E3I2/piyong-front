@@ -3,6 +3,7 @@ import axios from 'axios';
 import Tr from './Tr';
 import Post from './Post';
 import Modal from './Modal';
+import styles from './AdminTable.module.css';
 
 const Board = () => {
   const [info, setInfo] = useState([]);
@@ -86,18 +87,28 @@ const Board = () => {
   }
 
   return (
-    <div>
-      <div>고객 정보 리스트</div>
+    <div className={styles.MainSection}>
+      <div className={styles.MainSearchSection}>
+      <select className={styles.MainSearchOption}>
+      <option>ID</option>
+      <option>이름</option>
+      <option>이메일</option>
+      </select>
+      <input className={styles.MainSearch}></input>
+      <button className={styles.MainSearchButton}>검색</button>
+      </div>
+      <br/><br/>
+      <div className={styles.Section}>정보 리스트</div>
       <table>
         <thead>
           <tr>
-            <th className="text-gray-300 px-4 py-3">Id.</th>
-            <th className="text-gray-300 px-4 py-3">Name</th>
-            <th className="text-gray-300 px-4 py-3">Email</th>
-            <th className="text-gray-300 px-4 py-3">Phone No.</th>
-            <th className="text-gray-300 px-4 py-3">Website</th>
-            <th className="text-gray-300 px-4 py-3">Edit</th>
-            <th className="text-gray-300 px-4 py-3">Delete</th>
+            <th className={styles.Section}>Id.</th>
+            <th className={styles.Section}>Name</th>
+            <th className={styles.Section}>Email</th>
+            <th className={styles.Section}>Phone No.</th>
+            <th className={styles.Section}>Website</th>
+            <th className={styles.Section}>Edit</th>
+            <th className={styles.Section}>Delete</th>
           </tr>
         </thead>
         <Tr info={info} handleRemove={handleRemove} handleEdit={handleEdit} />

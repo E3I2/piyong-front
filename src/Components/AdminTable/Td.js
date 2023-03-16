@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './AdminTable.module.css';
 
 const Td = ({item, handleRemove, handleEdit}) => {
     const onRemove = () => {
@@ -17,10 +18,10 @@ const Td = ({item, handleRemove, handleEdit}) => {
             <td className='px-4 py-3'>{item.email}</td>
             <td className='px-4 py-3'>{item.phone}</td>
             <td className='px-4 py-3'>{item.website}</td>     
-            <td onClick={onEdit} className='text-center text-purple-400 cursor-pointer show-modal'>
-            	<i class="far fa-edit"></i></td>
-            <td onClick={onRemove} className='text-center text-purple-400 cursor-pointer'>
-            	<i class="far fa-trash-alt"></i></td>
+            <button className={styles.buttonStyle} onClick={onEdit}> 수정
+            	</button>
+            <button className={styles.buttonStyle} onClick={onRemove}> 삭제
+            	</button>
         </tr>
         </>
     )
