@@ -9,14 +9,8 @@ function Posts() {
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
-  //     .then((res) => res.json())
-  //     .then((data) => setPosts(data));
-  // }, []);
-
   useEffect(() => {
-    fetch("http://192.168.31.151:8080/postAll", {
+    fetch("http://192.168.31.151:8080/pageReport-postAll", {
       method: "GET",
       headers: {
         Authorization:

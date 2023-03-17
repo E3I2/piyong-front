@@ -1,27 +1,45 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 function CmPost() {
-  // const [list, setList] = useState([]);
+  const [list, setList] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("");
-  // });
+  useEffect(() => {
+    fetch("http://192.168.31.151:8080/postAll", {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
 
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setList(data));
+  }, []);
+  console.log(list);
   return (
     <div>
       <main>
-        <div>
-          <article>
-            <p>1</p>
-            <p>제목이다</p>
-            <p>작성자</p>
-            <p>23.03.01</p>
-            <p>1</p>
-            <p>0</p>
-          </article>
-          <Hr />
-        </div>
+        {list.slice(0, 5).map(({ id, title }) => (
+          <div>
+            <article
+              key={id}
+              style={{ display: "flex", justifyContent: "space-between" }}
+            >
+              <p>{id}</p>
+              <NavLink to={`/community/${id}`}>
+                <p>{title}</p>
+              </NavLink>
+              <p>작성자</p>
+              <p>23.03.01</p>
+              <p>1</p>
+              <p>0</p>
+            </article>
+            <Hr />
+          </div>
+        ))}
       </main>
     </div>
   );

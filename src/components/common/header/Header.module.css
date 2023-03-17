@@ -6,14 +6,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "PilseungGothic";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/PilseungGothic.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-
 .nav {
   font-family: "Pretendard-Regular";
   font-size: 1.7rem;

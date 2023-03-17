@@ -2,68 +2,87 @@ import Button from "../../components/common/button/Button";
 import Category from "../../components/common/category/Category";
 import styled from "styled-components";
 import styles from "./RequestDetails.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function RequestDetails() {
   const [posts, setPosts] = useState([]);
-  let id = 6;
+  let { num } = useParams();
   useEffect(() => {
-    fetch(`http://192.168.31.151:8080/post?id=${id}`, {
+    fetch(`http://192.168.31.151:8080/post?id=${num}`, {
       method: "GET",
       headers: {
         Authorization:
           "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
       },
     })
-      .then((res) => {
-        console.log("ress", res.Respose);
-      })
+      .then((res) => res.json())
+      .then((res) => setPosts(res))
       .then((res) => console.log("res", res));
-    console.log("성공");
-    console.log(posts);
   }, []);
+
+  // const updatePost = () => {
+  //   fetch(`http://192.168.31.151:8080/post?id=${num}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       Authorization:
+  //         "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
+  //     },
+  //   })
+  const deletePost = () => {
+    fetch(`http://192.168.31.151:8080/post?id=${num}`, {
+      method: "DELETE",
+      headers: {
+        Authorization:
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
+      },
+    });
+  };
 
   return (
     <div>
       <Category category={"신고 / 순찰 요청"} text={"순찰요청"} />
       <MainBox>
         <PostsBox>
-          {posts.map(({ id, title, content }) => (
-            <div
-              style={{
-                margin: "auto",
-                width: "calc(100% - 1%)",
-                height: "100%",
-              }}
-            >
-              <div className={styles.box}>
-                <div className={styles.title}>
-                  <div>제</div>
-                  <div>목</div>
-                </div>
-                <div className={styles.content}>{title}</div>
+          <div
+            style={{
+              margin: "auto",
+              width: "calc(100% - 1%)",
+              height: "100%",
+            }}
+          >
+            <div className={styles.box}>
+              <div className={styles.title}>
+                <div>제</div>
+                <div>목</div>
               </div>
-              <Hr />
-              <div className={styles.box}>
-                <div className={styles.title}>
-                  <div>작</div>
-                  <div>성</div>
-                  <div>일</div>
-                  <div>자</div>
-                </div>
-                <div className={styles.content}>{id}</div>
-              </div>
-              <Hr />
-              <div className={styles.box}>
-                <div className={styles.title2}>
-                  <div>내</div>
-                  <div>용</div>
-                </div>
-                <div className={styles.content2}>{content}</div>
-              </div>
+              <div className={styles.content}>{posts.title}</div>
             </div>
-          ))}
+            <Hr />
+            <div className={styles.box}>
+              <div className={styles.title}>
+                <div>작</div>
+                <div>성</div>
+                <div>일</div>
+                <div>자</div>
+              </div>
+              <div className={styles.content}>{posts.id}</div>
+            </div>
+            <Hr />
+            <div className={styles.box}>
+              <div className={styles.title2}>
+                <div>내</div>
+                <div>용</div>
+              </div>
+              <div className={styles.content2}>{posts.content}</div>
+            </div>
+          </div>
+
+          <NavLink to={`/request-update/${num}`}>
+            <button>수정</button>
+          </NavLink>
+          <br />
+          <button onClick={deletePost}>삭제</button>
         </PostsBox>
       </MainBox>
       <MainBox>

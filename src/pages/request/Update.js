@@ -2,15 +2,28 @@ import Category from "../../components/common/category/Category";
 import Button from "../../components/common/button/Button";
 import styled from "styled-components";
 import styles from "./RequestWrite.module.css";
-import { NavLink } from "react-router-dom";
-import React, { useState } from "react";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-function RequestWrite() {
-  const [post, setPost] = useState({
-    title: "",
-    content: "",
-    category: "신고게시판",
-  });
+function Update() {
+  const navi = useNavigate();
+  const [post, setPost] = useState([]);
+  let { num } = useParams();
+  useEffect(() => {
+    fetch(`http://192.168.31.151:8080/post?id=${num}`, {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
+
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setPost(data);
+      });
+  }, []);
 
   const handleValueChange = (e) => {
     setPost({
@@ -21,8 +34,14 @@ function RequestWrite() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://192.168.31.151:8080/post", {
-      method: "POST",
+
+    if (post.title == "" || post.content == "") {
+      alert("제목과 내용을 모두 입력하세요!");
+      return;
+    }
+
+    fetch(`http://192.168.31.151:8080/post?id=${num}`, {
+      method: "PUT",
       headers: {
         Authorization:
           "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
@@ -31,41 +50,49 @@ function RequestWrite() {
       },
       body: JSON.stringify(post),
     })
-      .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        res.json();
+      })
+      .then((res) => {
+        console.log("POST결과", res);
+        alert("수정되었습니다.");
+        navi(`/request/${num}`);
       });
   };
 
   return (
-    <div>
+    <>
       <Category category={"신고 / 순찰 요청"} text={"순찰요청"} />
       <div className={styles.title}>
         순찰을 원하는 장소와 이유를 적어주세요!
       </div>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={handleSubmit}>
         <MainBox>
           <PostsBox>
             <div className={styles.inputBox}>
               <div className={styles.titleBox}>
                 <p className={styles.titleP}>제목</p>
                 <input
-                  onChange={(e) => handleValueChange(e)}
+                  onChange={handleValueChange}
                   name="title"
                   type="text"
                   size="5"
                   placeholder="제목을 입력해 주세요."
+                  value={post.title}
                   className={styles.titleInput}
+                  required
                 />
               </div>
               <Hr />
               <div className={styles.contentBox}>
                 <p className={styles.contentP}>내용</p>
                 <textarea
-                  onChange={(e) => handleValueChange(e)}
+                  onChange={handleValueChange}
                   name="content"
                   placeholder="내용을 입력해 주세요."
                   className={styles.contentInput}
+                  value={post.content}
+                  required
                 ></textarea>
               </div>
             </div>
@@ -88,7 +115,7 @@ function RequestWrite() {
           </span>
         </div>
       </form>
-    </div>
+    </>
   );
 }
 
@@ -119,4 +146,4 @@ const MainBox = styled.div`
   margin-bottom: 30px;
 `;
 
-export default RequestWrite;
+export default Update;

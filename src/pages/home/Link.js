@@ -9,6 +9,7 @@ import CommunityDetails from "../community/CommunityDetails";
 import Recode from "../recode/Recode";
 import Monitoring from "../monitoring/Monitoring";
 import Admin from "../admin/Admin";
+import Update from "../request/Update";
 
 function Link() {
   return (
@@ -17,13 +18,14 @@ function Link() {
         <Route exact path="/" element={<Home />} />
         <Route path="/recode" element={<Recode />} />
         <Route path="/request" element={<Request />} />
-        <Route path="/request-details" element={<RequestDetails />} />
+        <Route path="/request/:num" element={<RequestDetails />} />
         <Route path="/request-write" element={<RequestWrite />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/community-details" element={<CommunityDetails />} />
+        <Route path="/community/:num" element={<CommunityDetails />} />
         <Route path="/community-write" element={<CommunityWrite />} />
         <Route path="/monitoring" element={<Monitoring />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/request-update/:num" element={<Update />} />
       </Routes>
     </>
   );
