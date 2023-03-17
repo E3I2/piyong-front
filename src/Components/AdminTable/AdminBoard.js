@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from 'axios';
-import Tr from './Tr';
-import Post from './Post';
-import Modal from './Modal';
+import Tr from './AdminTr';
+import Post from './AdminPost';
+import Modal from './AdminModal';
 import styles from './AdminTable.module.css';
 
 const Board = () => {

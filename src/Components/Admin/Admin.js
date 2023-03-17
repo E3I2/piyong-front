@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Admin.module.css';
 import { useState } from "react";
-import Board from '../AdminTable/Board';
+import Board from '../AdminTable/AdminBoard';
 
   
 
