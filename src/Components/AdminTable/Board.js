@@ -86,6 +86,9 @@ const Board = () => {
     setModalOn(false);
   }
 
+
+  
+
   return (
     <div className={styles.MainSection}>
       <div className={styles.MainSearchSection}>

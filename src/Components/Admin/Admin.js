@@ -11,16 +11,16 @@ function Admin(){
         <div className={styles.LineSection}>
             <div className={styles.PatrolSection}>
                 <div className={styles.TitleSection}></div>
-            <table className={styles.Table}>      
-                <thead>
-                    <tr>
-                        <th><Board></Board></th>
-                    </tr>
-                </thead>
-            </table>
+                <table className={styles.Table}>      
+                    <thead>
+                     <tr>
+                           <th><Board></Board></th>
+                       </tr>
+                    </thead>
+                </table>
+                </div>
             </div>
         </div>
-    </div>
 };
 
 export default Admin;
