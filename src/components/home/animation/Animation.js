@@ -38,7 +38,7 @@ function Animation() {
           id="buildings"
           className={styles.buildings}
         />
-        <a href="#godyoonho" id="btn" className={styles.btn}>
+        <a href="#slide" id="btn" className={styles.btn}>
           시작하기
         </a>
         <img src={roadPath} alt="road" id="road" className={styles.road} />

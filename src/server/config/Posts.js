@@ -5,13 +5,26 @@ import Pagination from "./Pagination";
 
 function Posts() {
   const [posts, setPosts] = useState([]);
-  const limit = 10;
-  // const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
+  //     .then((res) => res.json())
+  //     .then((data) => setPosts(data));
+  // }, []);
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("http://192.168.31.151:8080/postAll", {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
+
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);
@@ -67,7 +80,7 @@ function Posts() {
                   justifyContent: "flex-start",
                 }}
               >
-                <Link to={`/request-details/${id}`}>{title}</Link>
+                <Link to={`/request/${id}`}>{title}</Link>
               </h3>
               <p
                 style={{

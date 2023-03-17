@@ -13,3 +13,27 @@
   border: 0;
   margin: auto;
 }
+
+.title {
+  margin: 50px 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchBox {
+  display: flex;
+}
+
+.searchInput {
+  border-radius: 5px;
+  border: 3px solid #007cba;
+  margin-right: -10px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  border: 3px solid #007cba;
+}

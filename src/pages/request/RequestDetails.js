@@ -7,10 +7,21 @@ import { useState, useEffect } from "react";
 
 function RequestDetails() {
   const [posts, setPosts] = useState([]);
+  let id = 6;
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
+    fetch(`http://192.168.31.151:8080/post?id=${id}`, {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
+      },
+    })
+      .then((res) => {
+        console.log("ress", res.Respose);
+      })
+      .then((res) => console.log("res", res));
+    console.log("성공");
+    console.log(posts);
   }, []);
 
   return (
@@ -18,7 +29,7 @@ function RequestDetails() {
       <Category category={"신고 / 순찰 요청"} text={"순찰요청"} />
       <MainBox>
         <PostsBox>
-          {posts.slice(0, 1).map(({ id, title, body }) => (
+          {posts.map(({ id, title, content }) => (
             <div
               style={{
                 margin: "auto",
@@ -49,7 +60,7 @@ function RequestDetails() {
                   <div>내</div>
                   <div>용</div>
                 </div>
-                <div className={styles.content2}>{body}</div>
+                <div className={styles.content2}>{content}</div>
               </div>
             </div>
           ))}

@@ -4,6 +4,9 @@ import styles from "./Community.module.css";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import CmPost from "./CmPost";
 
 // import Home from "../../pages/home/Home";
 
@@ -19,15 +22,26 @@ function Community() {
   return (
     <div>
       <Category category={"커뮤니티 - 동네 정보 공유"} text={"커뮤니티"} />
-      <div>
-        <select value={select} onChange={onSelect}>
-          <option value={0}>전체</option>
-          <option value={1}>둔산동</option>
-          <option value={2}>괴정동</option>
-          <option value={3}>월평동</option>
-        </select>
+      <div className={styles.title}>
+        <div>
+          <FontAwesomeIcon icon={faLocationDot} />
+          <select value={select} onChange={onSelect}>
+            <option value={0}>전체</option>
+            <option value={1}>둔산동</option>
+            <option value={2}>괴정동</option>
+            <option value={3}>월평동</option>
+          </select>
+        </div>
         {/* {select === "1" ? <Home /> : null} */}
-        <div>검색창</div>
+        <div className={styles.searchBox}>
+          <input
+            className={styles.searchInput}
+            type="text"
+            size="30"
+            placeholder="검색어를 입력해 주세요."
+          />
+          <Button selectBtn={6} text={"검색"} />
+        </div>
         <span className={styles.btn}>
           <NavLink
             className={({ isActive }) =>
@@ -52,7 +66,7 @@ function Community() {
             <div>좋아요</div>
           </header>
           <Hr />
-          <div>어쩌구</div>
+          <CmPost />
         </PostsBox>
         <hr className={styles.hr} />
       </MainBox>

@@ -9,9 +9,10 @@ function Card() {
   }, []);
 
   return (
-    <div className={styles.body} id="godyoonho">
+    <div className={styles.body} id="slide">
       <div className={styles.item} data-aos="fade-up">
-        <h1>시민들의 안전 지킴이</h1>
+        <h1>국민 안전 지킴이</h1>
+        <p></p>
       </div>
     </div>
   );
