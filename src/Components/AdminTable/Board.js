@@ -10,16 +10,26 @@ const Board = () => {
   const [selected, setSelected] = useState('');
   const [modalOn, setModalOn] = useState(false);
 
+  const [ searchKeyword, setSearchKeyword ] = useState("")
+  const [ searchCategory, setSearchCategory ] = useState("name")
+
   // 고유 값으로 사용 될 id
   // ref 를 사용하여 변수 담기
   const nextId = useRef(11);
 
 //더미 데이터 호출
+
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
-      .then(res => setInfo(res.data))
-      .catch(err => console.log(err));
-  }, []);
+    if(searchKeyword === ""){
+      axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(res => setInfo(res.data))
+        .catch(err => console.log(err));
+      
+        return;
+    }
+    let finfo = info.filter(aInfo => aInfo[searchCategory].toLowerCase().includes(searchKeyword))
+    setInfo(finfo)
+  }, [searchCategory, searchKeyword])
 
   const handleSave = (data) => {
     //데이터 수정하기
@@ -87,17 +97,15 @@ const Board = () => {
   }
 
 
-  
-
   return (
     <div className={styles.MainSection}>
       <div className={styles.MainSearchSection}>
-      <select className={styles.MainSearchOption}>
-      <option>ID</option>
-      <option>이름</option>
-      <option>이메일</option>
+      <select className={styles.MainSearchOption} onChange={e => setSearchCategory(e.target.value)}>
+        <option value="name">이름</option>
+        <option value="email">이메일</option>
+        <option value="website">웹사이트</option>
       </select>
-      <input className={styles.MainSearch}></input>
+      <input onChange={e => setSearchKeyword(e.target.value)} className={styles.MainSearch}></input>
       <button className={styles.MainSearchButton}>검색</button>
       </div>
       <br/><br/>

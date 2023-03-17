@@ -2,6 +2,8 @@ import React from 'react';
 import Td from './Td';
 import styles from './AdminTable.module.css';
 
+
+
 const Tr = ({info, handleRemove, handleEdit}) => {
     return (
         <tbody>
