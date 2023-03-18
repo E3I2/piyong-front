@@ -17,9 +17,28 @@
   letter-spacing: -1px;
 }
 
+/* 삭제 */
+.btn7 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 141px;
+  height: 46px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #5c5c5c;
+
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
 @media screen and (max-width: 390px) {
   .btn1,
-  .btn2 {
+  .btn2,
+  .btn7 {
     width: 46px;
     height: 46px;
   }
@@ -108,13 +127,15 @@
 .btn3:hover,
 .btn4:hover,
 .btn5:hover,
-.btn6:hover {
+.btn6:hover,
+.btn7:hover {
   cursor: pointer;
 }
 
 .btn1:active,
 .btn2:active,
-.btn5:active {
+.btn5:active,
+.btn7:active {
   background-color: #f93636;
   transition: 0.2s;
 }

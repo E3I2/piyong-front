@@ -2,10 +2,11 @@ import Category from "../../components/common/category/Category";
 import Button from "../../components/common/button/Button";
 import styled from "styled-components";
 import styles from "./RequestWrite.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import React, { useState } from "react";
 
 function RequestWrite() {
+  const navi = useNavigate();
   const [post, setPost] = useState({
     title: "",
     content: "",
@@ -21,7 +22,7 @@ function RequestWrite() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://192.168.31.151:8080/post", {
+    fetch(`http://192.168.31.151:8080/post`, {
       method: "POST",
       headers: {
         Authorization:
@@ -34,6 +35,8 @@ function RequestWrite() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        alert("등록되었습니다.");
+        navi(`/request`);
       });
   };
 
@@ -84,7 +87,7 @@ function RequestWrite() {
             </NavLink>
           </span>
           <span className={styles.btn}>
-            <button type="submit">등록하기</button>
+            <Button selectBtn={1} text={"등록하기"} type="submit" />
           </span>
         </div>
       </form>

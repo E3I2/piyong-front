@@ -1,0 +1,10 @@
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: #007cba;
+  transition: 0.2s;
+}

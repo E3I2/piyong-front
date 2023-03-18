@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import styles from "./Posts.module.css";
 import Pagination from "./Pagination";
 
 function Posts() {
@@ -10,7 +11,7 @@ function Posts() {
   const offset = (page - 1) * limit;
 
   useEffect(() => {
-    fetch("http://192.168.31.151:8080/pageReport-postAll", {
+    fetch("http://192.168.31.151:8080/report-postAll", {
       method: "GET",
       headers: {
         Authorization:
@@ -22,6 +23,8 @@ function Posts() {
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);
+
+  console.log(posts);
 
   return (
     <div>
@@ -74,7 +77,9 @@ function Posts() {
                   justifyContent: "flex-start",
                 }}
               >
-                <Link to={`/request/${id}`}>{title}</Link>
+                <Link to={`/request/${id}`} className={styles.link}>
+                  {title}
+                </Link>
               </h3>
               <p
                 style={{
@@ -88,7 +93,6 @@ function Posts() {
               >
                 진행상태
               </p>
-              {/* <p>{body}</p> */}
             </article>
             <Hr />
           </div>

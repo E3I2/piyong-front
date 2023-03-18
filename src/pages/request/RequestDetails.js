@@ -2,10 +2,11 @@ import Button from "../../components/common/button/Button";
 import Category from "../../components/common/category/Category";
 import styled from "styled-components";
 import styles from "./RequestDetails.module.css";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function RequestDetails() {
+  const navi = useNavigate();
   const [posts, setPosts] = useState([]);
   let { num } = useParams();
   useEffect(() => {
@@ -21,14 +22,6 @@ function RequestDetails() {
       .then((res) => console.log("res", res));
   }, []);
 
-  // const updatePost = () => {
-  //   fetch(`http://192.168.31.151:8080/post?id=${num}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       Authorization:
-  //         "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
-  //     },
-  //   })
   const deletePost = () => {
     fetch(`http://192.168.31.151:8080/post?id=${num}`, {
       method: "DELETE",
@@ -36,6 +29,13 @@ function RequestDetails() {
         Authorization:
           "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
       },
+    }).then(() => {
+      if (window.confirm("삭제하시겠습니까?")) {
+        alert("삭제되었습니다.");
+        navi(`/request`);
+      } else {
+        alert("취소되었습니다.");
+      }
     });
   };
 
@@ -77,14 +77,9 @@ function RequestDetails() {
               <div className={styles.content2}>{posts.content}</div>
             </div>
           </div>
-
-          <NavLink to={`/request-update/${num}`}>
-            <button>수정</button>
-          </NavLink>
-          <br />
-          <button onClick={deletePost}>삭제</button>
         </PostsBox>
       </MainBox>
+
       <MainBox>
         <PostsBox>
           <div
@@ -110,15 +105,36 @@ function RequestDetails() {
           </div>
         </PostsBox>
       </MainBox>
-      <span className={styles.btn}>
-        <NavLink
-          className={({ isActive }) => "nav-link" + (isActive ? " click" : "")}
-          to="/request"
-          style={{ textDecoration: "none" }}
-        >
-          <Button selectBtn={6} text={"목록"} />
-        </NavLink>
-      </span>
+
+      {/* 버튼 */}
+      <div className={styles.btnBox}>
+        <span className={styles.btn}>
+          <NavLink
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " click" : "")
+            }
+            to="/request"
+            style={{ textDecoration: "none" }}
+          >
+            <Button selectBtn={6} text={"목록"} />
+          </NavLink>
+        </span>
+        <div className={styles.btnBox2}>
+          <span onClick={deletePost} className={styles.deleteBtn}>
+            <Button selectBtn={7} text={"삭제하기"} />
+          </span>
+          <NavLink
+            to={`/request-update/${num}`}
+            style={{
+              textDecoration: "none",
+              color: "#fff",
+              marginLeft: "10px",
+            }}
+          >
+            <Button selectBtn={1} text={"수정하기"} />
+          </NavLink>
+        </div>
+      </div>
     </div>
   );
 }

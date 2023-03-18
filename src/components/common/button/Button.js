@@ -1,6 +1,6 @@
 import styles from "./Button.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faPen, faCheck, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 function Button({ text, selectBtn }) {
   return (
@@ -32,6 +32,14 @@ function Button({ text, selectBtn }) {
 
       {/* 6. 목록 && 검색 */}
       {selectBtn == 6 && <button className={styles.btn6}>{text}</button>}
+
+      {/* 7. 삭제하기*/}
+      {selectBtn == 7 && (
+        <button className={styles.btn7}>
+          <FontAwesomeIcon icon={faTrashCan} className={styles.icon} />
+          <span className={styles.btnText}>{text}</span>
+        </button>
+      )}
     </>
   );
 }
