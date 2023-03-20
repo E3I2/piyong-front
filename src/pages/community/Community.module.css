@@ -2,8 +2,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 13px 10px;
+  padding: 13px 20px;
   background-color: #f5f3fc;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.number {
+  width: 50px;
+  flex-wrap: wrap;
+}
+
+.subject {
+  width: 400px;
+  text-align: center;
 }
 
 .hr {

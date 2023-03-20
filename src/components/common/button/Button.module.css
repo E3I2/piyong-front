@@ -35,10 +35,29 @@
   letter-spacing: -1px;
 }
 
+/* 이미지 첨부 */
+.btn8 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 141px;
+  height: 46px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #007cba;
+
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
 @media screen and (max-width: 390px) {
   .btn1,
   .btn2,
-  .btn7 {
+  .btn7,
+  .btn8 {
     width: 46px;
     height: 46px;
   }

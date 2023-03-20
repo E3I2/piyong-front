@@ -58,12 +58,11 @@ function Community() {
         <hr className={styles.hr} />
         <PostsBox>
           <header className={styles.header}>
-            <div>번호</div>
-            <div>제목</div>
-            <div>작성자</div>
-            <div>작성일</div>
-            <div>조회수</div>
-            <div>좋아요</div>
+            <div className={styles.number}>번호</div>
+            <div className={styles.subject}>제목</div>
+            <div className={styles.writer}>작성자</div>
+            <div className={styles.createAt}>작성일</div>
+            <div className={styles.hits}>조회수</div>
           </header>
           <Hr />
           <CmPost />

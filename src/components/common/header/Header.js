@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import logoPath from "./img/ppiyong.png";
 import { NavLink } from "react-router-dom";
+import Login from "../../../pages/home/Login";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,12 @@ function Header() {
   useEffect(() => {
     menuRef.current.classList.add("active");
   }, []);
+
+  /* 로그인 모달 */
+  const [modal, setModal] = useState(false);
+  const showModal = () => {
+    setModal(true);
+  };
 
   return (
     <nav className={styles.nav} id="nav">
@@ -34,23 +41,46 @@ function Header() {
       >
         <NavLink
           to="./recode"
-          style={{ textDecoration: "none", color: "#000" }}
+          style={{
+            textDecoration: "none",
+            color: "#000",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
           <li className={styles.link}>순찰일지</li>
         </NavLink>
         <NavLink
           to="./request"
-          style={{ textDecoration: "none", color: "#000" }}
+          style={{
+            textDecoration: "none",
+            color: "#000",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
           <li className={styles.link}>순찰요청</li>
         </NavLink>
         <NavLink
           to="./community"
-          style={{ textDecoration: "none", color: "#000" }}
+          style={{
+            textDecoration: "none",
+            color: "#000",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
           <li className={styles.link}>커뮤니티</li>
         </NavLink>
-        <li className={styles.link}>로그인</li>
+        <li className={styles.link}>
+          <button onClick={showModal} className={styles.login}>
+            로그인
+          </button>
+          {modal && <Login setModal={setModal} />}
+        </li>
       </ul>
       <button
         onClick={() => toogleMenu()}
