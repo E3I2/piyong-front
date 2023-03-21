@@ -4,7 +4,6 @@ import Patrol from './Components/Patrol/Patrol';
 import Vod from './Components/Bbiyong2/Bbiyong2';
 import Admin from './Components/Admin/Admin';
 
-import MyResponsivePie from './Components/Charts/Charts';
 
 function Article(){
   return <article>
@@ -15,9 +14,10 @@ function Article(){
 
 function App() {
   return (
+    
     <div>
       <Header></Header>
-      <Admin></Admin>
+      <Patrol></Patrol>
       <Footer></Footer>
     </div>
   );

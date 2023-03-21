@@ -15,7 +15,7 @@
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^5.3.4",
+    "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "styled-components": "^5.3.8",
@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://localhost:8080",
+  "proxy": "https://localhost:8080/",
   "eslintConfig": {
     "extends": [
       "react-app",

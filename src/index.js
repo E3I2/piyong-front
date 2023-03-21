@@ -2,22 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
-import KakaoRedirectHandler from './Components/Kakao/KakaoRedirectHandler';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
- } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import KakaoLogin from './Components/Kakao/KakaoLogin';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
-  <Switch>
-    <Route path="/oauth/jwt/kakao/callback" component={KakaoRedirectHandler} />
-    <Route exact path="/" component={App} />
-  </Switch>
-</Router>   
+  			<BrowserRouter>
+				<Routes>
+					<Route path="/" exact element={<App />} />
+					<Route path="/oauth/jwt/kakao/callback" exact element={KakaoLogin} />
+				</Routes>
+			</BrowserRouter>
+//   <Router>
+//   <Switch>
+
+//     <Route exact path="/" component={App} />
+//   </Switch>
+// </Router>   
 
 );
 

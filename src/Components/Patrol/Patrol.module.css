@@ -16,7 +16,25 @@
 
 }
 
+.Vod{
+    width: 33.4vw;
+    height: 53vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+
+    
+    /* overflow:hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x : hidden;overflow-y : hidden; */
+}
+
+
 .PatrolVodSection{
+    align-items: center;
     margin-top: 20px;
     margin-left: 5px;
     margin-right: 5px;
@@ -28,6 +46,10 @@
     background-color: black;
     float: left;
     color: white;
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 
 }
 

@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 
+import LoginBtn from "../Kakao/Login";
+
+
+
 const HeaderCSS = styled.div`
   top: 0;
   width: 100%;
@@ -109,7 +113,18 @@ function Header() {
   const [isToggled, setIsToggled] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
 
+
+  const REST_API_KEY = "a3eef5bea95a9b422b4e7e10ddee98e2"
+  const REDIRECT_URI = "http://localhost:3000/oauth/jwt/kakao/callback"
+
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
+  const openKakaoLogin = () => {
+    window.open(KAKAO_AUTH_URL, "_self");
+  };
+
   return (
+    
     <HeaderCSS isToggled={isToggled} userToggled={userToggled}>
       <div
         className="HeaderToggle"
@@ -140,11 +155,13 @@ function Header() {
         <li>순찰하기</li>
       </ul>
       <ul className="HeaderTitleEnd">
-        <li>로그인</li>
+        <li><LoginBtn></LoginBtn></li>
         <li>회원가입</li>
       </ul>
     </HeaderCSS>
   );
+
+
 }
 
 export default Header;
