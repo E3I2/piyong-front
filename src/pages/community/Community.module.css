@@ -49,3 +49,70 @@
   outline: none;
   border: 3px solid #007cba;
 }
+
+.glassBtn {
+  display: none;
+}
+
+.glassBtn:hover {
+  cursor: pointer;
+}
+
+.glassBtn:active {
+  background-color: #014364;
+  transition: 0.2s;
+}
+
+@media screen and (max-width: 568px) {
+  .searchBox {
+    display: none;
+  }
+
+  .glassBtn {
+    display: block;
+
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #007cba;
+
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: -1px;
+  }
+
+  .glassBtn:hover {
+    cursor: pointer;
+  }
+
+  .glassBtn:active {
+    background-color: #014364;
+    transition: 0.2s;
+  }
+
+  .active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .searchInput {
+    width: 90%;
+    height: 20px;
+  }
+
+  .title {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (min-width: 569px) {
+  .active {
+    display: flex;
+  }
+}

@@ -63,12 +63,25 @@ function CommunityWrite() {
           />
         </div>
         <div className={styles.btnBox}>
-          <span>
-            <Button selectBtn={8} text={"첨부파일"}>
-              <input type="file" accept="image/png, image/jpeg, image/jpg" />
-            </Button>
+          <span className={styles.listBtn}>
+            <NavLink
+              className={({ isActive }) =>
+                "nav-link" + (isActive ? " click" : "")
+              }
+              to="/community"
+              style={{ textDecoration: "none" }}
+            >
+              <Button selectBtn={6} text={"목록"} />
+            </NavLink>
           </span>
-          <Button selectBtn={2} text={"등록하기"} type="submit" />
+          <div className={styles.mainBtn}>
+            <span className={styles.imgBtn}>
+              <Button selectBtn={8} text={"첨부파일"}>
+                <input type="file" accept="image/png, image/jpeg, image/jpg" />
+              </Button>
+            </span>
+            <Button selectBtn={2} text={"등록하기"} type="submit" />
+          </div>
         </div>
       </form>
     </div>

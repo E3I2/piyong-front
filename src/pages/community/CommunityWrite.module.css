@@ -47,11 +47,22 @@
 .text {
   min-height: 400px;
   width: calc(100% - 2.9%);
+  resize: none;
 }
 
 .btnBox {
-  margin: 20px;
+  margin: 20px 30px 20px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.mainBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgBtn {
+  margin-right: 15px;
 }

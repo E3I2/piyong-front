@@ -3,44 +3,45 @@ import Button from "../../components/common/button/Button";
 import styles from "./Community.module.css";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLocationDot,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import CmPost from "./CmPost";
 
-// import Home from "../../pages/home/Home";
-
 function Community() {
-  // 카테고리 옵션 선택
-  const [select, setSelect] = useState("0");
-  const onSelect = (event) => {
-    setSelect(event.target.value);
+  // 검색 토글
+  const [isOpen, setIsOpen] = useState(false);
+  const toogleMenu = () => {
+    setIsOpen((isOpen) => !isOpen);
   };
-
-  // db 서버 연결
+  const searchRef = useRef();
+  useEffect(() => {
+    searchRef.current.classList.add("active");
+  }, []);
 
   return (
     <div>
       <Category category={"커뮤니티 - 동네 정보 공유"} text={"커뮤니티"} />
       <div className={styles.title}>
-        <div>
-          <FontAwesomeIcon icon={faLocationDot} />
-          <select value={select} onChange={onSelect}>
-            <option value={0}>전체</option>
-            <option value={1}>둔산동</option>
-            <option value={2}>괴정동</option>
-            <option value={3}>월평동</option>
-          </select>
-        </div>
-        {/* {select === "1" ? <Home /> : null} */}
-        <div className={styles.searchBox}>
-          <input
-            className={styles.searchInput}
-            type="text"
-            size="30"
-            placeholder="검색어를 입력해 주세요."
-          />
-          <Button selectBtn={6} text={"검색"} />
+        <div style={{ position: "relative" }}>
+          <button className={styles.glassBtn} onClick={() => toogleMenu()}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+          <div
+            className={isOpen ? styles.active : styles.searchBox}
+            ref={searchRef}
+          >
+            <input
+              className={styles.searchInput}
+              type="text"
+              size="30"
+              placeholder="검색어를 입력해 주세요."
+            />
+            <Button selectBtn={6} text={"검색"} />
+          </div>
         </div>
         <span className={styles.btn}>
           <NavLink

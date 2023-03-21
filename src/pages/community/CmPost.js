@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import Pagination from "../../server/config/Pagination";
 
 function CmPost() {
   const [list, setList] = useState([]);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   useEffect(() => {
     fetch("http://192.168.31.151:8080/postAll", {
@@ -18,11 +22,13 @@ function CmPost() {
       .then((res) => res.json())
       .then((data) => setList(data));
   }, []);
+
   console.log(list);
+
   return (
     <div>
       <main>
-        {list.slice(0, 5).map(({ id, title }) => (
+        {list.slice(offset, offset + limit).map(({ id, title }) => (
           <div>
             <article
               key={id}
@@ -41,6 +47,15 @@ function CmPost() {
           </div>
         ))}
       </main>
+
+      <footer>
+        <Pagination
+          total={list.length}
+          limit={limit}
+          page={page}
+          setPage={setPage}
+        />
+      </footer>
     </div>
   );
 }

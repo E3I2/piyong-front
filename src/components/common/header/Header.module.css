@@ -126,6 +126,7 @@
   font-weight: 600;
   display: flex;
   font-family: "Pretendard-Regular";
+  background-color: transparent;
 }
 
 .login:hover {

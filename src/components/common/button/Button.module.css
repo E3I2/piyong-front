@@ -147,7 +147,8 @@
 .btn4:hover,
 .btn5:hover,
 .btn6:hover,
-.btn7:hover {
+.btn7:hover,
+.btn8:hover {
   cursor: pointer;
 }
 
@@ -159,7 +160,8 @@
   transition: 0.2s;
 }
 
-.btn6:active {
+.btn6:active,
+.btn8:active {
   background-color: #014364;
   transition: 0.2s;
 }
