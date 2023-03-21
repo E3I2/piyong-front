@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.subject {
+  font-family: "Pretendard-Regular";
+  margin: 0;
+  padding: 20px 20px 10px 20px;
+  min-height: 100px;
+}
+
+/* 아이디, 댓글 등 전체 감싸는 박스 */
+.postInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 제목 */
+.title {
+  font-size: 2.6rem;
+}
+
+/* 유저 정보 */
+.userBox {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.userInfo {
+  margin-left: 10px;
+}
+
+.userId {
+  font-size: 1.2rem;
+}
+
+.created {
+  font-size: 0.8rem;
+}
+
+/* 좋아요, 댓글 박스 */
+.InfoBox {
+  display: flex;
+  align-items: center;
+}
+
+.likes {
+  display: flex;
+}
+
+.comment {
+  display: flex;
+  margin-left: 25px;
+}
+
+/* 본문 */
+.content {
+  padding: 10px 20px 20px 20px;
+  min-height: 300px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* 댓글 전체 박스 */
+.commentBox {
+  font-family: "Pretendard-Regular";
+  padding: 0 20px;
+}
+
+.commentTitle {
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+}
+
+/* 댓글 유저 */
+.commentUser {
+  display: flex;
+  align-items: center;
+}
+
+/* 댓글 내용 */
+.commentContent {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 5px 15px;
+  width: 98%;
+  min-height: 50px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  background-color: #f5f3fc;
+}
+
+/* 댓글 수정 && 삭제 */
+.commentBtn {
+  border: 1px solid rgb(203, 203, 203);
+  background-color: #fff;
+  width: 45px;
+  height: 30px;
+  margin: 0 5px;
+  font-size: 0.8rem;
+  box-shadow: 1px 1px 2px rgb(234, 234, 234);
+  color: gray;
+}
+
+.commentBtn:hover {
+  cursor: pointer;
+  color: #000;
+}
+
+/* 댓글 작성 */
+.commentPostBox {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.commentPost {
+  margin: auto;
+  resize: none;
+  border: 1px solid rgb(173, 173, 173);
+  border-radius: 5px;
+  width: 99%;
+  min-height: 80px;
+  font-family: "Pretendard-Regular";
+  font-size: 1.1rem;
+}
+
+.commentPostBtn {
+  margin: 10px;
+  width: 65px;
+  height: 32px;
+  border: none;
+  background-color: rgb(221, 221, 221);
+  border-radius: 5px;
+  color: rgb(71, 71, 71);
+}
+
+.commentPostBtn:hover {
+  cursor: pointer;
+  color: #000;
+  background-color: rgb(201, 201, 201);
+}
+
+/* 버튼 */
+.btnBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  margin: 0 0 35px 50px;
+}
+
+.btn2 {
+  margin: 0 50px 35px 0;
+}
