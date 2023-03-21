@@ -1,11 +1,32 @@
 import { ResponsivePie } from '@nivo/pie'
-import { ChartsData } from './ChartsData';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+// import { ChartsData } from './ChartsData';
 
 const MyResponsivePie = () => {
+    const [datachart, setDataChart] = useState([]);
+    const [chartData, setChartData] = useState([]);
+  
+    useEffect(() => {
+      axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(res => setDataChart(res.data))
+        .catch(err => console.log(err));
+    }, []);
+  
+    useEffect(() => {
+      const ChartsData = datachart.map(item => ({
+        id: item.name,
+        label: item.user_name,
+        value: item.id,
+        color: item.id
+      }));
+      setChartData(ChartsData);
+    }, [datachart]);
+  
     return (
-        <div style={{height: "620px" }}>
-    <ResponsivePie
-        data={ChartsData}
+      <div style={{height: "620px" }}>
+        <ResponsivePie
+          data={chartData}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         innerRadius={0.5}
         padAngle={0.7}

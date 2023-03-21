@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Bbiyong2.module.css';
 import SearchButton from './search.png';
 import MyResponsivePie from '../Charts/Charts';
+import { useRef } from 'react';
 
 import Mafia1 from './Mafia1.png';
 import Mafia2 from './Mafia2.png';
@@ -9,11 +10,15 @@ import Mafia3 from './Mafia3.png';
 import Mafia4 from './Mafia4.png';
 
 function Vod(){
+    const scrollRef = useRef(null);
 
+  const scrollToRef = () => {
+    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
     return <div>
         <div className={styles.SearchSection}>
-        <button className={styles.SearchButton}><img src={SearchButton} className={styles.SearchButton} alt="SearchButton"></img></button>
+        <button className={styles.SearchButton} onClick={scrollToRef}><img src={SearchButton} className={styles.SearchButton} alt="SearchButton"></img></button>
         <input className={styles.VodSearch} placeholder="키워드 검색"></input>
         
         </div>
@@ -40,7 +45,7 @@ function Vod(){
 
             </div>
         </div>
-        <div className={styles.BodyEndSection}>
+        <div className={styles.BodyEndSection} ref={scrollRef}>
             <div className={styles.BodySearchResult}>23.03.03 - Title</div>
             <div className={styles.BodySearchResult2}>23.03.04 - Title</div>
             <div className={styles.BodySearchResult}>23.03.05 - TItle</div>

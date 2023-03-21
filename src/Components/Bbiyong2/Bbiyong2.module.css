@@ -35,7 +35,7 @@
    margin-left: 2.5vh;
    margin-right: 2.5vh;
    box-shadow: 4px 4px 8px 8px #cbcbcb;
-   height: 90vh;
+   height: 95vh;
 
 }
 
@@ -59,7 +59,7 @@
     border: 2px solid #cbcbcb;
     color: white;
     text-align: center;
-    height: 74vh;
+    height: 78vh;
 }
 
 .BodyEndSection{
@@ -124,7 +124,8 @@
     height: initial;
     margin-left: 2.5vh;
     margin-right: 2.5vh;
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     background-color: #007cba;
     font-size: 32px;
     color: white;
@@ -146,9 +147,11 @@
     background-color: #2e3070;
     font-size: 32px;
     color: white;
-    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 20px;
     padding-right: 20px;
+    border-radius: 20px;
     text-align: initial;
 
 }
@@ -162,7 +165,7 @@
 
 @media screen and (max-width: 1740px){
     .BodySection{
-        height: 173vh;
+        height: 178vh;
     }
     .BodySectionChartSection{
         float: initial;
