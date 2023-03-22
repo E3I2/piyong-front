@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Bbiyong2.module.css';
-import SearchButton from './search.png';
+// import SearchButton from './search.png';
 import MyResponsivePie from '../Charts/Charts';
 import { useRef } from 'react';
 
@@ -8,22 +8,32 @@ import Mafia1 from './Mafia1.png';
 import Mafia2 from './Mafia2.png';
 import Mafia3 from './Mafia3.png';
 import Mafia4 from './Mafia4.png';
+import NoMafia from './NoMafia.png';
+
+import { ExampleJson } from './ExampleJson';
 
 function Vod(){
-    const scrollRef = useRef(null);
+    // const scrollRef = useRef(null);
 
-  const scrollToRef = () => {
-    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
+//   const scrollToRef = () => {
+//     scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+//   };
+
+
+    /* 
+        몇번길에서 몇번 마피아가 등장했는지를 이곳에서 
+        표시하고자 한다 
+    */
+  
 
     return <div>
         <div className={styles.SearchSection}>
-        <button className={styles.SearchButton} onClick={scrollToRef}><img src={SearchButton} className={styles.SearchButton} alt="SearchButton"></img></button>
-        <input className={styles.VodSearch} placeholder="키워드 검색"></input>
+        {/* <button className={styles.SearchButton} onClick={scrollToRef}><img src={SearchButton} className={styles.SearchButton} alt="SearchButton"></img></button>
+        <input className={styles.VodSearch} placeholder="키워드 검색"></input> */}
         
         </div>
         <div className={styles.BodySection}>
-            <div className={styles.BodySectionTitle}>23.03.03 - Title</div>
+            <div className={styles.BodySectionTitle}>23.03.03 - 삐용이 출동</div>
             <div className={styles.BodySectionVod}>
                 <div className={styles.BodySectionChartSection}>
                     <div className={styles.BodySectionChartTitle}>삐용이 차트</div>
@@ -45,11 +55,12 @@ function Vod(){
 
             </div>
         </div>
-        <div className={styles.BodyEndSection} ref={scrollRef}>
-            <div className={styles.BodySearchResult}>23.03.03 - Title</div>
+        <div className={styles.BodyEndSection}>
+        {/* <div className={styles.BodyEndSection} ref={scrollRef}>
+            {/* <div className={styles.BodySearchResult}>23.03.03 - Title</div>
             <div className={styles.BodySearchResult2}>23.03.04 - Title</div>
             <div className={styles.BodySearchResult}>23.03.05 - TItle</div>
-            <div className={styles.BodySearchResult2}>23.03.06 - Title</div>
+            <div className={styles.BodySearchResult2}>23.03.06 - Title</div> */}
         </div>
 
         

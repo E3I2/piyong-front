@@ -5,11 +5,6 @@ import Vod from './Components/Bbiyong2/Bbiyong2';
 import Admin from './Components/Admin/Admin';
 
 
-function Article(){
-  return <article>
-    <div>본문 들어갈 자리123131321231313213</div>
-  </article>
- }
 
 
 function App() {
@@ -17,7 +12,7 @@ function App() {
     
     <div>
       <Header></Header>
-      <Admin></Admin>
+      <Vod></Vod>
       <Footer></Footer>
     </div>
   );

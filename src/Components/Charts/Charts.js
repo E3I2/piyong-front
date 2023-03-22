@@ -2,25 +2,36 @@ import { ResponsivePie } from '@nivo/pie'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 // import { ChartsData } from './ChartsData';
+import { ExampleJson } from '../Bbiyong2/ExampleJson';
 
 const MyResponsivePie = () => {
     const [datachart, setDataChart] = useState([]);
     const [chartData, setChartData] = useState([]);
   
+    // useEffect(() => {
+    //   axios.get('https://jsonplaceholder.typicode.com/users')
+    //     .then(res => setDataChart(res.data))
+    //     .catch(err => console.log(err));
+    // }, []);
+
     useEffect(() => {
-      axios.get('https://jsonplaceholder.typicode.com/users')
-        .then(res => setDataChart(res.data))
-        .catch(err => console.log(err));
-    }, []);
+        setDataChart([ExampleJson[ExampleJson.length - 1]]);
+      }, []);
   
     useEffect(() => {
-      const ChartsData = datachart.map(item => ({
-        id: item.name,
-        label: item.user_name,
-        value: item.id,
-        color: item.id
-      }));
-      setChartData(ChartsData);
+
+        setChartData([["road1", "road1_mafia"], ["road2", "road2_mafia"], ["road3", "road3_mafia"], ["road4", "road4_mafia"]].map((road) => {
+        let obj = {}
+
+        obj["id"] = road[0]
+        obj["label"] = road[1]
+        obj["value"] = parseInt(datachart[0][road[0]])
+        obj["color"] = parseInt(datachart[0][road[0]])
+
+        return obj
+      }))
+
+    //   setChartData(ChartsData);
     }, [datachart]);
   
     return (
@@ -29,14 +40,14 @@ const MyResponsivePie = () => {
           data={chartData}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         innerRadius={0.5}
-        padAngle={0.7}
+        padAngle={5}
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         borderWidth={1}
         borderColor={{
             from: 'color',
             modifiers: [
-                [
+                [   
                     'darker',
                     0.2
                 ]
@@ -44,7 +55,7 @@ const MyResponsivePie = () => {
         }}
         arcLinkLabelsSkipAngle={10}
         arcLinkLabelsTextColor="#333333"
-        arcLinkLabelsThickness={2}
+        arcLinkLabelsThickness={10}
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{
@@ -90,7 +101,7 @@ const MyResponsivePie = () => {
                 itemTextColor: '#999',
                 itemDirection: 'left-to-right',
                 itemOpacity: 1,
-                symbolSize: 18,
+                symbolSize: 20,
                 symbolShape: 'circle',
                 effects: [
                     {
