@@ -27,13 +27,13 @@ export const ExampleJson = [
         "id": "3",
         "created_at": "2023-03-10 15:07:32",
         "road1": "81",
-        "road1_mafia" : "mafia_2",
+        "road1_mafia" : "mafia_1",
         "road2": "34",
         "road2_mafia" : "mafia_3",
         "road3": "181",
         "road3_mafia" : "mafia_4",
         "road4": "81",
-        "road4_mafia" : "mafia_1"
+        "road4_mafia" : "mafia_5"
     }
   ];
 

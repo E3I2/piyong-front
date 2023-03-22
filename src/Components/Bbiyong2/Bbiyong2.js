@@ -7,31 +7,46 @@ import Mafia1 from './Mafia1.png';
 import Mafia2 from './Mafia2.png';
 import Mafia3 from './Mafia3.png';
 import Mafia4 from './Mafia4.png';
+import NoMafia from './NoMafia.png'
 
 import { ExampleJson } from './ExampleJson';
 
-function Vod(){
-
-        const latestData = ExampleJson[ExampleJson.length - 1];
-
-const mafiaData = [
-    {
-      "id": "road1",
-      "mafia": latestData.road1_mafia
-    },
-    {
-      "id": "road2",
-      "mafia": latestData.road2_mafia
-    },
-    {
-      "id": "road3",
-      "mafia": latestData.road3_mafia
-    },
-    {
-      "id": "road4",
-      "mafia": latestData.road4_mafia
+function getMafiaImage(mafia) {
+    switch (mafia) {
+      case 'mafia_1':
+        return Mafia1;
+      case 'mafia_2':
+        return Mafia2;
+      case 'mafia_3':
+        return Mafia3;
+      case 'mafia_4':
+        return Mafia4;
+      default:
+        return NoMafia;
     }
-  ];
+  }
+
+  function Vod() {
+    const latestData = ExampleJson[ExampleJson.length - 1];
+  
+    const mafiaData = [
+      {
+        "id": "road1",
+        "mafia": latestData.road1_mafia
+      },
+      {
+        "id": "road2",
+        "mafia": latestData.road2_mafia
+      },
+      {
+        "id": "road3",
+        "mafia": latestData.road3_mafia
+      },
+      {
+        "id": "road4",
+        "mafia": latestData.road4_mafia
+      }
+    ];
 
   
 
@@ -51,14 +66,14 @@ const mafiaData = [
                 <div className={styles.BodySectionMafiaSection}>
                     <div className={styles.BodySectionMafiaTitle}>나타난 마피아들</div>
                     <div className={styles.BodySectionMafiaLine}>
-                        <div className={styles.BodySectionMafiaRoadTitle1}>1번째 길</div>
-                        <img src={Mafia1} alt="Mafia1" className={styles.BodySectionMafiaRoadImg}></img>
-                        <div className={styles.BodySectionMafiaRoadTitle1}>2번째 길</div>
-                        <img src={Mafia2} alt="Mafia2" className={styles.BodySectionMafiaRoadImg}></img>
-                        <div className={styles.BodySectionMafiaRoadTitle1}>3번째 길</div>
-                        <img src={Mafia3} alt="Mafia3" className={styles.BodySectionMafiaRoadImg}></img>
-                        <div className={styles.BodySectionMafiaRoadTitle1}>4번째 길</div>
-                        <img src={Mafia4} alt="Mafia4" className={styles.BodySectionMafiaRoadImg}></img>
+                    <div className={styles.BodySectionMafiaRoadTitle1}>1번째 길</div>
+                    <img src={getMafiaImage(mafiaData.find(data => data.id === "road1").mafia)} alt="mafia" className={styles.BodySectionMafiaRoadImg}/>
+                    <div className={styles.BodySectionMafiaRoadTitle1}>2번째 길</div>
+                    <img src={getMafiaImage(mafiaData.find(data => data.id === "road2").mafia)} alt="mafia" className={styles.BodySectionMafiaRoadImg}/>
+                    <div className={styles.BodySectionMafiaRoadTitle1}>3번째 길</div>
+                    <img src={getMafiaImage(mafiaData.find(data => data.id === "road3").mafia)} alt="mafia" className={styles.BodySectionMafiaRoadImg}/>
+                    <div className={styles.BodySectionMafiaRoadTitle1}>4번째 길</div>
+                    <img src={getMafiaImage(mafiaData.find(data => data.id === "road4").mafia)} alt="mafia" className={styles.BodySectionMafiaRoadImg}/>
                 </div>
                 </div>
 
