@@ -3,9 +3,30 @@ import styled from "styled-components";
 import Category from "../../components/common/category/Category";
 import Button from "../../components/common/button/Button";
 import Posts from "../../server/config/Posts";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Request() {
+  // navi
+  const navi = useNavigate();
+
+  // 로그인 여부
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+    // 유저 토큰 여부
+    if (localStorage.getItem("token")) {
+      fetch("https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/getuser", {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => setUser(data))
+        .then(console.log("user", user));
+    }
+  }, []);
+
   return (
     <div>
       <Category category={"신고 / 순찰 요청"} text={"순찰요청"} />
@@ -13,13 +34,19 @@ function Request() {
         순찰이 필요하다면 언제든지 삐용이에게 요청하세요!
       </div>
       <span className={styles.btn}>
-        <NavLink
-          className={({ isActive }) => "nav-link" + (isActive ? " click" : "")}
-          to="/request-write"
-          style={{ textDecoration: "none" }}
-        >
-          <Button selectBtn={1} text={"작성하기"} />
-        </NavLink>
+        {user == null ? (
+          alert("로그인이 필요합니다.")
+        ) : (
+          <NavLink
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " click" : "")
+            }
+            to="/request-write"
+            style={{ textDecoration: "none" }}
+          >
+            <Button selectBtn={1} text={"작성하기"} />
+          </NavLink>
+        )}
       </span>
       <MainBox>
         <hr className={styles.hr} />

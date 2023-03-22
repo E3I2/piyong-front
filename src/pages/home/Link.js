@@ -10,6 +10,7 @@ import Recode from "../recode/Recode";
 import Monitoring from "../monitoring/Monitoring";
 import Admin from "../admin/Admin";
 import Update from "../request/Update";
+import ReLogin from "./ReLogin";
 
 function Link() {
   return (
@@ -26,6 +27,7 @@ function Link() {
         <Route path="/monitoring" element={<Monitoring />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/request-update/:num" element={<Update />} />
+        <Route path="/kakaologin" element={<ReLogin />} />
       </Routes>
     </>
   );

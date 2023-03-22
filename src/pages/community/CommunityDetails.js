@@ -4,6 +4,7 @@ import styled from "styled-components";
 import styles from "./CommunityDetails.module.css";
 import { NavLink, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { isElementType } from "@testing-library/user-event/dist/utils/misc/isElementType";
 
 function CommunityDetails() {
   const [list, setList] = useState([]);
@@ -11,55 +12,77 @@ function CommunityDetails() {
   console.log("num: ", num);
 
   useEffect(() => {
-    fetch(`http://192.168.31.151:8080/post?id=${num}`, {
-      method: "GET",
+    fetch(
+      `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post?id=${num}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setList(data))
+      .then(console.log(list));
+  }, []);
+
+  // 댓글 POST
+  const [post, setPost] = useState({
+    content: "",
+  });
+
+  const handleValueChange = (e) => {
+    setPost({
+      content: e.target.value,
+    });
+    console.log(post);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://192.168.31.151:8080/comment?post_id=6", {
+      method: "POST",
       headers: {
         Authorization:
           "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
 
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(post),
     })
       .then((res) => res.json())
-      .then((data) => setList(data));
-  }, []);
-  console.log("list: ", list);
+      .then((res) => {
+        console.log(res);
+        alert("등록되었습니다.");
+      });
+  };
 
   return (
     <>
       <Category category={"커뮤니티 - 동네 정보 공유"} text={"커뮤니티"} />
       <MainBox>
         <PostsBox>
-          {/* <div>
-            <div>{list.title}</div>
-            <div>{list.content}</div>
-          </div> */}
           <div className={styles.subject}>
-            <div className={styles.title}>제목</div>
+            <div className={styles.title}>{list.title}</div>
             <div className={styles.postInfo}>
               <div className={styles.userBox}>
                 <div className={styles.img}></div>
                 <div className={styles.userInfo}>
-                  <div className={styles.userId}>아이디</div>
-                  <div className={styles.created}>2023.03.22. 10:03</div>
+                  <div className={styles.userId}>{list.writer}</div>
+                  <div className={styles.created}>{list.createdDate}</div>
                 </div>
               </div>
               <div className={styles.InfoBox}>
-                <div className={styles.likes}>
-                  <div>♡</div>
-                  <div>좋아요</div>
-                  <div>0</div>
-                </div>
                 <div className={styles.comment}>
                   <div>○</div>
                   <div>댓글</div>
-                  <div>1</div>
+                  <div>{list.comments ? list.comments.length : 0}</div>
                 </div>
               </div>
             </div>
           </div>
           <Hr />
-          <div className={styles.content}>본문</div>
+          <div className={styles.content}>{list.content}</div>
           <Hr />
 
           {/* 댓글 */}
@@ -85,15 +108,21 @@ function CommunityDetails() {
                   <button className={styles.commentBtn}>삭제</button>
                 </div>
               </div>
-              <div className={styles.commentContent}>댓글내용</div>
+              <div className={styles.commentContent}></div>
               <Hr />
-              <div className={styles.commentPostBox}>
+              <form
+                className={styles.commentPostBox}
+                onSubmit={(e) => handleSubmit(e)}
+              >
                 <textarea
                   placeholder="댓글을 입력해 주세요."
                   className={styles.commentPost}
+                  onChange={(e) => handleValueChange(e)}
                 ></textarea>
-                <button className={styles.commentPostBtn}>등록</button>
-              </div>
+                <button className={styles.commentPostBtn} type="submit">
+                  등록
+                </button>
+              </form>
             </div>
           </div>
         </PostsBox>

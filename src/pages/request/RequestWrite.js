@@ -22,13 +22,10 @@ function RequestWrite() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://192.168.31.151:8080/post`, {
+    fetch(`https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post`, {
       method: "POST",
       headers: {
-        Authorization:
-          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
-
-        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify(post),
     })

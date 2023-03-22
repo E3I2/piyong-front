@@ -5,8 +5,13 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import logoPath from "./img/ppiyong.png";
 import { NavLink } from "react-router-dom";
 import Login from "../../../pages/home/Login";
+import Logout from "../../../pages/home/Logout";
 
-function Header() {
+function Header({ user }) {
+  // 로그인 여부
+  // const [user, setUser] = useState([]);
+
+  // 반응형 토글
   const [isOpen, setIsOpen] = useState(false);
   const toogleMenu = () => {
     setIsOpen((isOpen) => !isOpen);
@@ -14,6 +19,7 @@ function Header() {
   const menuRef = useRef();
   useEffect(() => {
     menuRef.current.classList.add("active");
+    console.log(user);
   }, []);
 
   /* 로그인 모달 */
@@ -21,7 +27,6 @@ function Header() {
   const showModal = () => {
     setModal(true);
   };
-
   return (
     <nav className={styles.nav} id="nav">
       <NavLink to="/" style={{ textDecoration: "none", color: "#000" }}>
@@ -75,12 +80,27 @@ function Header() {
         >
           <li className={styles.link}>커뮤니티</li>
         </NavLink>
-        <li className={styles.link}>
+        {/* <li className={styles.link}>
           <button onClick={showModal} className={styles.login}>
             로그인
           </button>
           {modal && <Login setModal={setModal} />}
-        </li>
+        </li> */}
+        {!user.name ? (
+          <li className={styles.link}>
+            <button onClick={showModal} className={styles.login}>
+              로그인
+            </button>
+            {modal && <Login setModal={setModal} />}
+          </li>
+        ) : (
+          <li className={styles.link}>
+            <button onClick={showModal} className={styles.login}>
+              {user.name}님
+            </button>
+            {modal && <Logout setModal={setModal} />}
+          </li>
+        )}
       </ul>
       <button
         onClick={() => toogleMenu()}

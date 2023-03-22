@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import styles from "./CmPost.module.css";
 import Pagination from "../../server/config/Pagination";
 
-function CmPost() {
+function CmPost({ id, title, hit }) {
   const [list, setList] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
@@ -23,39 +24,27 @@ function CmPost() {
       .then((data) => setList(data));
   }, []);
 
-  console.log(list);
-
   return (
     <div>
       <main>
-        {list.slice(offset, offset + limit).map(({ id, title }) => (
+        {list.slice(offset, offset + limit).map(({ id, title, hit }) => (
           <div>
-            <article
-              key={id}
-              style={{ display: "flex", justifyContent: "space-between" }}
-            >
-              <p>{id}</p>
-              <NavLink to={`/community/${id}`}>
-                <p>{title}</p>
+            <article key={id} className={styles.header}>
+              <div className={styles.number}>{id}</div>
+              <NavLink
+                to={`/community/${id}`}
+                style={{ textDecoration: "none", color: "#000" }}
+              >
+                <div className={styles.subject}>{title}</div>
               </NavLink>
-              <p>작성자</p>
-              <p>23.03.01</p>
-              <p>1</p>
-              <p>0</p>
+              <div className={styles.writer}>작성자</div>
+              <div className={styles.createdAt}>23.03.22</div>
+              <div className={styles.hits}>{hit}</div>
             </article>
             <Hr />
           </div>
         ))}
       </main>
-
-      <footer>
-        <Pagination
-          total={list.length}
-          limit={limit}
-          page={page}
-          setPage={setPage}
-        />
-      </footer>
     </div>
   );
 }

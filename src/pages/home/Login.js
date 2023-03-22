@@ -2,11 +2,16 @@ import styles from "./Login.module.css";
 import styled from "styled-components";
 import kakaoPath from "./kakao.png";
 import googlePath from "./google.png";
+import { Axios } from "axios";
 function Login({ setModal }) {
   // X 버튼 클릭 시 닫기
   const closeModal = () => {
     setModal(false);
   };
+
+  // 카카오 로그인
+  const REST_API_KEY = "781439d4c65490bbf7fa59a3bee09329";
+  const REDIRECT_URI = "http://192.168.31.158:3000/kakaologin";
 
   return (
     <div className={styles.container}>
@@ -25,7 +30,7 @@ function Login({ setModal }) {
         <div className={styles.loginBox}>
           <div>
             <a
-              href="http://192.168.31.151:8080/oauth2/authorization/kakao"
+              href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`}
               className={styles.kakaoBox}
             >
               <div className={styles.kakao}>

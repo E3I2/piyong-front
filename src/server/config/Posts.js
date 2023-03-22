@@ -46,53 +46,13 @@ function Posts() {
       <main>
         {posts.slice(offset, offset + limit).map(({ id, title }) => (
           <div>
-            <article
-              key={id}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                fontSize: "1.25rem",
-              }}
-            >
-              <p
-                style={{
-                  margin: "0",
-                  padding: "15px 10px",
-                  width: "5%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                {id}
-              </p>
-              <h3
-                style={{
-                  margin: "0",
-                  padding: "15px 10px",
-                  width: "85%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                }}
-              >
-                <Link to={`/request/${id}`} className={styles.link}>
-                  {title}
-                </Link>
-              </h3>
-              <p
-                style={{
-                  margin: "0",
-                  padding: "15px 10px",
-                  width: "10%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                진행상태
-              </p>
+            <article key={id} className={styles.header}>
+              <div className={styles.num}>{id}</div>
+
+              <Link to={`/request/${id}`} className={styles.link}>
+                {title}
+              </Link>
+              <div className={styles.state}>진행상태</div>
             </article>
             <Hr />
           </div>
