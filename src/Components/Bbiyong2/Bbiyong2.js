@@ -2,28 +2,37 @@ import React from 'react';
 import styles from './Bbiyong2.module.css';
 // import SearchButton from './search.png';
 import MyResponsivePie from '../Charts/Charts';
-import { useRef } from 'react';
 
 import Mafia1 from './Mafia1.png';
 import Mafia2 from './Mafia2.png';
 import Mafia3 from './Mafia3.png';
 import Mafia4 from './Mafia4.png';
-import NoMafia from './NoMafia.png';
 
 import { ExampleJson } from './ExampleJson';
 
 function Vod(){
-    // const scrollRef = useRef(null);
 
-//   const scrollToRef = () => {
-//     scrollRef.current.scrollIntoView({ behavior: 'smooth' });
-//   };
+        const latestData = ExampleJson[ExampleJson.length - 1];
 
+const mafiaData = [
+    {
+      "id": "road1",
+      "mafia": latestData.road1_mafia
+    },
+    {
+      "id": "road2",
+      "mafia": latestData.road2_mafia
+    },
+    {
+      "id": "road3",
+      "mafia": latestData.road3_mafia
+    },
+    {
+      "id": "road4",
+      "mafia": latestData.road4_mafia
+    }
+  ];
 
-    /* 
-        몇번길에서 몇번 마피아가 등장했는지를 이곳에서 
-        표시하고자 한다 
-    */
   
 
     return <div>

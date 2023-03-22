@@ -1,11 +1,11 @@
 import { ResponsivePie } from '@nivo/pie'
-import axios from 'axios';
+// import axios from 'axios';
 import { useState, useEffect } from 'react';
 // import { ChartsData } from './ChartsData';
 import { ExampleJson } from '../Bbiyong2/ExampleJson';
 
 const MyResponsivePie = () => {
-    const [datachart, setDataChart] = useState([]);
+    const [datachart, setDataChart] = useState([ExampleJson[0]]);
     const [chartData, setChartData] = useState([]);
   
     // useEffect(() => {
@@ -24,12 +24,12 @@ const MyResponsivePie = () => {
         let obj = {}
 
         obj["id"] = road[0]
-        obj["label"] = road[1]
+        obj["label"] = datachart[0][road[1]]
         obj["value"] = parseInt(datachart[0][road[0]])
         obj["color"] = parseInt(datachart[0][road[0]])
 
         return obj
-      }))
+      }));
 
     //   setChartData(ChartsData);
     }, [datachart]);

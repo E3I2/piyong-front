@@ -33,7 +33,7 @@ export const ExampleJson = [
         "road3": "181",
         "road3_mafia" : "mafia_4",
         "road4": "81",
-        "road4_mafia" : "maifa_1"
+        "road4_mafia" : "mafia_1"
     }
   ];
 
@@ -67,7 +67,7 @@ export const ExampleJson = [
 
 // {
 //     "id": "road1",
-//     "label" : "maifa_2"
+//     "label" : "mafia_2"
 //     "value" : 81,
 //     "color" : 81
 // },
@@ -90,3 +90,19 @@ export const ExampleJson = [
 //     "color" : 81
 // },
 
+// {
+//     "id": "road1",
+//     "mafia" : "mafia_2"
+// },
+// {
+//     "id": "road2",
+//     "mafia" : "mafia_3"
+// },
+// {
+//     "id": "road3",
+//     "mafia" : "mafia_4"
+// },
+// {
+//     "id": "road4",
+//     "mafia" : "mafia_1"
+// }
