@@ -66,7 +66,7 @@ function Header({ user }) {
             justifyContent: "center",
           }}
         >
-          <li className={styles.link}>순찰요청</li>
+          <li className={styles.link}>순찰요청dd</li>
         </NavLink>
         <NavLink
           to="./community"
