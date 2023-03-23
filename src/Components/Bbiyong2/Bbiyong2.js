@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Bbiyong2.module.css';
 // import SearchButton from './search.png';
 import MyResponsivePie from '../Charts/Charts';
@@ -10,6 +10,7 @@ import Mafia4 from './Mafia4.png';
 import NoMafia from './NoMafia.png'
 
 import { ExampleJson } from './ExampleJson';
+import axios from 'axios';
 
 function getMafiaImage(mafia) {
     switch (mafia) {
@@ -27,7 +28,17 @@ function getMafiaImage(mafia) {
   }
 
   function Vod() {
-    const latestData = ExampleJson[ExampleJson.length - 1];
+    const [Info, setInfo] = useState([[]]);
+
+    useEffect(() => {
+      axios.get('http://192.168.31.142:8080/mafia-chart')
+      .then(res => setInfo(res.data))
+      .catch(err => console.log(err));
+      }, []);
+
+    const latestData = Info[Info.length - 1];
+    // const latestData = ExampleJson[ExampleJson.length - 1];
+
   
     const mafiaData = [
       {

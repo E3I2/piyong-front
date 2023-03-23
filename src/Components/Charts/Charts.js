@@ -1,38 +1,62 @@
 import { ResponsivePie } from '@nivo/pie'
-// import axios from 'axios';
+import axios from 'axios';
 import { useState, useEffect } from 'react';
-// import { ChartsData } from './ChartsData';
-import { ExampleJson } from '../Bbiyong2/ExampleJson';
+
+// import { ExampleJson } from '../Bbiyong2/ExampleJson';
 
 const MyResponsivePie = () => {
-    const [datachart, setDataChart] = useState([ExampleJson[0]]);
+    // const [datachart, setDataChart] = useState([ExampleJson[0]]);
+    const [datachart, setDataChart] = useState([[]]);
     const [chartData, setChartData] = useState([]);
   
-    // useEffect(() => {
-    //   axios.get('https://jsonplaceholder.typicode.com/users')
-    //     .then(res => setDataChart(res.data))
-    //     .catch(err => console.log(err));
-    // }, []);
+    useEffect(() => {
+        axios.get('http://192.168.31.142:8080/mafia-chart')
+        .then(res => setDataChart(res.data))
+        .catch(err => console.log(err));
+        }, []);
+
 
     useEffect(() => {
-        setDataChart([ExampleJson[ExampleJson.length - 1]]);
+        setDataChart([datachart[datachart.length - 1]]);
       }, []);
-  
+        
+    // useEffect(() => {
+    //     setDataChart([ExampleJson[ExampleJson.length - 1]]);
+    //   }, []);
+
     useEffect(() => {
+        if (datachart.length > 0) {
+          const lastData = datachart[datachart.length - 1];
+          setChartData([      ["road1", "road1_mafia"],
+            ["road2", "road2_mafia"],
+            ["road3", "road3_mafia"],
+            ["road4", "road4_mafia"]
+          ].map((road) => {
+            let obj = {};
+            obj["id"] = road[0];
+            obj["label"] = lastData[road[1]];
+            obj["value"] = parseInt(lastData[road[0]]);
+            obj["color"] = parseInt(lastData[road[0]]);
+            return obj;
+          }));
+        }
+      }, [datachart]);
+  
+    // useEffect(() => {
 
-        setChartData([["road1", "road1_mafia"], ["road2", "road2_mafia"], ["road3", "road3_mafia"], ["road4", "road4_mafia"]].map((road) => {
-        let obj = {}
+    //     setChartData([["road1", "road1_mafia"], ["road2", "road2_mafia"], ["road3", "road3_mafia"], ["road4", "road4_mafia"]].map((road) => {
+    //     let obj = {}
 
-        obj["id"] = road[0]
-        obj["label"] = datachart[0][road[1]]
-        obj["value"] = parseInt(datachart[0][road[0]])
-        obj["color"] = parseInt(datachart[0][road[0]])
+    //     obj["id"] = road[0]
+    //     obj["label"] = datachart[0][road[1]]
+    //     obj["value"] = parseInt(datachart[0][road[0]])
+    //     obj["color"] = parseInt(datachart[0][road[0]])
 
-        return obj
-      }));
+    //     return obj
+    //   }));
 
-    //   setChartData(ChartsData);
-    }, [datachart]);
+    // //   setChartData(ChartsData);
+    // }, [datachart]);
   
     return (
       <div style={{height: "620px" }}>

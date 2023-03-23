@@ -33,7 +33,7 @@ export const ExampleJson = [
         "road3": "181",
         "road3_mafia" : "mafia_4",
         "road4": "81",
-        "road4_mafia" : "mafia_5"
+        "road4_mafia" : "mafia_3"
     }
   ];
 
