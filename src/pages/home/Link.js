@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Request from "../request/Request";
 import RequestDetails from "../request/RequestDetails";
 import RequestWrite from "../request/RequestWrite";
@@ -11,12 +11,15 @@ import Monitoring from "../monitoring/Monitoring";
 import Admin from "../admin/Admin";
 import Update from "../request/Update";
 import ReLogin from "./ReLogin";
+import Header from "../../components/common/header/Header";
+import LoginSuccess from "./LoginSuccess";
 
 function Link() {
   return (
     <>
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route path="/success" element={<LoginSuccess />} />
         <Route path="/recode" element={<Recode />} />
         <Route path="/request" element={<Request />} />
         <Route path="/request/:num" element={<RequestDetails />} />

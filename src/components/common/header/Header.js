@@ -6,10 +6,32 @@ import logoPath from "./img/ppiyong.png";
 import { NavLink } from "react-router-dom";
 import Login from "../../../pages/home/Login";
 import Logout from "../../../pages/home/Logout";
+import axios from "axios";
 
-function Header({ user }) {
+function Header() {
   // 로그인 여부
-  // const [user, setUser] = useState([]);
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    console.log("user 변경전전 :", user);
+
+    // 유저 토큰 여부
+    if (localStorage.getItem("token")) {
+      axios
+        .get("https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/getuser", {
+          method: "GET",
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        })
+        .then((res) => setUser(res.data));
+    }
+    console.log(localStorage.getItem("token"));
+  }, []);
+
+  useEffect(() => {
+    console.log("user 변경됨 :", user);
+  }, [user]);
 
   // 반응형 토글
   const [isOpen, setIsOpen] = useState(false);
@@ -80,12 +102,6 @@ function Header({ user }) {
         >
           <li className={styles.link}>커뮤니티</li>
         </NavLink>
-        {/* <li className={styles.link}>
-          <button onClick={showModal} className={styles.login}>
-            로그인
-          </button>
-          {modal && <Login setModal={setModal} />}
-        </li> */}
         {!user.name ? (
           <li className={styles.link}>
             <button onClick={showModal} className={styles.login}>
