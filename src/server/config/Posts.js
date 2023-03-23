@@ -10,7 +10,7 @@ function Posts() {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
-
+  const posts2 = [];
   useEffect(() => {
     fetch(
       `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/report-postAll`,
@@ -22,35 +22,43 @@ function Posts() {
       }
     )
       .then((res) => res.json())
-      .then((data) => {
-        setPosts(data);
+      .then((posts) => {
+        let count = posts.length;
+        for (let p of posts) {
+          if (count > 0) {
+            p.num = count;
+            posts2.push(p);
+            count--;
+          }
+        }
+        setPosts(posts2);
       });
   }, []);
-
-  console.log("posts", posts);
 
   return (
     <div>
       <main>
-        {posts.slice(offset, offset + limit).map(({ id, title, comments }) => (
-          <div>
-            <article key={id} className={styles.header}>
-              <div className={styles.num}>{id}</div>
+        {posts
+          .slice(offset, offset + limit)
+          .map(({ id, title, comments, num }) => (
+            <div>
+              <article key={id} className={styles.header}>
+                <div className={styles.num}>{num}</div>
 
-              <Link to={`/request/${id}`} className={styles.link}>
-                {title}
-              </Link>
-              <div className={styles.state}>
-                {comments.length == 0 ? (
-                  <div className={styles.btn1}>답변대기</div>
-                ) : (
-                  <div className={styles.btn2}>답변완료</div>
-                )}
-              </div>
-            </article>
-            <Hr />
-          </div>
-        ))}
+                <Link to={`/request/${id}`} className={styles.link}>
+                  {title}
+                </Link>
+                <div className={styles.state}>
+                  {comments.length == 0 ? (
+                    <div className={styles.btn1}>답변대기</div>
+                  ) : (
+                    <div className={styles.btn2}>답변완료</div>
+                  )}
+                </div>
+              </article>
+              <Hr />
+            </div>
+          ))}
       </main>
 
       <footer>

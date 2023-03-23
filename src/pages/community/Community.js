@@ -44,12 +44,26 @@ function Community() {
   const [userInput, setUserInput] = useState("");
   const getValue = (e) => {
     setUserInput(e.target.value.toLowerCase());
+    console.log("여기", userInput);
   };
-  const [search, getSearch] = useState([]);
-  const searched = search.filter((item) =>
-    item.name.toLowerCase().includes(userInput)
-  );
-
+  // const [search, getSearch] = useState([]);
+  // const searched = search.filter((item) =>
+  //   item.name.toLowerCase().includes(userInput)
+  // );
+  const gumsek = () => {
+    fetch(
+      `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/postAll?title=${userInput}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setList(data));
+    console.log("검색함수");
+  };
   // ------------------------------
 
   return (
@@ -71,7 +85,7 @@ function Community() {
               placeholder="검색어를 입력해 주세요."
               onChange={getValue}
             />
-            <Button selectBtn={6} text={"검색"} />
+            <button onClick={gumsek}>검색</button>
           </div>
         </div>
         <span className={styles.btn}>
@@ -99,24 +113,26 @@ function Community() {
           <Hr />
 
           <main>
-            {list.slice(offset, offset + limit).map(({ id, title, hit }) => (
-              <div>
-                <article key={id} className={styles.header2}>
-                  <div className={styles.number}>{id}</div>
-                  <NavLink
-                    to={`/community/${id}`}
-                    style={{ textDecoration: "none", color: "#000" }}
-                    className={styles.subject}
-                  >
-                    <div>{title}</div>
-                  </NavLink>
-                  <div className={styles.writer}>작성자</div>
-                  <div className={styles.createdAt}>23.03.22</div>
-                  <div className={styles.hits}>{hit}</div>
-                </article>
-                <Hr />
-              </div>
-            ))}
+            {list
+              .slice(offset, offset + limit)
+              .map(({ id, title, hit, writer }) => (
+                <div>
+                  <article key={id} className={styles.header2}>
+                    <div className={styles.number}>{id}</div>
+                    <NavLink
+                      to={`/community/${id}`}
+                      style={{ textDecoration: "none", color: "#000" }}
+                      className={styles.subject}
+                    >
+                      <div>{title}</div>
+                    </NavLink>
+                    <div className={styles.writer}>{writer}</div>
+                    <div className={styles.createdAt}>23.03.22</div>
+                    <div className={styles.hits}>{hit}</div>
+                  </article>
+                  <Hr />
+                </div>
+              ))}
           </main>
 
           <footer>

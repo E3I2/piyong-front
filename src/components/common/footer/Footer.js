@@ -17,6 +17,7 @@ function Footer() {
           <div className={styles.FooterTitleMiddle2}>FRONTEND</div>
           <div className={styles.FooterMiddle2}>Yang Seon Woong</div>
           <div className={styles.FooterMiddle2}>Lee Eun Hye</div>
+          <div className={styles.FooterMiddle2}>Min Kyeong Seo</div>
         </div>
         <div>
           <div className={styles.FooterTitleMiddle2}>ROS</div>

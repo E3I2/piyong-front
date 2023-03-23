@@ -9,7 +9,7 @@ function CommunityWrite() {
   const [post, setPost] = useState({
     title: "",
     content: "",
-    category: "커뮤니티게시판",
+    category: "자유게시판",
   });
 
   const handleValueChange = (e) => {
@@ -21,10 +21,19 @@ function CommunityWrite() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (post.title.length == 0) {
+      alert("제목을 입력해 주세요.");
+      return;
+    } else if (post.content.length == 0) {
+      alert("내용을 입력해 주세요.");
+      return;
+    }
+
     fetch(`https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post`, {
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("token"),
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(post),
     })

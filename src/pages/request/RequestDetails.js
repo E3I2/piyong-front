@@ -77,7 +77,28 @@ function RequestDetails({ user }) {
       .then((res) => {
         console.log(res);
         alert("등록되었습니다.");
+        window.location.reload();
       });
+  };
+
+  // 관리자 댓글 삭제
+  const deleteComment = (id) => {
+    if (window.confirm("삭제하시겠습니까?")) {
+      fetch(
+        `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/comment?id=${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      ).then(() => {
+        alert("삭제되었습니다.");
+        window.location.reload();
+      });
+    } else {
+      alert("취소되었습니다.");
+    }
   };
 
   return (
@@ -135,12 +156,13 @@ function RequestDetails({ user }) {
                   <div>{id}</div>
                   {content}
                 </article>
+                <button onClick={() => deleteComment(id)}>삭제</button>
                 <Hr />
               </div>
             ))}
 
             {/* 관리자만 보이게 */}
-            {user.role == "ADMIN" ? (
+            {user.role == "USER" ? (
               <form
                 className={styles.commentBox}
                 onSubmit={(e) => handleSubmit(e)}
@@ -151,12 +173,7 @@ function RequestDetails({ user }) {
                   className={styles.comment}
                   onChange={(e) => handleValueChange(e)}
                 ></textarea>
-                <span
-                  className={styles.btn2}
-                  onClick={() => {
-                    alert("등록이 완료되었습니다.");
-                  }}
-                >
+                <span className={styles.btn2}>
                   <Button selectBtn={2} text={"등록"} />
                 </span>
               </form>
