@@ -21,12 +21,11 @@ const Modal = ({ selectedData, handleCancel, handleEditSubmit }) => {
   }
 
   return (
-    <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center 
-    bg-black bg-opacity-70">
-      <div className="bg-white rounded shadow-lg w-10/12 md:w-1/3">
-        <div className="border-b px-4 py-2 flex justify-between items-center">
-          <h3 className="font-semibold text-lg">고객 정보 수정하기</h3>
-          <i className="fas fa-times cursor-pointer" onClick={onCancel}></i>
+    <div className="">
+      <div className="">
+        <div className="">
+          <h3 className="">회원 정보 수정하기</h3>
+          <i className="" onClick={onCancel}></i>
         </div>
         <form onSubmit={onSubmitEdit}>
           <div class="p-3">

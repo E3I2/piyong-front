@@ -12,7 +12,7 @@ function App() {
     
     <div>
       <Header></Header>
-      <Vod></Vod>
+      <Admin></Admin>
       <Footer></Footer>
     </div>
   );

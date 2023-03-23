@@ -31,9 +31,9 @@ const Post = ({ onSaveData }) => {
 
     return (
         <>
-            <div className='text-xl font-bold mt-5 mb-2 text-center'>고객 추가하기</div>
-            <form className="mt-3" onSubmit={handleSubmit}>
-                <div className="flex flex-col md:flex-row mb-1">
+            <div className=''>회원 추가하기</div>
+            <form className="" onSubmit={handleSubmit}>
+                <div className="">
                     <label htmlFor="username">Name
                         <input 
                             required placeholder='이름을 입력해주세요' type='text' name='name' 

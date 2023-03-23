@@ -93,10 +93,7 @@
 }
 
 .BodySectionMafiaLine{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 0px;
+    margin: 20px;
     color: black;
     text-align: center;
 }
@@ -104,6 +101,20 @@
 .BodySectionMafiaRoadTitle1{
     font-size: 36px;
     margin-top: 15px;
+    padding: 0;
+
+}
+
+.BodySectionMafiaRoadTitle2{
+    font-size: 28px;
+    margin-top: 15px;
+    padding: 0;
+
+}
+
+.BodySectionMafiaRoadTitle3{
+    font-size: 18px;
+    word-spacing: 22px;
     padding: 0;
 
 }
@@ -161,8 +172,8 @@
 }
 
 .BodySectionMafiaRoadImg{
-    width: 80px;
-    height: 80px;
+    width: 55px;
+    height: 55px;
     padding-top: 15px;
     margin: auto;
 }
