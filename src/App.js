@@ -1,21 +1,18 @@
 import Footer from "./components/common/footer/Footer";
 import Header from "./components/common/header/Header";
 import Link from "./pages/home/Link";
-import HeaderAdmin from "./components/common/header/HeaderAdmin";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useNavigate, useLocation } from "react-router";
-import Home from "./pages/home/Home";
+import axios from "axios";
+import { Navigate, useLocation } from "react-router";
+import React, { useState, useEffect, useRef } from "react";
 
 function App() {
   // 로그인 여부
   const [user, setUser] = useState([]);
 
+  // 유저 토큰 여부
   useEffect(() => {
     console.log("user 변경전전 :", user);
-
-    // 유저 토큰 여부
     if (localStorage.getItem("token")) {
       axios
         .get("https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/getuser", {
@@ -29,7 +26,7 @@ function App() {
       // .then(console.log("user", user));
     }
     console.log(localStorage.getItem("token"));
-  }, []);
+  }, [Navigate]);
 
   useEffect(() => {
     console.log("user 변경됨 :", user);
@@ -39,8 +36,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header user={user} />
-      {/* {user.role == "manager" ? <HeaderAdmin /> : <Header user={user} />} */}
-      <Link />
+      <Link user={user} />
       <Footer />
     </BrowserRouter>
   );

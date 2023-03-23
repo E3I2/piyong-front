@@ -6,26 +6,9 @@ import Posts from "../../server/config/Posts";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-function Request() {
+function Request({ user }) {
   // navi
   const navi = useNavigate();
-
-  // 로그인 여부
-  const [user, setUser] = useState([]);
-  useEffect(() => {
-    // 유저 토큰 여부
-    if (localStorage.getItem("token")) {
-      fetch("https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/getuser", {
-        method: "GET",
-        headers: {
-          Authorization: localStorage.getItem("token"),
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => setUser(data))
-        .then(console.log("user", user));
-    }
-  }, []);
 
   return (
     <div>
@@ -54,6 +37,7 @@ function Request() {
           <header className={styles.header}>
             <p className={styles.num}>번호</p>
             <br />
+
             <p className={styles.state}>진행상태</p>
           </header>
           <Hr />

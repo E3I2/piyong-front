@@ -17,9 +17,13 @@ function ReLogin() {
       })
         .then((res) => res.headers.get("Authorization"))
         .then((token) => localStorage.setItem("token", token))
-        .then(navi("/", { state: { token2: true } }));
+        .then(() => {
+          navi("/");
+          window.location.reload();
+        });
     }
   }, []);
+  useEffect(() => {});
   return <>로그인중</>;
 }
 

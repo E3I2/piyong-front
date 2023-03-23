@@ -4,6 +4,8 @@ import styled from "styled-components";
 import styles from "./RequestWrite.module.css";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 function RequestWrite() {
   const navi = useNavigate();
@@ -22,10 +24,19 @@ function RequestWrite() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (post.title.length == 0) {
+      alert("제목을 입력해 주세요.");
+      return;
+    } else if (post.content.length == 0) {
+      alert("내용을 입력해 주세요.");
+      return;
+    }
+
     fetch(`https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post`, {
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("token"),
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(post),
     })
@@ -56,6 +67,7 @@ function RequestWrite() {
                   size="5"
                   placeholder="제목을 입력해 주세요."
                   className={styles.titleInput}
+                  id="title"
                 />
               </div>
               <Hr />
@@ -66,6 +78,7 @@ function RequestWrite() {
                   name="content"
                   placeholder="내용을 입력해 주세요."
                   className={styles.contentInput}
+                  id="content"
                 ></textarea>
               </div>
             </div>
@@ -84,7 +97,10 @@ function RequestWrite() {
             </NavLink>
           </span>
           <span className={styles.btn}>
-            <Button selectBtn={1} text={"등록하기"} type="submit" />
+            <button type="submit" className={styles.submitBtn}>
+              <FontAwesomeIcon icon={faCheck} />
+              <span className={styles.btnText}>등록하기</span>
+            </button>
           </span>
         </div>
       </form>

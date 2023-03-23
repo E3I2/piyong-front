@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import styles from "./Posts.module.css";
 import Pagination from "./Pagination";
+import Button from "../../components/common/button/Button";
 
 function Posts() {
   const [posts, setPosts] = useState([]);
@@ -11,40 +12,27 @@ function Posts() {
   const offset = (page - 1) * limit;
 
   useEffect(() => {
-    fetch("http://192.168.31.151:8080/report-postAll", {
-      method: "GET",
-      headers: {
-        Authorization:
-          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
-
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/report-postAll`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      }
+    )
       .then((res) => res.json())
-      .then((data) => setPosts(data));
+      .then((data) => {
+        setPosts(data);
+      });
   }, []);
 
-  console.log(posts);
+  console.log("posts", posts);
 
   return (
     <div>
-      {/* <label>
-        페이지 당 표시할 게시물 수:&nbsp;
-        <select
-          type="number"
-          value={limit}
-          onChange={({ target: { value } }) => setLimit(Number(value))}
-        >
-          <option value="10">10</option>
-          <option value="12">12</option>
-          <option value="20">20</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-        </select>
-      </label> */}
-
       <main>
-        {posts.slice(offset, offset + limit).map(({ id, title }) => (
+        {posts.slice(offset, offset + limit).map(({ id, title, comments }) => (
           <div>
             <article key={id} className={styles.header}>
               <div className={styles.num}>{id}</div>
@@ -52,7 +40,13 @@ function Posts() {
               <Link to={`/request/${id}`} className={styles.link}>
                 {title}
               </Link>
-              <div className={styles.state}>진행상태</div>
+              <div className={styles.state}>
+                {comments.length == 0 ? (
+                  <div className={styles.btn1}>답변대기</div>
+                ) : (
+                  <div className={styles.btn2}>답변완료</div>
+                )}
+              </div>
             </article>
             <Hr />
           </div>

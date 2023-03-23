@@ -12,21 +12,27 @@ import Admin from "../admin/Admin";
 import Update from "../request/Update";
 import ReLogin from "./ReLogin";
 
-function Link() {
+function Link({ user }) {
   return (
     <>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/recode" element={<Recode />} />
-        <Route path="/request" element={<Request />} />
-        <Route path="/request/:num" element={<RequestDetails />} />
-        <Route path="/request-write" element={<RequestWrite />} />
-        <Route path="/community" element={<Community />} />
-        <Route path="/community/:num" element={<CommunityDetails />} />
-        <Route path="/community-write" element={<CommunityWrite />} />
-        <Route path="/monitoring" element={<Monitoring />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/request-update/:num" element={<Update />} />
+        <Route path="/recode" element={<Recode user={user} />} />
+        <Route path="/request" element={<Request user={user} />} />
+        <Route path="/request/:num" element={<RequestDetails user={user} />} />
+        <Route path="/request-write" element={<RequestWrite user={user} />} />
+        <Route path="/community" element={<Community user={user} />} />
+        <Route
+          path="/community/:num"
+          element={<CommunityDetails user={user} />}
+        />
+        <Route
+          path="/community-write"
+          element={<CommunityWrite user={user} />}
+        />
+        <Route path="/monitoring" element={<Monitoring user={user} />} />
+        <Route path="/admin" element={<Admin user={user} />} />
+        <Route path="/request-update/:num" element={<Update user={user} />} />
         <Route path="/kakaologin" element={<ReLogin />} />
       </Routes>
     </>

@@ -16,6 +16,7 @@ function Logout({ setModal }) {
     localStorage.removeItem("token");
     alert("로그아웃되었습니다.");
     navi("/");
+    window.location.reload();
   };
 
   return (

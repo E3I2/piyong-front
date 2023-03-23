@@ -5,9 +5,10 @@ import styles from "./RequestDetails.module.css";
 import { NavLink, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-function RequestDetails() {
+function RequestDetails({ user }) {
   const navi = useNavigate();
   const [posts, setPosts] = useState([]);
+  const [commemts, setComments] = useState([]);
   let { num } = useParams();
   useEffect(() => {
     fetch(
@@ -20,8 +21,12 @@ function RequestDetails() {
       }
     )
       .then((res) => res.json())
-      .then((res) => setPosts(res))
-      .then((res) => console.log("res", res));
+      .then((res) => {
+        setPosts(res);
+        setComments(res.comments);
+        console.log("res", res);
+        console.log("res.com", res.comments);
+      });
   }, []);
 
   const deletePost = () => {
@@ -41,6 +46,38 @@ function RequestDetails() {
         alert("취소되었습니다.");
       }
     });
+  };
+
+  // 관리자 댓글
+  const [comment, setComment] = useState({
+    content: "",
+  });
+
+  const handleValueChange = (e) => {
+    setComment({
+      content: e.target.value,
+    }); // submit action을 안타도록 설정
+    console.log(comment);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(
+      `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/comment?post_id=${num}`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(comment),
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        alert("등록되었습니다.");
+      });
   };
 
   return (
@@ -91,21 +128,41 @@ function RequestDetails() {
           >
             <div className={styles.commentTitle}>삐용이의 답변</div>
             <Hr />
-            <div className={styles.commentBox}>
-              <div className={styles.commentImg}></div>
-              <textarea
-                placeholder="내용을 입력해 주세요."
-                className={styles.comment}
-              ></textarea>
-              <span
-                className={styles.btn2}
-                onClick={() => {
-                  alert("등록이 완료되었습니다.");
-                }}
+            {/*댓글부분시작*/}
+            {commemts.map(({ id, content }) => (
+              <div>
+                <article key={id}>
+                  <div>{id}</div>
+                  {content}
+                </article>
+                <Hr />
+              </div>
+            ))}
+
+            {/* 관리자만 보이게 */}
+            {user.role == "ADMIN" ? (
+              <form
+                className={styles.commentBox}
+                onSubmit={(e) => handleSubmit(e)}
               >
-                <Button selectBtn={2} text={"등록"} />
-              </span>
-            </div>
+                <div className={styles.commentImg}></div>
+                <textarea
+                  placeholder="내용을 입력해 주세요."
+                  className={styles.comment}
+                  onChange={(e) => handleValueChange(e)}
+                ></textarea>
+                <span
+                  className={styles.btn2}
+                  onClick={() => {
+                    alert("등록이 완료되었습니다.");
+                  }}
+                >
+                  <Button selectBtn={2} text={"등록"} />
+                </span>
+              </form>
+            ) : (
+              <div className={styles.loading}>답변 대기중입니다.</div>
+            )}
           </div>
         </PostsBox>
       </MainBox>
@@ -123,21 +180,25 @@ function RequestDetails() {
             <Button selectBtn={6} text={"목록"} />
           </NavLink>
         </span>
-        <div className={styles.btnBox2}>
-          <span onClick={deletePost} className={styles.deleteBtn}>
-            <Button selectBtn={7} text={"삭제하기"} />
-          </span>
-          <NavLink
-            to={`/request-update/${num}`}
-            style={{
-              textDecoration: "none",
-              color: "#fff",
-              marginLeft: "10px",
-            }}
-          >
-            <Button selectBtn={1} text={"수정하기"} />
-          </NavLink>
-        </div>
+        {posts.writer === user.name ? (
+          <div className={styles.btnBox2}>
+            <span onClick={deletePost} className={styles.deleteBtn}>
+              <Button selectBtn={7} text={"삭제하기"} />
+            </span>
+            <NavLink
+              to={`/request-update/${num}`}
+              style={{
+                textDecoration: "none",
+                color: "#fff",
+                marginLeft: "10px",
+              }}
+            >
+              <Button selectBtn={1} text={"수정하기"} />
+            </NavLink>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

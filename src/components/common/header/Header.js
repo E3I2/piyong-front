@@ -8,9 +8,6 @@ import Login from "../../../pages/home/Login";
 import Logout from "../../../pages/home/Logout";
 
 function Header({ user }) {
-  // 로그인 여부
-  // const [user, setUser] = useState([]);
-
   // 반응형 토글
   const [isOpen, setIsOpen] = useState(false);
   const toogleMenu = () => {
@@ -66,7 +63,7 @@ function Header({ user }) {
             justifyContent: "center",
           }}
         >
-          <li className={styles.link}>순찰요청dd</li>
+          <li className={styles.link}>순찰요청</li>
         </NavLink>
         <NavLink
           to="./community"
