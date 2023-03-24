@@ -1,0 +1,46 @@
+.MainSection{
+    border: 1px solid black;
+    width: 92vw;
+    text-align: center;
+}
+
+.MainSearchSection{
+    padding: 0;
+    float: right;
+    text-align: center;
+}
+
+.MainSearch{
+    height: 20px;
+    padding: 0;
+    text-align: right;
+}
+
+.MainSearchOption{
+    padding: 0;
+    height: 24px;
+}
+
+.MainSearchButton{
+    height: 42px;
+}
+
+.TrSection{
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Section{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.buttonStyle{
+    width: 128px;
+}
+
+.MainTitle{
+    font-size: 65px;
+}

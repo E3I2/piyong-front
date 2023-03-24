@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.title {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 1.88rem;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.inputBox {
+  width: calc(100% - 1%);
+  height: 100%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.titleBox,
+.contentBox {
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.titleBox {
+  height: calc(100% - 85%);
+}
+
+.contentBox {
+  height: calc(100% - 23%);
+}
+
+.titleP,
+.contentP {
+  width: calc(100% - 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1.8rem;
+  margin: 15px 10px;
+}
+
+.titleInput,
+.contentInput {
+  font-family: "Pretendard-Regular";
+  font-size: 1.8rem;
+  width: calc(100% - 10%);
+  margin-right: 30px;
+  border: 1px solid #888888;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.contentInput {
+  resize: none;
+  min-height: 425px;
+  padding-top: 10px;
+}
+
+.btn {
+  margin-right: 50px;
+  margin-bottom: 35px;
+}
+
+.btn2 {
+  margin-left: 50px;
+  margin-bottom: 35px;
+}
+
+.btnBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.submitBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 141px;
+  height: 46px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #f96666;
+
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.submitBtn:hover {
+  cursor: pointer;
+}
+
+.submitBtn:active {
+  background-color: #f93636;
+  transition: 0.2s;
+}
+
+@media screen and (max-width: 390px) {
+  .submitBtn {
+    width: 46px;
+    height: 46px;
+  }
+  .btnText {
+    display: none;
+  }
+}

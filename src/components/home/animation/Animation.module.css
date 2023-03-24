@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Dovemayo_gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+.body {
+  scroll-behavior: smooth;
+}
+
+.body {
+  font-family: "SBAggroB";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background: linear-gradient(#aec8ff, #f7f9ff);
+  overflow-x: hidden;
+}
+
+.section {
+  position: relative;
+  /* width: 100%; */
+  height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to top, #435b6c, transparent);
+  z-index: 100;
+}
+
+.clouds,
+.buildings,
+.road {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.car {
+  position: absolute;
+  right: -600px;
+  white-space: nowrap;
+  z-index: 9;
+  width: 30%;
+  height: 30%;
+  transform: translateY(200px);
+  pointer-events: none;
+}
+
+.road {
+  z-index: 6;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 30px;
+  border-radius: 40px;
+  background-color: #007cba;
+  color: #fff;
+  font-size: 1.5rem;
+  position: absolute;
+  z-index: 5;
+  font-family: "Dovemayo_gothic";
+}

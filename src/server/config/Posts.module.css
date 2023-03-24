@@ -1,0 +1,67 @@
+.link {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+  width: calc(100% - 15%);
+  font-weight: 500;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: #007cba;
+  transition: 0.2s;
+}
+
+.state {
+  margin: 0;
+  padding: 10px 0;
+  width: calc(100% - 90%);
+  text-align: center;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.num {
+  margin: 0;
+  padding: 10px 0;
+  width: calc(100% - 95%);
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.header {
+  font-family: "Pretendard-Regular";
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 0;
+  background-color: #fff;
+}
+
+.btn1,
+.btn2 {
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 20%);
+  height: 40px;
+  border-radius: 5px;
+  font-size: 1.3rem;
+}
+
+.btn1 {
+  background-color: #f5f3fc;
+  color: #484848;
+}
+
+.btn2 {
+  background-color: #007cba;
+  color: #fff;
+}

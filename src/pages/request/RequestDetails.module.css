@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.btnBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  margin: 0 0 35px 50px;
+}
+
+.btnBox2 {
+  display: flex;
+  margin: 0 50px 35px 0;
+}
+
+.box,
+.commentBox {
+  display: flex;
+}
+
+.title,
+.title2 {
+  width: calc(100% - 90%);
+  font-size: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.content,
+.content2 {
+  width: calc(100% - 10%);
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-left: 10px;
+}
+
+.title2,
+.content2 {
+  min-height: 150px;
+}
+
+.commentBox {
+  margin: 30px 10px 20px 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.commentImg {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.commentTitle {
+  margin: 0 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.comment {
+  font-family: "Franklin Gothic Medium", Arial, sans-serif;
+  margin-left: 10px;
+  width: calc(100% - 20%);
+  min-height: 100px;
+  resize: none;
+  font-size: 1.8rem;
+  border: 1px solid #888888;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.btn2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  font-family: "Pretendard-Regular";
+  font-size: 1.4rem;
+  padding: 10px 0 0 20px;
+  color: #636363;
+}

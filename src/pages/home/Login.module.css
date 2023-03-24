@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  position: relative;
+}
+
+.container:hover {
+  cursor: default;
+  color: #000;
+}
+
+.box {
+  position: absolute;
+  z-index: 999;
+  right: -130px;
+  top: 50px;
+  width: 330px;
+  height: 390px;
+  background-color: white;
+  box-shadow: 0px 3px 10px gray;
+}
+
+.closeBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.close {
+  font-family: "Pretendard-Regular";
+  font-size: 1.2rem;
+  margin: 10px;
+  border: 0;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+}
+
+.close:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.titleBox {
+  text-align: center;
+}
+
+.logoTitle,
+.logoInfo {
+  margin: auto;
+}
+
+.logoTitle {
+  font-family: "PilseungGothic";
+  font-size: 2.3rem;
+  font-weight: 100;
+  letter-spacing: -0.5px;
+}
+
+.logoInfo {
+  font-size: 1.1rem;
+  color: #f2a72d;
+  margin-bottom: 30px;
+}
+
+.text {
+  font-family: "Pretendard-Regular";
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 10px 0;
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.kakaoBox,
+.googleBox {
+  margin: auto;
+  text-decoration: none;
+  color: #000;
+}
+
+.kakao,
+.google {
+  width: 260px;
+  height: 50px;
+  font-family: "Pretendard-Regular";
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.kakao {
+  background-color: #f9e000;
+}
+
+.google {
+  border: 2px solid #4286f5;
+}
+
+.kakaoImg,
+.googleImg {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.googleImg {
+  margin-right: 18px;
+}
+
+@media screen and (max-width: 1240px) {
+  .box {
+    position: absolute;
+    z-index: 999;
+    right: -30px;
+    top: 50px;
+    width: 330px;
+    height: 370px;
+    background-color: white;
+    box-shadow: 0px 3px 10px gray;
+  }
+}
+
+@media screen and (max-width: 831px) {
+  .box {
+    position: absolute;
+    z-index: 999;
+    right: -130px;
+    top: 50px;
+    width: 330px;
+    height: 370px;
+    background-color: white;
+    box-shadow: 0px 3px 10px gray;
+  }
+}
