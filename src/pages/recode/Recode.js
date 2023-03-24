@@ -95,7 +95,8 @@ function getMafiaImage(mafia) {
                     <div className={styles.BodySectionMafiaRoadTitle1}>4번째 길</div>
                     <img src={getMafiaImage(mafiaData.find(data => data.id === "road4").mafia)} alt="mafia" className={styles.BodySectionMafiaRoadImg}/>
                     <div className={styles.BodySectionMafiaRoadTitle2}>마피아</div>
-                    <img src={Mafia1} className={styles.BodySectionMafiaRoadImg}></img><img src={Mafia2} className={styles.BodySectionMafiaRoadImg}></img><img src={Mafia3} className={styles.BodySectionMafiaRoadImg}></img><img src={Mafia4} className={styles.BodySectionMafiaRoadImg}></img>
+                    {/* <img src={Mafia1} className={styles.BodySectionMafiaRoadImg}></img><img src={Mafia2} className={styles.BodySectionMafiaRoadImg}></img><img src={Mafia3} className={styles.BodySectionMafiaRoadImg}></img><img src={Mafia4} className={styles.BodySectionMafiaRoadImg}></img> */}
+                    <img src={Mafia1} className={styles.BodySectionMafiaRoadImg} alt="1번 마피아"></img><img src={Mafia2} className={styles.BodySectionMafiaRoadImg} alt="2번 마피아"></img><img src={Mafia3} className={styles.BodySectionMafiaRoadImg} alt="3번 마피아"></img><img src={Mafia4} className={styles.BodySectionMafiaRoadImg} alt="4번 마피아"></img>
                     <div className={styles.BodySectionMafiaRoadTitle3}>1번 2번 3번 4번</div>
                 </div>
                 </div>

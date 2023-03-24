@@ -1,5 +1,7 @@
-import React, { Component, useEffect, useState } from "react";
-import axios, { Axios } from "axios";
+// import React, { components, useEffect, useState } from "react";
+// import axios, { Axios } from "axios";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Apple() {
   // GET 요청

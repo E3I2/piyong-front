@@ -2,7 +2,7 @@ import styles from "./Login.module.css";
 import styled from "styled-components";
 import kakaoPath from "./kakao.png";
 import googlePath from "./google.png";
-import { Axios } from "axios";
+// import { Axios } from "axios";
 function Login({ setModal }) {
   // X 버튼 클릭 시 닫기
   const closeModal = () => {
@@ -34,7 +34,8 @@ function Login({ setModal }) {
               className={styles.kakaoBox}
             >
               <div className={styles.kakao}>
-                <img src={kakaoPath} className={styles.kakaoImg} />
+                {/* <img src={kakaoPath} className={styles.kakaoImg} /> */}
+                <img src={kakaoPath} className={styles.kakaoImg} alt="카카오로그인"/>
                 카카오 계정으로 로그인
               </div>
             </a>
@@ -45,7 +46,8 @@ function Login({ setModal }) {
               className={styles.googleBox}
             >
               <div className={styles.google}>
-                <img src={googlePath} className={styles.googleImg} />
+                {/* <img src={googlePath} className={styles.googleImg} /> */}
+                <img src={googlePath} className={styles.googleImg} alt="구글로그인"/>
                 구글 계정으로 로그인
               </div>
             </a>

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
-import axios from "axios";
+// import axios from "axios";
 
 function ReLogin() {
   const location = useLocation();

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import styles from "./CmPost.module.css";
-import Pagination from "../../server/config/Pagination";
+// import Pagination from "../../server/config/Pagination";
 
 function CmPost({ id, title, hit }) {
   const [list, setList] = useState([]);

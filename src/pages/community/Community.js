@@ -6,15 +6,16 @@ import { NavLink } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLocationDot,
-  faMagnifyingGlass,
+  // faLocationDot,
+  faMagnifyingGlass
 } from "@fortawesome/free-solid-svg-icons";
 import Pagination from "../../server/config/Pagination";
 
 function Community() {
   // GET 데이터 불러오기
   const [list, setList] = useState([]);
-  const [limit, setLimit] = useState(10);
+  // const [limit, setLimit] = useState(10);
+  const limit = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 

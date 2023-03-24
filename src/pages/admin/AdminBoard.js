@@ -19,32 +19,34 @@ const AdminBoard = () => {
 
 //더미 데이터 호출
 
-  useEffect(() => {
-    if(searchKeyword === ""){
-      axios.get('http://localhost:8080/users')
-        .then(res => setInfo(res.data))
-        .catch(err => console.log(err));
-      
-        return;
-    }
-    axios.post('http://localhost:8080/users/search', {
-      keyword: searchKeyword,
-      category: searchCategory
-    })
-      .then(res => setInfo(res.data))
-      .catch(err => console.log(err));
-  }, [searchCategory, searchKeyword])
   // useEffect(() => {
   //   if(searchKeyword === ""){
-  //     axios.get('https://jsonplaceholder.typicode.com/users')
+  //     axios.get('http://localhost:8080/users')
   //       .then(res => setInfo(res.data))
   //       .catch(err => console.log(err));
       
   //       return;
   //   }
-  //   let finfo = info.filter(aInfo => aInfo[searchCategory].toLowerCase().includes(searchKeyword))
-  //   setInfo(finfo)
+  //   axios.post('http://localhost:8080/users/search', {
+  //     keyword: searchKeyword,
+  //     category: searchCategory
+  //   })
+  //     .then(res => setInfo(res.data))
+  //     .catch(err => console.log(err));
   // }, [searchCategory, searchKeyword])
+
+  useEffect(() => {
+    if (searchKeyword === "") {
+      axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(res => setInfo(res.data))
+        .catch(err => console.log(err));
+      return;
+    }
+    let finfo = info.filter(aInfo => aInfo[searchCategory].toLowerCase().includes(searchKeyword))
+    setInfo(finfo)
+  }, [searchCategory, searchKeyword, info])
+
+  
 
   const handleSave = (data) => {
     //데이터 수정하기

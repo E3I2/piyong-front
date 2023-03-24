@@ -162,7 +162,8 @@ function RequestDetails({ user }) {
             ))}
 
             {/* 관리자만 보이게 */}
-            {user.role == "USER" ? (
+            {/* {user.role == "USER" ? ( */}
+            {user.role === "USER" ? (
               <form
                 className={styles.commentBox}
                 onSubmit={(e) => handleSubmit(e)}

@@ -3,12 +3,12 @@ import styled from "styled-components";
 import Category from "../../components/common/category/Category";
 import Button from "../../components/common/button/Button";
 import Posts from "../../server/config/Posts";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+// import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink  } from "react-router-dom";
 
 function Request({ user }) {
   // navi
-  const navi = useNavigate();
+  // const navi = useNavigate();
 
   return (
     <div>

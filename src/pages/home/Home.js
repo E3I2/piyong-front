@@ -1,11 +1,12 @@
-import styles from "./Home.module.css";
+// import styles from "./Home.module.css";
 import Animation from "../../components/home/animation/Animation";
 import Info from "../../components/home/info/Info";
 import MenuAni from "../../components/home/info/MenuAni";
-import Header from "../../components/common/header/Header";
-import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
-import { Navigate, useLocation } from "react-router";
+import React from "react";
+// import Header from "../../components/common/header/Header";
+// import React, { useState, useEffect, useRef } from "react";
+// import axios from "axios";
+// import { Navigate, useLocation } from "react-router";
 
 function Home() {
   // // 로그인 여부

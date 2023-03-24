@@ -17,7 +17,8 @@ function Header({ user }) {
   useEffect(() => {
     menuRef.current.classList.add("active");
     console.log(user);
-  }, []);
+  // }, []);
+  }, [user]);
 
   /* 로그인 모달 */
   const [modal, setModal] = useState(false);

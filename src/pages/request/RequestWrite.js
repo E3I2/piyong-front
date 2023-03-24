@@ -2,7 +2,8 @@ import Category from "../../components/common/category/Category";
 import Button from "../../components/common/button/Button";
 import styled from "styled-components";
 import styles from "./RequestWrite.module.css";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+// import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
@@ -24,10 +25,12 @@ function RequestWrite() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (post.title.length == 0) {
+    // if (post.title.length == 0) {
+    if (post.title.length === 0) {
       alert("제목을 입력해 주세요.");
       return;
-    } else if (post.content.length == 0) {
+    // } else if (post.content.length == 0) {
+    } else if (post.content.length === 0) {
       alert("내용을 입력해 주세요.");
       return;
     }

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import styles from "./CommunityDetails.module.css";
 import { NavLink, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { isElementType } from "@testing-library/user-event/dist/utils/misc/isElementType";
+// import { isElementType } from "@testing-library/user-event/dist/utils/misc/isElementType";
 
 function CommunityDetails() {
   const [list, setList] = useState([]);
@@ -24,7 +24,8 @@ function CommunityDetails() {
       .then((res) => res.json())
       .then((data) => setList(data))
       .then(console.log(list));
-  }, []);
+  // }, []);
+  }, [num, list]);
 
   // 댓글 POST
   const [post, setPost] = useState({

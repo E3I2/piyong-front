@@ -35,7 +35,8 @@ function Update() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (post.title == "" || post.content == "") {
+    // if (post.title == "" || post.content == "") {
+    if (post.title === "" || post.content === "") {
       alert("제목과 내용을 모두 입력하세요!");
       return;
     }

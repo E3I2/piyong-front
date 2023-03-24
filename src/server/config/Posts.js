@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import styles from "./Posts.module.css";
 import Pagination from "./Pagination";
-import Button from "../../components/common/button/Button";
+
 
 function Posts() {
   const [posts, setPosts] = useState([]);
-  const [limit, setLimit] = useState(10);
+  // const [limit, setLimit] = useState(10);
+  const [limit] = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
-  const posts2 = [];
   useEffect(() => {
     fetch(
       `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/report-postAll`,
@@ -24,6 +24,9 @@ function Posts() {
       .then((res) => res.json())
       .then((posts) => {
         let count = posts.length;
+
+        const posts2 = [];
+
         for (let p of posts) {
           if (count > 0) {
             p.num = count;
@@ -41,15 +44,18 @@ function Posts() {
         {posts
           .slice(offset, offset + limit)
           .map(({ id, title, comments, num }) => (
-            <div>
-              <article key={id} className={styles.header}>
+            // <div>
+            //   <article key={id} className={styles.header}>
+            <div key={id}>
+              <article className={styles.header}>
                 <div className={styles.num}>{num}</div>
 
                 <Link to={`/request/${id}`} className={styles.link}>
                   {title}
                 </Link>
                 <div className={styles.state}>
-                  {comments.length == 0 ? (
+                  {/* {comments.length == 0 ? ( */}
+                  {comments.length === 0 ? (
                     <div className={styles.btn1}>답변대기</div>
                   ) : (
                     <div className={styles.btn2}>답변완료</div>

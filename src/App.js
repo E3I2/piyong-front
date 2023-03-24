@@ -1,10 +1,13 @@
 import Footer from "./components/common/footer/Footer";
 import Header from "./components/common/header/Header";
 import Link from "./pages/home/Link";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
-import { Navigate, useLocation } from "react-router";
-import React, { useState, useEffect, useRef } from "react";
+// import { Navigate, useLocation } from "react-router";
+// import React, { useState, useEffect, useRef } from "react";
+import { Navigate } from "react-router";
+import React, { useState, useEffect } from "react";
 
 function App() {
   // 로그인 여부
