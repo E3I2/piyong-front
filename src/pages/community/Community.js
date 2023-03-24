@@ -17,6 +17,7 @@ function Community() {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
+  const list2 = [];
 
   useEffect(() => {
     fetch("https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/postAll", {
@@ -26,7 +27,17 @@ function Community() {
       },
     })
       .then((res) => res.json())
-      .then((data) => setList(data));
+      .then((list) => {
+        let count = list.length;
+        for (let li of list) {
+          if (count > 0) {
+            li.num = count;
+            list2.push(li);
+            count--;
+          }
+        }
+        setList(list2);
+      });
   }, []);
   console.log(list);
 
@@ -46,10 +57,7 @@ function Community() {
     setUserInput(e.target.value.toLowerCase());
     console.log("여기", userInput);
   };
-  // const [search, getSearch] = useState([]);
-  // const searched = search.filter((item) =>
-  //   item.name.toLowerCase().includes(userInput)
-  // );
+
   const gumsek = () => {
     fetch(
       `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/postAll?title=${userInput}`,
@@ -115,10 +123,10 @@ function Community() {
           <main>
             {list
               .slice(offset, offset + limit)
-              .map(({ id, title, hit, writer }) => (
+              .map(({ id, title, hit, writer, num }) => (
                 <div>
                   <article key={id} className={styles.header2}>
-                    <div className={styles.number}>{id}</div>
+                    <div className={styles.number}>{num}</div>
                     <NavLink
                       to={`/community/${id}`}
                       style={{ textDecoration: "none", color: "#000" }}
