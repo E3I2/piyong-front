@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 import axios from "axios";
+import styled from "styled-components";
 
 function ReLogin() {
   const location = useLocation();
@@ -24,7 +25,15 @@ function ReLogin() {
     }
   }, []);
   useEffect(() => {});
-  return <>로그인중</>;
+  return (
+    <MainBox>
+      <div>로그인중</div>
+    </MainBox>
+  );
 }
+
+const MainBox = styled.div`
+  min-height: 500px;
+`;
 
 export default ReLogin;

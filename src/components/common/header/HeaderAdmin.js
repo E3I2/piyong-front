@@ -57,7 +57,7 @@ function Header() {
           <li className={styles.link}>순찰하기</li>
         </NavLink>
         <NavLink to="./admin" style={{ textDecoration: "none", color: "#000" }}>
-          <li className={styles.link}>관리</li>
+          <li className={styles.link}>관리자페이지</li>
         </NavLink>
       </ul>
       <button

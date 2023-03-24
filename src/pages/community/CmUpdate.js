@@ -1,47 +1,62 @@
 import styled from "styled-components";
-import Button from "../../components/common/button/Button";
 import styles from "./CommunityWrite.module.css";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
-import React, { useState } from "react";
+import Button from "../../components/common/button/Button";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-function CommunityWrite() {
+function CmUpdate() {
   const navi = useNavigate();
-  const [post, setPost] = useState({
-    title: "",
-    content: "",
-    category: "자유게시판",
-  });
+  const [list, setList] = useState([]);
+  let { num } = useParams();
+  useEffect(() => {
+    fetch(
+      `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post?id=${num}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => setList(res));
+  }, []);
 
   const handleValueChange = (e) => {
-    setPost({
-      ...post,
+    setList({
+      ...list,
       [e.target.name]: e.target.value,
     });
   };
+  console.log("change: ", list);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (post.title.length == 0) {
+
+    if (list.title.length == 0) {
       alert("제목을 입력해 주세요.");
       return;
-    } else if (post.content.length == 0) {
+    } else if (list.content.length == 0) {
       alert("내용을 입력해 주세요.");
       return;
     }
 
-    fetch(`https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post`, {
-      method: "POST",
-      headers: {
-        Authorization: localStorage.getItem("token"),
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(post),
-    })
+    fetch(
+      `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post?id=${num}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(list),
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        alert("등록되었습니다.");
-        navi(`/community`);
+        console.log("PUT 결과: ", res);
+        alert("수정되었습니다.");
+        navi(`/community/${num}`);
       });
   };
 
@@ -49,22 +64,26 @@ function CommunityWrite() {
     <div className={styles.container}>
       <div className={styles.subject}>글쓰기</div>
       <Hr />
-      <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.inputBox}>
           <input
-            onChange={(e) => handleValueChange(e)}
+            onChange={handleValueChange}
             name="title"
             className={styles.input}
             type="text"
             placeholder="제목을 입력해 주세요."
+            value={list.title}
+            required
           />
         </div>
         <div className={styles.textBox}>
           <textarea
-            onChange={(e) => handleValueChange(e)}
+            onChange={handleValueChange}
             name="content"
             className={styles.text}
             placeholder="내용을 입력해 주세요."
+            value={list.content}
+            required
           />
         </div>
         <div className={styles.btnBox}>
@@ -100,4 +119,4 @@ const Hr = styled.hr`
   margin-bottom: 20px;
 `;
 
-export default CommunityWrite;
+export default CmUpdate;

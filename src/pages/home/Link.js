@@ -11,6 +11,7 @@ import Monitoring from "../monitoring/Monitoring";
 import Admin from "../admin/Admin";
 import Update from "../request/Update";
 import ReLogin from "./ReLogin";
+import CmUpdate from "../community/CmUpdate";
 
 function Link({ user }) {
   return (
@@ -29,6 +30,10 @@ function Link({ user }) {
         <Route
           path="/community-write"
           element={<CommunityWrite user={user} />}
+        />
+        <Route
+          path="/community-update/:num"
+          element={<CmUpdate user={user} />}
         />
         <Route path="/monitoring" element={<Monitoring user={user} />} />
         <Route path="/admin" element={<Admin user={user} />} />

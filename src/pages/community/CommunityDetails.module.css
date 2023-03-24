@@ -9,7 +9,7 @@
 .subject {
   font-family: "Pretendard-Regular";
   margin: 0;
-  padding: 20px 20px 10px 20px;
+  padding: 30px 20px 10px 30px;
   min-height: 100px;
 }
 
@@ -54,7 +54,7 @@
 /* 좋아요, 댓글 박스 */
 .InfoBox {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .likes {
@@ -63,21 +63,23 @@
 
 .comment {
   display: flex;
-  margin-left: 25px;
+  margin-right: 15px;
+  align-items: center;
+  font-size: 1.1rem;
 }
 
 /* 본문 */
 .content {
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 20px 30px;
   min-height: 300px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 500;
 }
 
 /* 댓글 전체 박스 */
 .commentBox {
   font-family: "Pretendard-Regular";
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 .commentTitle {

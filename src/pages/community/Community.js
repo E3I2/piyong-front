@@ -93,7 +93,9 @@ function Community() {
               placeholder="검색어를 입력해 주세요."
               onChange={getValue}
             />
-            <button onClick={gumsek}>검색</button>
+            <button onClick={gumsek} className={styles.gumsek}>
+              검색
+            </button>
           </div>
         </div>
         <span className={styles.btn}>
@@ -123,7 +125,7 @@ function Community() {
           <main>
             {list
               .slice(offset, offset + limit)
-              .map(({ id, title, hit, writer, num }) => (
+              .map(({ id, title, hit, writer, num, createdDate }) => (
                 <div>
                   <article key={id} className={styles.header2}>
                     <div className={styles.number}>{num}</div>
@@ -132,10 +134,12 @@ function Community() {
                       style={{ textDecoration: "none", color: "#000" }}
                       className={styles.subject}
                     >
-                      <div>{title}</div>
+                      <div className={styles.titleHover}>{title}</div>
                     </NavLink>
                     <div className={styles.writer}>{writer}</div>
-                    <div className={styles.createdAt}>23.03.22</div>
+                    <div className={styles.createdAt}>
+                      {createdDate.slice(2, 10)}
+                    </div>
                     <div className={styles.hits}>{hit}</div>
                   </article>
                   <Hr />

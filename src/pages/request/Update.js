@@ -4,10 +4,13 @@ import styled from "styled-components";
 import styles from "./RequestWrite.module.css";
 import { NavLink, useParams, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 function Update() {
   const navi = useNavigate();
   const [post, setPost] = useState([]);
+  const [upost, setUpost] = useState([]);
   let { num } = useParams();
   useEffect(() => {
     fetch(
@@ -22,21 +25,26 @@ function Update() {
       .then((res) => res.json())
       .then((data) => {
         setPost(data);
+        setUpost(...upost, { title: data.title, content: data.content });
       });
   }, []);
 
   const handleValueChange = (e) => {
-    setPost({
-      ...post,
+    setUpost({
+      ...upost,
       [e.target.name]: e.target.value,
     }); // submit action을 안타도록 설정
+    console.log(upost);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (post.title == "" || post.content == "") {
-      alert("제목과 내용을 모두 입력하세요!");
+    if (post.title.length == 0) {
+      alert("제목을 입력해 주세요.");
+      return;
+    } else if (post.content.length == 0) {
+      alert("내용을 입력해 주세요.");
       return;
     }
 
@@ -48,17 +56,12 @@ function Update() {
           Authorization: localStorage.getItem("token"),
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(post),
+        body: JSON.stringify(upost),
       }
-    )
-      .then((res) => {
-        res.json();
-      })
-      .then((res) => {
-        console.log("POST결과", res);
-        alert("수정되었습니다.");
-        navi(`/request/${num}`);
-      });
+    ).then(() => {
+      alert("수정되었습니다.");
+      navi(`/request/${num}`);
+    });
   };
 
   return (
@@ -79,7 +82,7 @@ function Update() {
                   type="text"
                   size="5"
                   placeholder="제목을 입력해 주세요."
-                  value={post.title}
+                  value={upost.title}
                   className={styles.titleInput}
                   required
                 />
@@ -92,7 +95,7 @@ function Update() {
                   name="content"
                   placeholder="내용을 입력해 주세요."
                   className={styles.contentInput}
-                  value={post.content}
+                  value={upost.content}
                   required
                 ></textarea>
               </div>
@@ -112,7 +115,10 @@ function Update() {
             </NavLink>
           </span>
           <span className={styles.btn}>
-            <button type="submit">등록하기</button>
+            <button type="submit" className={styles.updateBtn}>
+              <FontAwesomeIcon icon={faCheck} />
+              <span className={styles.upBtnText}>등록하기</span>
+            </button>
           </span>
         </div>
       </form>

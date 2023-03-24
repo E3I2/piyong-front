@@ -1,5 +1,6 @@
 import Footer from "./components/common/footer/Footer";
 import Header from "./components/common/header/Header";
+import HeaderAdmin from "./components/common/header/HeaderAdmin";
 import Link from "./pages/home/Link";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
@@ -35,7 +36,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header user={user} />
+      {user.role == "ADMIN" ? (
+        <HeaderAdmin user={user} />
+      ) : (
+        <Header user={user} />
+      )}
+
       <Link user={user} />
       <Footer />
     </BrowserRouter>

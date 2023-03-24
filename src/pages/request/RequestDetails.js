@@ -8,7 +8,8 @@ import { useState, useEffect } from "react";
 function RequestDetails({ user }) {
   const navi = useNavigate();
   const [posts, setPosts] = useState([]);
-  const [commemts, setComments] = useState([]);
+  const [comments, setComments] = useState([]);
+
   let { num } = useParams();
   useEffect(() => {
     fetch(
@@ -24,11 +25,10 @@ function RequestDetails({ user }) {
       .then((res) => {
         setPosts(res);
         setComments(res.comments);
-        console.log("res", res);
-        console.log("res.com", res.comments);
       });
   }, []);
 
+  // 게시글 삭제
   const deletePost = () => {
     if (window.confirm("삭제하시겠습니까?")) {
       fetch(
@@ -48,7 +48,7 @@ function RequestDetails({ user }) {
     }
   };
 
-  // 관리자 댓글
+  // 관리자 댓글 작성(POST)
   const [comment, setComment] = useState({
     content: "",
   });
@@ -56,7 +56,7 @@ function RequestDetails({ user }) {
   const handleValueChange = (e) => {
     setComment({
       content: e.target.value,
-    }); // submit action을 안타도록 설정
+    });
     console.log(comment);
   };
 
@@ -101,6 +101,8 @@ function RequestDetails({ user }) {
       return;
     }
   };
+
+  // 관리자 댓글 수정 X
 
   return (
     <div>
@@ -152,18 +154,20 @@ function RequestDetails({ user }) {
             <Hr />
 
             {/*댓글부분시작*/}
-            {commemts.map(({ id, content, createdDate }) => (
+            {comments.map(({ id, content, createdDate }) => (
               <div>
                 <div className={styles.commentDiv}>
                   <article key={id} className={styles.commentArticle}>
                     <div style={{ display: "none" }}>{id}</div>
-                    <div className={styles.commentImg}></div>
-                    <div className={styles.cContent}>{content}</div>
-                    <div className={styles.cCreatedDate}>{createdDate}</div>
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <div className={styles.commentImg}></div>
+                      <div className={styles.cContent}>{content}</div>
+                      <div className={styles.cCreatedDate}>{createdDate}</div>
+                    </div>
                   </article>
-                  {user.role == "USER" ? (
+
+                  {user.role == "ADMIN" ? (
                     <div style={{ marginRight: "20px" }}>
-                      <button className={styles.commentBtn1}>수정</button>
                       <button
                         onClick={() => deleteComment(id)}
                         className={styles.commentBtn1}
@@ -180,7 +184,7 @@ function RequestDetails({ user }) {
             ))}
 
             {/* 관리자만 보이게 */}
-            {user.role == "USER" ? (
+            {user.role == "ADMIN" ? (
               <form
                 className={styles.commentBox}
                 onSubmit={(e) => handleSubmit(e)}

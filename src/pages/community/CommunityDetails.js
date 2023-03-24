@@ -2,12 +2,16 @@ import Button from "../../components/common/button/Button";
 import Category from "../../components/common/category/Category";
 import styled from "styled-components";
 import styles from "./CommunityDetails.module.css";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { isElementType } from "@testing-library/user-event/dist/utils/misc/isElementType";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
 
-function CommunityDetails() {
+function CommunityDetails({ user }) {
+  const navi = useNavigate();
   const [list, setList] = useState([]);
+  const [comments, setCommnets] = useState([]);
   let { num } = useParams();
   console.log("num: ", num);
 
@@ -22,9 +26,33 @@ function CommunityDetails() {
       }
     )
       .then((res) => res.json())
-      .then((data) => setList(data))
-      .then(console.log(list));
+      .then((res) => {
+        setList(res);
+        setCommnets(res.comments);
+        console.log("res: ", res);
+        console.log("res.com: ", res.comments);
+      });
   }, []);
+
+  // 게시글 삭제
+  const deletePost = () => {
+    if (window.confirm("삭제하시겠습니까?")) {
+      fetch(
+        `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post?id=${num}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      ).then(() => {
+        alert("삭제되었습니다.");
+        navi(`/community`);
+      });
+    } else {
+      alert("취소되었습니다.");
+    }
+  };
 
   // 댓글 POST
   const [post, setPost] = useState({
@@ -40,21 +68,44 @@ function CommunityDetails() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://192.168.31.151:8080/comment?post_id=6", {
-      method: "POST",
-      headers: {
-        Authorization:
-          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbHNydWR0ajE1MjdAZ21haWwuY29tIiwiaWQiOjEsImV4cCI6MTY3OTY0MDk0MywidXNlcm5hbWUiOiJrYWthb18yNjk1NzU5MDgwIn0.NgNZTV2AKwbIFKDeONJXzm1Qu9d2ds4y9iNGnIe1er09eCCttJIXo6XkzRH5s6bG7IZCr4dRE5-8yRgUMrmV1g",
-
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(post),
-    })
+    fetch(
+      `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/comment?post_id=${num}`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(post),
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
         alert("등록되었습니다.");
+        window.location.reload();
       });
+  };
+
+  // 댓글 삭제
+  const deleteComment = (id) => {
+    if (window.confirm("삭제하시겠습니까?")) {
+      fetch(
+        `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/comment?id=${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      ).then(() => {
+        alert("삭제되었습니다.");
+        window.location.reload();
+      });
+    } else {
+      alert("취소되었습니다.");
+      return;
+    }
   };
 
   return (
@@ -74,14 +125,41 @@ function CommunityDetails() {
               </div>
               <div className={styles.InfoBox}>
                 <div className={styles.comment}>
-                  <div>○</div>
-                  <div>댓글</div>
+                  <FontAwesomeIcon icon={faCommentDots} />
+                  <div style={{ margin: "0 5px" }}>댓글</div>
                   <div>{list.comments ? list.comments.length : 0}</div>
                 </div>
               </div>
             </div>
           </div>
           <Hr />
+          {list.writer === user.name ? (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                marginRight: "30px",
+              }}
+            >
+              <NavLink
+                to={`/community-update/${num}`}
+                style={{
+                  textDecoration: "none",
+                  color: "#fff",
+                  marginLeft: "10px",
+                }}
+              >
+                <button className={styles.commentBtn}>수정</button>
+              </NavLink>
+              <button onClick={deletePost} className={styles.commentBtn}>
+                삭제
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
+
           <div className={styles.content}>{list.content}</div>
           <Hr />
 
@@ -89,27 +167,44 @@ function CommunityDetails() {
           <div className={styles.commentBox}>
             <div className={styles.commentTitle}>댓글</div>
             <div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div className={styles.commentUser}>
-                  <div className={styles.img}></div>
-                  <div className={styles.userId} style={{ margin: "0 10px" }}>
-                    아이디
-                  </div>
-                  <div className={styles.created}>2023.03.22. 13:28</div>
-                </div>
+              {comments.map(({ id, nickname, createdDate, content }) => (
                 <div>
-                  <button className={styles.commentBtn}>수정</button>
-                  <button className={styles.commentBtn}>삭제</button>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div className={styles.commentUser}>
+                      <div className={styles.img}></div>
+                      <div
+                        className={styles.userId}
+                        style={{ margin: "0 10px" }}
+                      >
+                        {nickname}
+                      </div>
+                      <div className={styles.created}>{createdDate}</div>
+                    </div>
+                    {user.name == nickname ? (
+                      <div>
+                        <button className={styles.commentBtn}>수정</button>
+                        <button
+                          onClick={() => deleteComment(id)}
+                          className={styles.commentBtn}
+                        >
+                          삭제
+                        </button>
+                      </div>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                  <div className={styles.commentContent}>{content}</div>
+                  <Hr />
                 </div>
-              </div>
-              <div className={styles.commentContent}></div>
-              <Hr />
+              ))}
+
               <form
                 className={styles.commentPostBox}
                 onSubmit={(e) => handleSubmit(e)}

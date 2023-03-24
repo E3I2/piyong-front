@@ -121,3 +121,40 @@
     display: none;
   }
 }
+
+/* Update.js 업데이트 버튼 */
+.updateBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 141px;
+  height: 46px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #f96666;
+
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.updateBtn:hover {
+  cursor: pointer;
+}
+
+.updateBtn:active {
+  background-color: #f93636;
+  transition: 0.2s;
+}
+
+@media screen and (max-width: 390px) {
+  .updateBtn {
+    width: 46px;
+    height: 46px;
+  }
+  .upBtnText {
+    display: none;
+  }
+}

@@ -15,6 +15,7 @@
   background-color: #f5f3fc;
   font-size: 1.5rem;
   font-weight: 600;
+  min-height: 50px;
 }
 
 .header2 {
@@ -23,7 +24,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 13px 20px;
-  background-color: #f5f3fc;
+  background-color: #fff;
   font-size: 1.4rem;
   font-weight: 500;
 }
@@ -43,6 +44,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.titleHover:hover {
+  color: #007cba;
 }
 
 .writer {
@@ -169,4 +174,30 @@
   .active {
     display: flex;
   }
+}
+
+.gumsek {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 75px;
+  height: 46px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #007cba;
+
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.gumsek:hover {
+  cursor: pointer;
+}
+
+.gumsek:active {
+  background-color: #014364;
+  transition: 0.2s;
 }
