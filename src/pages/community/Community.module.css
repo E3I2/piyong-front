@@ -38,7 +38,7 @@
 }
 
 .subject {
-  width: calc(100% - 30%);
+  width: calc(100% - 37%);
   text-align: center;
   flex-wrap: wrap;
   display: flex;
@@ -69,6 +69,15 @@
 }
 
 .hits {
+  width: calc(100% - 93%);
+  text-align: center;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comments {
   width: calc(100% - 93%);
   text-align: center;
   flex-wrap: wrap;

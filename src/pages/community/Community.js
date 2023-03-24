@@ -69,9 +69,19 @@ function Community() {
       }
     )
       .then((res) => res.json())
-      .then((data) => setList(data));
-    console.log("검색함수");
+      .then((list) => {
+        let count = list.length;
+        for (let li of list) {
+          if (count > 0) {
+            li.num = count;
+            list2.push(li);
+            count--;
+          }
+        }
+        setList(list2);
+      });
   };
+
   // ------------------------------
 
   return (
@@ -119,13 +129,14 @@ function Community() {
             <div className={styles.writer}>작성자</div>
             <div className={styles.createdAt}>작성일</div>
             <div className={styles.hits}>조회수</div>
+            <div className={styles.comments}>댓글수</div>
           </header>
           <Hr />
 
           <main>
             {list
               .slice(offset, offset + limit)
-              .map(({ id, title, hit, writer, num, createdDate }) => (
+              .map(({ id, title, hit, writer, num, createdDate, comments }) => (
                 <div>
                   <article key={id} className={styles.header2}>
                     <div className={styles.number}>{num}</div>
@@ -141,6 +152,7 @@ function Community() {
                       {createdDate.slice(2, 10)}
                     </div>
                     <div className={styles.hits}>{hit}</div>
+                    <div className={styles.comments}>{comments.length}</div>
                   </article>
                   <Hr />
                 </div>

@@ -40,10 +40,10 @@ function Update() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (post.title.length == 0) {
+    if (upost.title.length == 0) {
       alert("제목을 입력해 주세요.");
       return;
-    } else if (post.content.length == 0) {
+    } else if (upost.content.length == 0) {
       alert("내용을 입력해 주세요.");
       return;
     }

@@ -4,9 +4,12 @@ import styled from "styled-components";
 import styles from "./CommunityDetails.module.css";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { isElementType } from "@testing-library/user-event/dist/utils/misc/isElementType";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
+import {
+  faCommentDots,
+  faCircleUser,
+  faEye,
+} from "@fortawesome/free-regular-svg-icons";
 
 function CommunityDetails({ user }) {
   const navi = useNavigate();
@@ -16,6 +19,7 @@ function CommunityDetails({ user }) {
   console.log("num: ", num);
 
   useEffect(() => {
+    // 게시글 가져오기 GET
     fetch(
       `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post?id=${num}`,
       {
@@ -113,17 +117,28 @@ function CommunityDetails({ user }) {
       <Category category={"커뮤니티 - 동네 정보 공유"} text={"커뮤니티"} />
       <MainBox>
         <PostsBox>
+          {/* 게시글 - 타이틀, 유저 정보 */}
           <div className={styles.subject}>
             <div className={styles.title}>{list.title}</div>
             <div className={styles.postInfo}>
               <div className={styles.userBox}>
-                <div className={styles.img}></div>
+                <div className={styles.img}>
+                  <FontAwesomeIcon
+                    icon={faCircleUser}
+                    className={styles.img2}
+                  />
+                </div>
                 <div className={styles.userInfo}>
                   <div className={styles.userId}>{list.writer}</div>
                   <div className={styles.created}>{list.createdDate}</div>
                 </div>
               </div>
               <div className={styles.InfoBox}>
+                <div className={styles.hits}>
+                  <FontAwesomeIcon icon={faEye} />
+                  <div style={{ margin: "0 5px" }}>조회수</div>
+                  <div>{list.hit ? list.hit : 0}</div>
+                </div>
                 <div className={styles.comment}>
                   <FontAwesomeIcon icon={faCommentDots} />
                   <div style={{ margin: "0 5px" }}>댓글</div>
@@ -133,6 +148,8 @@ function CommunityDetails({ user }) {
             </div>
           </div>
           <Hr />
+
+          {/* 게시글 수정 및 삭제 - 작성자 본인만 게시글 수정/삭제 가능 */}
           {list.writer === user.name ? (
             <div
               style={{
@@ -160,6 +177,7 @@ function CommunityDetails({ user }) {
             <></>
           )}
 
+          {/* 게시글 콘텐츠*/}
           <div className={styles.content}>{list.content}</div>
           <Hr />
 
@@ -177,7 +195,12 @@ function CommunityDetails({ user }) {
                     }}
                   >
                     <div className={styles.commentUser}>
-                      <div className={styles.img}></div>
+                      <div className={styles.img}>
+                        <FontAwesomeIcon
+                          icon={faCircleUser}
+                          className={styles.img2}
+                        />
+                      </div>
                       <div
                         className={styles.userId}
                         style={{ margin: "0 10px" }}
@@ -188,7 +211,6 @@ function CommunityDetails({ user }) {
                     </div>
                     {user.name == nickname ? (
                       <div>
-                        <button className={styles.commentBtn}>수정</button>
                         <button
                           onClick={() => deleteComment(id)}
                           className={styles.commentBtn}

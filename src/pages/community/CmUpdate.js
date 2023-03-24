@@ -7,7 +7,10 @@ import React, { useState, useEffect } from "react";
 function CmUpdate() {
   const navi = useNavigate();
   const [list, setList] = useState([]);
+  const [upList, setUpList] = useState([]);
   let { num } = useParams();
+
+  // 기존 게시글 데이터 받아오기 GET
   useEffect(() => {
     fetch(
       `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post?id=${num}`,
@@ -19,24 +22,27 @@ function CmUpdate() {
       }
     )
       .then((res) => res.json())
-      .then((res) => setList(res));
+      .then((data) => {
+        setList(data);
+        setUpList(...upList, { title: data.title, content: data.content });
+      });
   }, []);
 
   const handleValueChange = (e) => {
-    setList({
-      ...list,
+    setUpList({
+      ...upList,
       [e.target.name]: e.target.value,
     });
   };
-  console.log("change: ", list);
+  console.log("업데이트: ", upList);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (list.title.length == 0) {
+    if (upList.title.length == 0) {
       alert("제목을 입력해 주세요.");
       return;
-    } else if (list.content.length == 0) {
+    } else if (upList.content.length == 0) {
       alert("내용을 입력해 주세요.");
       return;
     }
@@ -49,15 +55,12 @@ function CmUpdate() {
           Authorization: localStorage.getItem("token"),
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(list),
+        body: JSON.stringify(upList),
       }
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        console.log("PUT 결과: ", res);
-        alert("수정되었습니다.");
-        navi(`/community/${num}`);
-      });
+    ).then(() => {
+      alert("수정되었습니다.");
+      navi(`/community/${num}`);
+    });
   };
 
   return (
@@ -72,7 +75,7 @@ function CmUpdate() {
             className={styles.input}
             type="text"
             placeholder="제목을 입력해 주세요."
-            value={list.title}
+            value={upList.title}
             required
           />
         </div>
@@ -82,7 +85,7 @@ function CmUpdate() {
             name="content"
             className={styles.text}
             placeholder="내용을 입력해 주세요."
-            value={list.content}
+            value={upList.content}
             required
           />
         </div>
