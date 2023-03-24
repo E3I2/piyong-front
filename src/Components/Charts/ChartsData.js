@@ -6,7 +6,7 @@ export const ChartsData = [
     "color": "hsl(106, 70%, 50%)"
   },
   {
-    "id": "마피아2", /*java*/
+    "id": "마피아2", 
     "label": "마피아2",
     "value": 439,
     "color": "hsl(344, 70%, 50%)"

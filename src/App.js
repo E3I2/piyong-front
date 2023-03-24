@@ -6,13 +6,12 @@ import Admin from './Components/Admin/Admin';
 
 
 
-
 function App() {
   return (
     
     <div>
       <Header></Header>
-      <Admin></Admin>
+      <Vod></Vod>
       <Footer></Footer>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './AdminTable.module.css';
+
 
 const Modal = ({ selectedData, handleCancel, handleEditSubmit }) => {
   const [edited, setEdited] = useState(selectedData);

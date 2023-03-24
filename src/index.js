@@ -3,15 +3,12 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import KakaoLogin from './Components/Kakao/KakaoLogin';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   			<BrowserRouter>
 				<Routes>
 					<Route path="/" exact element={<App />} />
-					<Route path="/oauth/jwt/kakao/callback" exact element={KakaoLogin} />
 				</Routes>
 			</BrowserRouter>
 //   <Router>

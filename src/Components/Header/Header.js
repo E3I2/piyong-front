@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 
-import LoginBtn from "../Kakao/Login";
-
-
-
 const HeaderCSS = styled.div`
   top: 0;
   width: 100%;
@@ -155,7 +151,7 @@ function Header() {
         <li>순찰하기</li>
       </ul>
       <ul className="HeaderTitleEnd">
-        <li><LoginBtn></LoginBtn></li>
+        <li>로그인</li>
         <li>회원가입</li>
       </ul>
     </HeaderCSS>

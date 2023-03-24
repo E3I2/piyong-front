@@ -9,7 +9,7 @@ import Mafia3 from './Mafia3.png';
 import Mafia4 from './Mafia4.png';
 import NoMafia from './NoMafia.png'
 
-import { ExampleJson } from './ExampleJson';
+// import { ExampleJson } from './ExampleJson';
 import axios from 'axios';
 
 function getMafiaImage(mafia) {

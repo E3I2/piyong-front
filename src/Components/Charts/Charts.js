@@ -27,7 +27,8 @@ const MyResponsivePie = () => {
     useEffect(() => {
         if (datachart.length > 0) {
           const lastData = datachart[datachart.length - 1];
-          setChartData([      ["road1", "road1_mafia"],
+          setChartData([      
+            ["road1", "road1_mafia"],
             ["road2", "road2_mafia"],
             ["road3", "road3_mafia"],
             ["road4", "road4_mafia"]

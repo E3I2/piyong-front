@@ -1,6 +1,5 @@
 import React from 'react';
 import Td from './AdminTd';
-import styles from './AdminTable.module.css';
 
 
 
