@@ -61,16 +61,6 @@
   align-items: center;
 }
 
-.commentImg {
-  width: 100px;
-  height: 100px;
-  background-color: gray;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .commentTitle {
   margin: 0 20px;
   font-size: 1.5rem;
@@ -78,7 +68,7 @@
 }
 
 .comment {
-  font-family: "Franklin Gothic Medium", Arial, sans-serif;
+  font-family: "Pretendard-Regular";
   margin-left: 10px;
   width: calc(100% - 20%);
   min-height: 100px;
@@ -101,4 +91,60 @@
   font-size: 1.4rem;
   padding: 10px 0 0 20px;
   color: #636363;
+}
+
+.commentDiv {
+  font-family: "Pretendard-Regular";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  padding: 10px 10px 10px 50px;
+}
+
+.commentArticle {
+  display: flex;
+  align-items: center;
+}
+
+.commentImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgb(198, 198, 198);
+  background-image: url("../../components/common/header/img/ppiyong.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.cContent {
+  padding-left: 30px;
+  color: #000;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+}
+
+.cCreatedDate {
+  font-size: 1rem;
+  padding-left: 30px;
+  color: rgb(105, 105, 105);
+}
+
+.commentBtn1 {
+  border: 1px solid rgb(203, 203, 203);
+  background-color: #fff;
+  width: 45px;
+  height: 30px;
+  margin: 0 5px;
+  font-size: 0.8rem;
+  box-shadow: 2px 2px 2px rgb(212, 212, 212);
+  color: gray;
+}
+
+.commentBtn1:hover {
+  cursor: pointer;
+  color: #000;
 }

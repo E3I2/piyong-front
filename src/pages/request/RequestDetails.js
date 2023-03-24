@@ -30,22 +30,22 @@ function RequestDetails({ user }) {
   }, []);
 
   const deletePost = () => {
-    fetch(
-      `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post?id=${num}`,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: localStorage.getItem("token"),
-        },
-      }
-    ).then(() => {
-      if (window.confirm("삭제하시겠습니까?")) {
+    if (window.confirm("삭제하시겠습니까?")) {
+      fetch(
+        `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/post?id=${num}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      ).then(() => {
         alert("삭제되었습니다.");
         navi(`/request`);
-      } else {
-        alert("취소되었습니다.");
-      }
-    });
+      });
+    } else {
+      alert("취소되었습니다.");
+    }
   };
 
   // 관리자 댓글
@@ -98,6 +98,7 @@ function RequestDetails({ user }) {
       });
     } else {
       alert("취소되었습니다.");
+      return;
     }
   };
 
@@ -128,7 +129,7 @@ function RequestDetails({ user }) {
                 <div>일</div>
                 <div>자</div>
               </div>
-              <div className={styles.content}>{posts.id}</div>
+              <div className={styles.content}>{posts.createdDate}</div>
             </div>
             <Hr />
             <div className={styles.box}>
@@ -149,14 +150,31 @@ function RequestDetails({ user }) {
           >
             <div className={styles.commentTitle}>삐용이의 답변</div>
             <Hr />
+
             {/*댓글부분시작*/}
-            {commemts.map(({ id, content }) => (
+            {commemts.map(({ id, content, createdDate }) => (
               <div>
-                <article key={id}>
-                  <div>{id}</div>
-                  {content}
-                </article>
-                <button onClick={() => deleteComment(id)}>삭제</button>
+                <div className={styles.commentDiv}>
+                  <article key={id} className={styles.commentArticle}>
+                    <div style={{ display: "none" }}>{id}</div>
+                    <div className={styles.commentImg}></div>
+                    <div className={styles.cContent}>{content}</div>
+                    <div className={styles.cCreatedDate}>{createdDate}</div>
+                  </article>
+                  {user.role == "USER" ? (
+                    <div style={{ marginRight: "20px" }}>
+                      <button className={styles.commentBtn1}>수정</button>
+                      <button
+                        onClick={() => deleteComment(id)}
+                        className={styles.commentBtn1}
+                      >
+                        삭제
+                      </button>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </div>
                 <Hr />
               </div>
             ))}
@@ -167,7 +185,6 @@ function RequestDetails({ user }) {
                 className={styles.commentBox}
                 onSubmit={(e) => handleSubmit(e)}
               >
-                <div className={styles.commentImg}></div>
                 <textarea
                   placeholder="내용을 입력해 주세요."
                   className={styles.comment}
@@ -178,13 +195,13 @@ function RequestDetails({ user }) {
                 </span>
               </form>
             ) : (
-              <div className={styles.loading}>답변 대기중입니다.</div>
+              <div className={styles.loading}></div>
             )}
           </div>
         </PostsBox>
       </MainBox>
 
-      {/* 버튼 */}
+      {/* POST 버튼 */}
       <div className={styles.btnBox}>
         <span className={styles.btn}>
           <NavLink
