@@ -9,12 +9,21 @@ import requestPath from "./순찰요청.png";
 import communityPath from "./커뮤니티.png";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointer } from "@fortawesome/free-regular-svg-icons";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 function Card() {
   useEffect(() => {
     AOS.init({ duration: 1500 });
   }, []);
+
+  const handleScroll = () => {
+    if (!window.scrollY) return;
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className={styles.body} id="slide">
@@ -144,6 +153,11 @@ function Card() {
           <br />
           안전하고 행복한 도시를 위해 삐용이는 오늘도 힘차게 달립니다!
         </div>
+      </div>
+      <div className={styles.topBtnWrap}>
+        <button onClick={handleScroll} className={styles.topBtn}>
+          <FontAwesomeIcon icon={faAngleUp} />
+        </button>
       </div>
     </div>
   );
