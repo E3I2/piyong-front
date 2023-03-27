@@ -68,7 +68,7 @@
 
 /* 아래 화살표 */
 .arrow {
-  color: #d8efff;
+  color: #f5f5ff;
   font-size: 2rem;
   margin: 50px 0;
 }
@@ -95,7 +95,7 @@
 
 .omoInfo1 {
   font-family: "Dovemayo_gothic";
-  font-size: 2.4rem;
+  font-size: 2rem;
   text-align: end;
   padding: 0 50px;
   width: 50%;
@@ -107,9 +107,95 @@
   height: 339px;
 }
 
+/* 도둑 애니메이션 */
+.robotBox2 {
+  display: flex;
+  align-items: center;
+  margin: 60px;
+}
+
+.scan {
+  padding-left: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 350px;
+}
+
+.thief {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  background: url("./thief2.png");
+  background-size: 350px;
+  background-repeat: no-repeat;
+}
+
+.scan .thief::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./thief.png");
+  background-size: 350px;
+  background-repeat: no-repeat;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.scan .thief::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #f96666;
+  border-radius: 8px;
+  filter: drop-shadow(0 0 10px #f96666) drop-shadow(0 0 80px #f96666);
+  animation: animate_line 4s ease-in-out infinite;
+}
+
+@keyframes animate_line {
+  0%,
+  100% {
+    top: 0%;
+  }
+  50% {
+    top: 100%;
+  }
+}
+
 /* item Box2 - 설명 */
 .omoInfo2 {
-  margin: 60px 0 0 0;
+  text-align: center;
+  color: #000;
+  border-radius: 30px;
+
+  font-family: "Dovemayo_gothic";
+  font-size: 2rem;
+  text-align: start;
+  padding: 0 50px;
+
+  width: 100%;
+}
+
+/* 홈페이지 설명 */
+.pageBox {
+  margin: 60px;
   text-align: center;
   color: #000;
   font-size: 2.5em;
@@ -117,61 +203,75 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-
-  font-family: "Dovemayo_gothic";
-  font-size: 2.4rem;
-  text-align: end;
-  padding: 0 50px;
 }
 
-/* @media screen and (min-width: 1355px) {
-  .div {
-    width: 100%;
-    position: relative;
-    margin: 80px 0;
-  }
+.pageInfo {
+  width: 45%;
+}
 
-  .h1 {
-    font-family: "SBAggroB";
-    font-size: 4rem;
+.pageImg {
+  width: 55%;
+}
 
-    white-space: nowrap;
-    color: transparent;
-    text-transform: capitalize;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.step {
+  margin: 0 30px 0 0;
+  font-size: 2.2rem;
+  font-weight: 200;
+  text-align: end;
+}
 
-  .h1::before {
-    content: "Korean security robot PIYONG";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: #000;
-    overflow: hidden;
-    border-right: 3px solid #000;
-    animation: typing 8s steps(28) infinite;
-  }
+.stepInfo {
+  font-family: "Dovemayo_gothic";
+  font-size: 1.8rem;
+  font-weight: 200;
+  text-align: end;
 
-  @keyframes typing {
-    0% {
-      width: 0;
-    }
-    50% {
-      width: 100%;
-    }
-    100% {
-      width: 0%;
-    }
-  }
+  margin: 20px 30px 0 0;
+}
 
-  .p1 {
-    font-family: "ONE-Mobile-POP";
-    font-weight: 100;
-    margin-top: 180px;
-  }
-} */
+.step2 {
+  margin: 0 0 0 30px;
+  font-size: 2.2rem;
+  font-weight: 200;
+  text-align: start;
+}
+
+.stepInfo2 {
+  font-family: "Dovemayo_gothic";
+  font-size: 1.8rem;
+  font-weight: 200;
+  text-align: start;
+
+  margin: 20px 0 0 30px;
+}
+
+.go,
+.go2 {
+  padding: 5px 10px;
+  background-color: #007cba;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.go2 {
+  background-color: #f96666;
+}
+
+.last {
+  font-size: 2rem;
+}
+
+.item2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 50px 0;
+  width: calc(100% - 10%);
+  min-height: 300px;
+  background: #fff;
+  color: #2b3b46;
+  font-size: 2.5em;
+  border-radius: 30px;
+}
