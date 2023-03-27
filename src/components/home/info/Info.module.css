@@ -1,3 +1,4 @@
+/* 글꼴 */
 @font-face {
   font-family: "ONE-Mobile-POP";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff")
@@ -14,36 +15,163 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "SBAggroB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dovemayo_gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 슬라이드 박스 */
 .body {
   background-color: #435b6c;
   min-width: 100%;
-  height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "ONE-Mobile-POP";
 }
 
 .item {
   margin: 50px 0;
   width: calc(100% - 10%);
-  min-height: 500px;
-  padding-top: 75px;
+  min-height: 300px;
   background: #fff;
   text-align: center;
-  color: #000;
-  font-size: 3em;
+  color: #2b3b46;
+  font-size: 2.5em;
   border-radius: 30px;
 }
 
+/* item Box 1 */
 .h1 {
-  font-size: 4rem;
-  font-family: "ONE-Mobile-POP";
-  font-weight: 200;
-  margin-bottom: 60px;
+  margin-top: 60px;
+  font-family: "SBAggroB";
+  font-size: 3rem;
+  text-transform: capitalize;
 }
 
 .p1 {
   font-family: "ONE-Mobile-POP";
   font-weight: 100;
-  margin: 0;
 }
+
+/* 아래 화살표 */
+.arrow {
+  color: #d8efff;
+  font-size: 2rem;
+  margin: 50px 0;
+}
+
+/* item Box2 - 제목 */
+.h2 {
+  color: #2b3b46;
+  font-weight: 200;
+  font-size: 3.3rem;
+  margin: 60px 0;
+}
+
+/* item Box2 - 설명+이미지 */
+.robotBox {
+  margin: 60px 0 0 0;
+  text-align: center;
+  color: #000;
+  font-size: 2.5em;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.omoInfo1 {
+  font-family: "Dovemayo_gothic";
+  font-size: 2.4rem;
+  text-align: end;
+  padding: 0 50px;
+  width: 50%;
+}
+
+.omo {
+  padding-right: 50px;
+  width: 516px;
+  height: 339px;
+}
+
+/* item Box2 - 설명 */
+.omoInfo2 {
+  margin: 60px 0 0 0;
+  text-align: center;
+  color: #000;
+  font-size: 2.5em;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  font-family: "Dovemayo_gothic";
+  font-size: 2.4rem;
+  text-align: end;
+  padding: 0 50px;
+}
+
+/* @media screen and (min-width: 1355px) {
+  .div {
+    width: 100%;
+    position: relative;
+    margin: 80px 0;
+  }
+
+  .h1 {
+    font-family: "SBAggroB";
+    font-size: 4rem;
+
+    white-space: nowrap;
+    color: transparent;
+    text-transform: capitalize;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .h1::before {
+    content: "Korean security robot PIYONG";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    overflow: hidden;
+    border-right: 3px solid #000;
+    animation: typing 8s steps(28) infinite;
+  }
+
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+    }
+    100% {
+      width: 0%;
+    }
+  }
+
+  .p1 {
+    font-family: "ONE-Mobile-POP";
+    font-weight: 100;
+    margin-top: 180px;
+  }
+} */
