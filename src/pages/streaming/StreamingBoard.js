@@ -15,16 +15,14 @@ const StreamingBoard = () => {
 }, 5000);
   }, []);
 
-
   return (
     <div>
-      <table className={styles.Table}>      
+      <table className={styles.table}>      
         <thead>
           <tr>
-            <th className={styles.TableTitleSection}>ID</th>
-            <th className={styles.TableTitleSection}>시간</th>
-            <th className={styles.TableTitleSection}>마피아</th>
-            <th className={styles.TableTitleSection}>도로 상태</th>
+            <th className={styles.title}>시간</th>
+            <th className={styles.title}>마피아</th>
+            <th className={styles.title}>도로 상태</th>
           </tr>
         </thead>
         <StreamingMapping info={info}/>

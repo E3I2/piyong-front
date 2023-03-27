@@ -12,15 +12,15 @@ const AdminTable = ({item, handleRemove, handleEdit}) => {
 
     return (
         <>
-        <tr className=''>
-            <td className=''>{item.id}</td>
-            <td className=''>{item.name}</td>
-            <td className=''>{item.email}</td>
-            <td className=''>{item.phone}</td>
-            <td className=''>{item.website}</td>     
-            <button className={styles.buttonStyle} onClick={onEdit}> 수정
+        <tr>
+            <td>{item.id}</td>
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+            <td>{item.phone}</td>
+            <td>{item.website}</td>     
+            <button className={styles.btn} onClick={onEdit}> 수정
             	</button>
-            <button className={styles.buttonStyle} onClick={onRemove}> 삭제
+            <button className={styles.btn} onClick={onRemove}> 삭제
             	</button>
         </tr>
         </>

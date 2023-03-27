@@ -1,40 +1,17 @@
-.LineSection{
-    /* margin-top: 200px; */
+.main{
     margin-top: 20px;
-
-}
-
-.PatrolSection{  
     margin-bottom: 18px;
     padding-left: 3vh;
     padding-right: 3vh;
     padding-bottom: 20px;
     margin-left: 27px;
-   margin-right: 27px;
-   border: 4px solid #cbcbcb;
-   background-color: #2e3070;
-   height: 690px;
-
+    margin-right: 27px;
+    border: 4px solid #cbcbcb;
+    background-color: #2e3070;
+    height: 690px;
 }
 
-.Vod{
-    width: 33.4vw;
-    height: 53vh;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    margin-left: 10vw;
-    margin-right: 10vw;
-
-    
-    /* overflow:hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x : hidden;overflow-y : hidden; */
-}
-
-
-.PatrolVodSection{
+.body{
     align-items: center;
     margin-top: 20px;
     margin-left: 5px;
@@ -47,14 +24,18 @@
     background-color: black;
     float: left;
     color: white;
-
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-
 }
 
-.PatrolInfoSection{
+.vod{
+    width: 33.4vw;
+    height: 53vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.table{
     margin-top: 20px;
     margin-left: 5px;
     margin-right: 0;
@@ -70,22 +51,21 @@
 }
 
 @media screen and (max-width: 1910px) {
-    .PatrolSection{
+    .main{
         height: 143vh;
     }
     
-    .PatrolVodSection{
+    .body{
         float: initial;
         margin-left: auto;
         margin-right: auto;
         border: 4px solid #cbcbcb;
     }
 
-    .PatrolInfoSection{
+    .table{
         float: initial;
         margin-left: auto;
         margin-right: auto;
         width: 52vw;
     }
-
 }

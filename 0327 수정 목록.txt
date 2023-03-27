@@ -1,0 +1,11 @@
+수정목록
+
+src/pages/streaming 폴더 수정
+
+src/pages/recode 폴더 수정
+
+src/pages/home/Link.js 수정
+
+src/pages/admin 폴더 수정
+
+src/components/common/header/Header.js수정

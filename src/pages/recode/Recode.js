@@ -69,51 +69,33 @@ function getMafiaImage(mafia) {
 
     return <div>
       <Category category={"출동 / 순찰 일지"} text={"순찰일지"} />
-      <div className={styles.title}>
-      </div>
-        <div className={styles.SearchSection}>
-        {/* <button className={styles.SearchButton} onClick={scrollToRef}><img src={SearchButton} className={styles.SearchButton} alt="SearchButton"></img></button>
-        <input className={styles.VodSearch} placeholder="키워드 검색"></input> */}
-        
-        </div>
-        <div className={styles.BodySection}>
-            <div className={styles.BodySectionTitle}>{today} - 삐용이 순찰 일지</div>
-            <div className={styles.BodySectionVod}>
-                <div className={styles.BodySectionChartSection}>
-                    <div className={styles.BodySectionChartTitle}>삐용이 차트</div>
-                    <div className={styles.BodySectionChart}><MyResponsivePie></MyResponsivePie></div>
-                </div>
-                <div className={styles.BodySectionMafiaSection}>
-                    <div className={styles.BodySectionMafiaTitle}>나타난 마피아들</div>
-                    <div className={styles.BodySectionMafiaLine}>
-                    <div className={styles.BodySectionMafiaRoadTitle1}>1번째 길</div>
-                    <img src={getMafiaImage(mafiaData.find(data => data.id === "road1").mafia)} alt="mafia" className={styles.BodySectionMafiaRoadImg}/>
-                    <div className={styles.BodySectionMafiaRoadTitle1}>2번째 길</div>
-                    <img src={getMafiaImage(mafiaData.find(data => data.id === "road2").mafia)} alt="mafia" className={styles.BodySectionMafiaRoadImg}/>
-                    <div className={styles.BodySectionMafiaRoadTitle1}>3번째 길</div>
-                    <img src={getMafiaImage(mafiaData.find(data => data.id === "road3").mafia)} alt="mafia" className={styles.BodySectionMafiaRoadImg}/>
-                    <div className={styles.BodySectionMafiaRoadTitle1}>4번째 길</div>
-                    <img src={getMafiaImage(mafiaData.find(data => data.id === "road4").mafia)} alt="mafia" className={styles.BodySectionMafiaRoadImg}/>
-                    <div className={styles.BodySectionMafiaRoadTitle2}>마피아</div>
-                    {/* <img src={Mafia1} className={styles.BodySectionMafiaRoadImg}></img><img src={Mafia2} className={styles.BodySectionMafiaRoadImg}></img><img src={Mafia3} className={styles.BodySectionMafiaRoadImg}></img><img src={Mafia4} className={styles.BodySectionMafiaRoadImg}></img> */}
-                    <img src={Mafia1} className={styles.BodySectionMafiaRoadImg} alt="1번 마피아"></img><img src={Mafia2} className={styles.BodySectionMafiaRoadImg} alt="2번 마피아"></img><img src={Mafia3} className={styles.BodySectionMafiaRoadImg} alt="3번 마피아"></img><img src={Mafia4} className={styles.BodySectionMafiaRoadImg} alt="4번 마피아"></img>
-                    <div className={styles.BodySectionMafiaRoadTitle3}>1번 2번 3번 4번</div>
-                </div>
-                </div>
-
+      <div className={styles.main}>
+        <div className={styles.title}>{today} - 삐용이 순찰 일지</div>
+        <div className={styles.body}>
+          <div className={styles.chartArea}>
+            <div className={styles.chartTitle}>삐용이 차트</div>
+            <div className={styles.chart}><MyResponsivePie></MyResponsivePie></div>
+          </div>
+          <div className={styles.resultArea}>
+            <div className={styles.resultTitle}>나타난 마피아들</div>
+              <div className={styles.resultBody}>
+                <div className={styles.resultSubTitle}>1번째 길</div>
+                <img src={getMafiaImage(mafiaData.find(data => data.id === "road1").mafia)} alt="mafia" className={styles.img}/>
+                <div className={styles.resultSubTitle}>2번째 길</div>
+                <img src={getMafiaImage(mafiaData.find(data => data.id === "road2").mafia)} alt="mafia" className={styles.img}/>
+                <div className={styles.resultSubTitle}>3번째 길</div>
+                <img src={getMafiaImage(mafiaData.find(data => data.id === "road3").mafia)} alt="mafia" className={styles.img}/>
+                <div className={styles.resultSubTitle}>4번째 길</div>
+                <img src={getMafiaImage(mafiaData.find(data => data.id === "road4").mafia)} alt="mafia" className={styles.img}/>
+                <div className={styles.resultSubTitle}>마피아</div>
+                {/* <img src={Mafia1} className={styles.img}></img><img src={Mafia2} className={styles.img}></img><img src={Mafia3} className={styles.img}></img><img src={Mafia4} className={styles.img}></img> */}
+                <img src={Mafia1} className={styles.img} alt="1번 마피아"></img><img src={Mafia2} className={styles.img} alt="2번 마피아"></img><img src={Mafia3} className={styles.img} alt="3번 마피아"></img><img src={Mafia4} className={styles.img} alt="4번 마피아"></img>
+                <div className={styles.number}>1번 2번 3번 4번</div>
+              </div>
             </div>
+          </div>
         </div>
-        <div className={styles.BodyEndSection}>
-        {/* <div className={styles.BodyEndSection} ref={scrollRef}>
-            {/* <div className={styles.BodySearchResult}>23.03.03 - Title</div>
-            <div className={styles.BodySearchResult2}>23.03.04 - Title</div>
-            <div className={styles.BodySearchResult}>23.03.05 - TItle</div>
-            <div className={styles.BodySearchResult2}>23.03.06 - Title</div> */}
-        </div>
-
-        
-
-    </div>
+      </div>
 };
 
 export default Recode;

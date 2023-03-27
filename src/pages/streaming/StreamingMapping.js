@@ -7,7 +7,7 @@ const StreamingMapping = ({info}) => {
             {
                 info.map(item => {
                     return (
-                        <StreamingTable key={item.id} item={item} />
+                        <StreamingTable key={item.create_at} item={item} />
                     )
                 })
             }

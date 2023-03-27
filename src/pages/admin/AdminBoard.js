@@ -115,27 +115,27 @@ const AdminBoard = () => {
 
 
   return (
-    <div className={styles.MainSection}>
-      <div className={styles.MainSearchSection}>
-      <select className={styles.MainSearchOption} onChange={e => setSearchCategory(e.target.value)}>
+    <div className={styles.main}>
+      <div className={styles.search}>
+      <select className={styles.searchOpt} onChange={e => setSearchCategory(e.target.value)}>
         <option value="name">이름</option>
         <option value="email">이메일</option>
         <option value="website">웹사이트</option>
       </select>
-      <input onChange={e => setSearchKeyword(e.target.value)} className={styles.MainSearch}></input>
-      <button className={styles.MainSearchButton}>검색</button>
+      <input onChange={e => setSearchKeyword(e.target.value)} className={styles.searchInput}></input>
+      <button className={styles.searchBtn}>검색</button>
       </div>
       <br/><br/>
-      <div className={styles.MainTitle}>리스트</div>
-      <table className={styles.TrSection}>
+      <div className={styles.title}>리스트</div>
+      <table className={styles.tr}>
         <thead>
           <tr>
-            <th className={styles.Section}>Id.</th>
-            <th className={styles.Section}>Name</th>
-            <th className={styles.Section}>Email</th>
-            <th className={styles.Section}>Phone No.</th>
-            <th className={styles.Section}>Website</th>
-            <th className={styles.Section}>Edit & Delete</th>
+            <th className={styles.td}>Id.</th>
+            <th className={styles.td}>Name</th>
+            <th className={styles.td}>Email</th>
+            <th className={styles.td}>Phone No.</th>
+            <th className={styles.td}>Website</th>
+            <th className={styles.td}>Edit & Delete</th>
           </tr>
         </thead>
         <AdminMapping info={info} handleRemove={handleRemove} handleEdit={handleEdit} />
