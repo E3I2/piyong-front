@@ -39,7 +39,7 @@ function Login({ setModal }) {
               </div>
             </a>
           </div>
-          <div>
+          {/* <div>
             <a
               href="http://192.168.31.151:8080/oauth2/authorization/google"
               className={styles.googleBox}
@@ -49,7 +49,7 @@ function Login({ setModal }) {
                 구글 계정으로 로그인
               </div>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
