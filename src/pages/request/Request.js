@@ -7,8 +7,16 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Request({ user }) {
-  // navi
+  // 로그인 해야만 글쓰기 가능
   const navi = useNavigate();
+  const loginClick = () => {
+    if (user.length === 0) {
+      alert("로그인이 필요합니다.");
+      return;
+    } else {
+      navi("/request-write");
+    }
+  };
 
   return (
     <div>
@@ -17,13 +25,9 @@ function Request({ user }) {
         순찰이 필요하다면 언제든지 삐용이에게 요청하세요!
       </div>
       <span className={styles.btn}>
-        <NavLink
-          className={({ isActive }) => "nav-link" + (isActive ? " click" : "")}
-          to="/request-write"
-          style={{ textDecoration: "none" }}
-        >
+        <div onClick={loginClick}>
           <Button selectBtn={1} text={"작성하기"} />
-        </NavLink>
+        </div>
       </span>
       <MainBox>
         <hr className={styles.hr} />

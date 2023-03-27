@@ -112,6 +112,16 @@ function CommunityDetails({ user }) {
     }
   };
 
+  // 로그인 해야만 글쓰기 가능
+  const loginClick = () => {
+    if (user.length === 0) {
+      alert("로그인이 필요합니다.");
+      return;
+    } else {
+      navi("/community-write");
+    }
+  };
+
   return (
     <>
       <Category category={"커뮤니티 - 동네 정보 공유"} text={"커뮤니티"} />
@@ -227,19 +237,25 @@ function CommunityDetails({ user }) {
                 </div>
               ))}
 
-              <form
-                className={styles.commentPostBox}
-                onSubmit={(e) => handleSubmit(e)}
-              >
-                <textarea
-                  placeholder="댓글을 입력해 주세요."
-                  className={styles.commentPost}
-                  onChange={(e) => handleValueChange(e)}
-                ></textarea>
-                <button className={styles.commentPostBtn} type="submit">
-                  등록
-                </button>
-              </form>
+              {user.length === 0 ? (
+                <div style={{ margin: "0 0 20px 10px", color: "gray" }}>
+                  로그인이 필요합니다.
+                </div>
+              ) : (
+                <form
+                  className={styles.commentPostBox}
+                  onSubmit={(e) => handleSubmit(e)}
+                >
+                  <textarea
+                    placeholder="댓글을 입력해 주세요."
+                    className={styles.commentPost}
+                    onChange={(e) => handleValueChange(e)}
+                  ></textarea>
+                  <button className={styles.commentPostBtn} type="submit">
+                    등록
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </PostsBox>
@@ -258,16 +274,8 @@ function CommunityDetails({ user }) {
             <Button selectBtn={6} text={"목록"} />
           </NavLink>
         </span>
-        <span className={styles.btn2}>
-          <NavLink
-            className={({ isActive }) =>
-              "nav-link" + (isActive ? " click" : "")
-            }
-            to="/community-write"
-            style={{ textDecoration: "none" }}
-          >
-            <Button selectBtn={1} text={"작성하기"} />
-          </NavLink>
+        <span className={styles.btn2} onClick={loginClick}>
+          <Button selectBtn={1} text={"작성하기"} />
         </span>
       </div>
     </>

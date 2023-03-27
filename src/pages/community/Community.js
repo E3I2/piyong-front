@@ -2,7 +2,7 @@ import Category from "../../components/common/category/Category";
 import Button from "../../components/common/button/Button";
 import styles from "./Community.module.css";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Pagination from "../../server/config/Pagination";
 
-function Community() {
+function Community({ user }) {
   // GET 데이터 불러오기
   const [list, setList] = useState([]);
   const [limit, setLimit] = useState(10);
@@ -82,6 +82,18 @@ function Community() {
       });
   };
 
+  // 로그인 해야만 글쓰기 가능
+  const navi = useNavigate();
+  const loginClick = () => {
+    if (user.length === 0) {
+      alert("로그인이 필요합니다.");
+      navi("/community");
+      return;
+    } else {
+      navi("/community-write");
+    }
+  };
+
   // ------------------------------
 
   return (
@@ -108,16 +120,8 @@ function Community() {
             </button>
           </div>
         </div>
-        <span className={styles.btn}>
-          <NavLink
-            className={({ isActive }) =>
-              "nav-link" + (isActive ? " click" : "")
-            }
-            to="/community-write"
-            style={{ textDecoration: "none" }}
-          >
-            <Button selectBtn={1} text={"작성하기"} />
-          </NavLink>
+        <span className={styles.btn} onClick={loginClick}>
+          <Button selectBtn={1} text={"작성하기"} />
         </span>
       </div>
       <MainBox>
