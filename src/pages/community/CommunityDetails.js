@@ -15,6 +15,7 @@ function CommunityDetails({ user }) {
   const navi = useNavigate();
   const [list, setList] = useState([]);
   const [comments, setCommnets] = useState([]);
+  const [listSplit, setListsplit] = useState();
   let { num } = useParams();
   console.log("num: ", num);
 
@@ -33,6 +34,8 @@ function CommunityDetails({ user }) {
       .then((res) => {
         setList(res);
         setCommnets(res.comments);
+        setListsplit(res.content.split("\n"));
+        console.log("res21", res.content.split("\n"));
         console.log("res: ", res);
         console.log("res.com: ", res.comments);
       });
@@ -122,6 +125,14 @@ function CommunityDetails({ user }) {
     }
   };
 
+  // \n 처리
+  // const listSplit = list != "" ? list.content.split("\n") : [1, 2, 3];
+  console.log("split해보자: ", listSplit);
+  if (listSplit == "") {
+    setListsplit([1, 2, 3]);
+  }
+
+  // -------------------------------------------------------
   return (
     <>
       <Category category={"커뮤니티 - 동네 정보 공유"} text={"커뮤니티"} />
@@ -188,7 +199,15 @@ function CommunityDetails({ user }) {
           )}
 
           {/* 게시글 콘텐츠*/}
-          <div className={styles.content}>{list.content}</div>
+          <div className={styles.content}>
+            {listSplit &&
+              listSplit.map((list) => (
+                <div>
+                  {list}
+                  <br />
+                </div>
+              ))}
+          </div>
           <Hr />
 
           {/* 댓글 */}

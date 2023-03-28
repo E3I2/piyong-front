@@ -86,7 +86,6 @@
 /* 본문 */
 .content {
   padding: 10px 20px 20px 30px;
-  min-height: 300px;
   font-size: 1.4rem;
   font-weight: 500;
 }
