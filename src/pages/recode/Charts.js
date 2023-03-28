@@ -2,10 +2,7 @@ import { ResponsivePie } from "@nivo/pie";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-// import { ExampleJson } from '../Bbiyong2/ExampleJson';
-
 const MyResponsivePie = () => {
-  // const [datachart, setDataChart] = useState([ExampleJson[0]]);
   const [datachart, setDataChart] = useState([[]]);
   const [chartData, setChartData] = useState([]);
 
@@ -19,10 +16,6 @@ const MyResponsivePie = () => {
   useEffect(() => {
     setDataChart([datachart[datachart.length - 1]]);
   }, []);
-
-  // useEffect(() => {
-  //     setDataChart([ExampleJson[ExampleJson.length - 1]]);
-  //   }, []);
 
   useEffect(() => {
     if (datachart.length > 0) {
@@ -49,10 +42,9 @@ const MyResponsivePie = () => {
     <div style={{ height: "620px" }}>
       <ResponsivePie
         data={chartData}
-        margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+        // margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         innerRadius={0.5}
-        padAngle={5}
-        cornerRadius={3}
+        padAngle={1}
         activeOuterRadiusOffset={8}
         borderWidth={1}
         borderColor={{
@@ -61,7 +53,7 @@ const MyResponsivePie = () => {
         }}
         arcLinkLabelsSkipAngle={10}
         arcLinkLabelsTextColor="#333333"
-        arcLinkLabelsThickness={10}
+        arcLinkLabelsThickness={5}
         arcLinkLabelsColor={{ from: "color" }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{

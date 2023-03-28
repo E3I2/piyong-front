@@ -59,7 +59,7 @@
   display: none;
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 1080px) {
   .nav {
     flex-direction: column;
     align-items: flex-start;
@@ -90,7 +90,7 @@
   }
 }
 
-@media screen and (min-width: 831px) {
+@media screen and (min-width: 1080px) {
   .active {
     display: flex;
   }
@@ -126,4 +126,24 @@
 .logoInfo {
   font-size: 1.2rem;
   color: #f2a72d;
+}
+
+.login {
+  border: 0;
+  font-size: 1.7rem;
+  font-weight: 600;
+  display: flex;
+  font-family: "Pretendard-Regular";
+  background-color: transparent;
+}
+
+.login:hover {
+  color: #f96666;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.login:active {
+  color: #c65151;
+  font-size: 1.9rem;
 }

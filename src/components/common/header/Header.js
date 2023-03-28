@@ -77,12 +77,6 @@ function Header({ user }) {
         >
           <li className={styles.link}>커뮤니티</li>
         </NavLink>
-        {/* <li className={styles.link}>
-          <button onClick={showModal} className={styles.login}>
-            로그인
-          </button>
-          {modal && <Login setModal={setModal} />}
-        </li> */}
         {!user.name ? (
           <li className={styles.link}>
             <button onClick={showModal} className={styles.login}>

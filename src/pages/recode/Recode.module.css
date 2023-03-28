@@ -1,155 +1,154 @@
 @font-face {
-    font-family: "Pretendard-Regular";
-    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-      format("woff");
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.main {
+  margin-top: 25px;
+  margin-left: 33px;
+  margin-right: 33px;
+  box-shadow: 4px 4px 8px 8px #cbcbcb;
+  height: 95vh;
+  /* height: 91vh; */
+  margin-bottom: 2.5vh;
+}
+
+.title {
+  font-family: "Pretendard-Regular";
+  margin: 0 auto;
+  width: 92vw;
+  font-size: 32px;
+  height: 100px;
+  text-align: center;
+  line-height: 92px;
+  font-weight: 600;
+  border-bottom: 2px solid #cbcbcb;
+}
+
+.contentBox {
+  display: flex;
+}
+
+.body {
+  border: 2px solid #cbcbcb;
+  color: white;
+  text-align: center;
+}
+
+.BodyEndSection {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.chartArea {
+  float: left;
+  width: 50vw;
+  height: 74vh;
+}
+
+.chartTitle {
+  font-family: "Pretendard-Regular";
+  float: initial;
+  text-align: center;
+  font-size: 36px;
+  color: black;
+}
+
+.chart {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: black;
+  padding: 0;
+  position: relative;
+}
+
+.resultArea {
+  color: black;
+  float: left;
+  width: 42vw;
+}
+
+.resultTitle {
+  font-family: "Pretendard-Regular";
+  float: initial;
+  text-align: center;
+  font-size: 36px;
+  color: black;
+}
+
+.resultBody {
+  margin: 20px;
+  color: black;
+  text-align: center;
+}
+
+.resultSubTitle {
+  font-size: 28px;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.img {
+  width: 55px;
+  height: 55px;
+  padding-top: 15px;
+  margin: auto;
+}
+
+.number {
+  font-size: 18px;
+  word-spacing: 22px;
+  padding: 0;
+}
+
+.BodySearchResult {
+  height: initial;
+  margin-left: 2.5vh;
+  margin-right: 2.5vh;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #007cba;
+  font-size: 32px;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px;
+  text-align: initial;
+}
+
+@media screen and (max-width: 1740px) {
+  .main {
+    height: 178vh;
   }
 
-.main{
-   margin-top: 25px;
-   margin-left: 33px;
-   margin-right: 33px;
-   box-shadow: 4px 4px 8px 8px #cbcbcb;
-   height: 95vh;
-   /* height: 91vh; */
-   margin-bottom: 2.5vh;
-}
-
-.title{
-    font-family: "Pretendard-Regular";
-    margin: 0 auto;
-    width: 92vw;
-    font-size: 32px;
-    height: 100px;
-    text-align: center;
-    line-height: 92px;
-    font-weight: 600;
-    border-bottom: 2px solid #cbcbcb;
-}
-
-.body{
-    margin-top: 3vh;
-    margin-left: 2.5vh;
-    margin-right: 2.5vh;
-    border: 2px solid #cbcbcb;
-    color: white;
-    text-align: center;
-    /* height: 74vh; */
-    height: 78vh;
-}
-
-.BodyEndSection{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: center;
-}
-
-.chartArea{
-    float: left;
-    width: 50vw;
-    height: 74vh;
-}
-
-.chartTitle{
-    font-family: "Pretendard-Regular";
+  .chartArea {
     float: initial;
-    text-align: center;
-    font-size: 36px;
-    color: black;
-}
-
-.chart{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: black;
-    padding: 0;
-    position: relative; 
-}
-
-.resultArea{
-    color: black;
-    float: left;
-    width: 42vw;
-}
-
-.resultTitle{
-    font-family: "Pretendard-Regular";
-    float: initial;
-    text-align: center;
-    font-size: 36px;
-    color: black;
-}
-
-.resultBody{
-    margin: 20px;
-    color: black;
-    text-align: center;
-}
-
-.resultSubTitle{
-    font-size: 28px;
-    margin-top: 15px;
-    padding: 0;
-}
-
-.img{
-    width: 55px;
-    height: 55px;
-    padding-top: 15px;
     margin: auto;
-}
+    width: initial;
+    height: 75vh;
+  }
 
-.number{
-    font-size: 18px;
-    word-spacing: 22px;
-    padding: 0;
-}
-
-.BodySearchResult{
-    height: initial;
-    margin-left: 2.5vh;
-    margin-right: 2.5vh;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background-color: #007cba;
-    font-size: 32px;
-    color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 20px;
-    text-align: initial;
-}
-
-@media screen and (max-width: 1740px){
-    .main{
-        height: 178vh;
-    }
-   
-    .chartArea{
-        float: initial;
-        margin: auto;
-        width: initial;
-        height: 75vh;
-    }
-
-    .resultArea{
-        float: initial;
-        margin-top: 40px;
-        margin-left: auto;
-        margin-right: auto;
-        width: initial;
-        border: 2px solid #cbcbcb;
-    }
+  .resultArea {
+    float: initial;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: initial;
+    border: 2px solid #cbcbcb;
+  }
 }
 
 @media screen and (max-width: 921px) {
-    .title{
-        width: initial;
-        font-size: 1.5em;
-    }
+  .title {
+    width: initial;
+    font-size: 1.5em;
+  }
 }

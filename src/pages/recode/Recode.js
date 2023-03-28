@@ -39,7 +39,6 @@ function Recode() {
   }, []);
 
   const latestData = Info[Info.length - 1];
-  // const latestData = ExampleJson[ExampleJson.length - 1];
 
   const mafiaData = [
     {
@@ -65,14 +64,12 @@ function Recode() {
   ];
 
   let today = new Date(latestData.create_at).toLocaleDateString();
-  // let today = new Date();
-  // today = today.toLocaleDateString();
 
   return (
     <div>
       <Category category={"순찰일지"} text={"순찰일지"} />
       <div className={styles.main}>
-        <div className={styles.title}>{today} - 삐용이 순찰 일지</div>
+        <div className={styles.title}>{today} 삐용이 순찰 일지</div>
         <div className={styles.body}>
           <div className={styles.chartArea}>
             <div className={styles.chartTitle}>삐용이 차트</div>

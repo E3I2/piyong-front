@@ -14,7 +14,6 @@ function Streaming() {
             src="http://192.168.31.168:8000/video_feed"
             className={styles.vod}
           ></iframe>
-          {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/ssn4F9xuSx8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
         </div>
         <div className={styles.table}>
           <StreamingBoard />

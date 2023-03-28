@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 import axios from "axios";
 import styled from "styled-components";
+import styles from "./ReLogin.module.css";
 
 function ReLogin() {
   const location = useLocation();
@@ -27,13 +28,20 @@ function ReLogin() {
   useEffect(() => {});
   return (
     <MainBox>
-      <div>로그인중</div>
+      <div className={styles.body}>
+        <h2 className={styles.h2} data-text="Loading...">
+          Loading...
+        </h2>
+      </div>
     </MainBox>
   );
 }
 
 const MainBox = styled.div`
   min-height: 500px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 `;
 
 export default ReLogin;

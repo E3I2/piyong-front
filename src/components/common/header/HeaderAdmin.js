@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import logoPath from "./img/ppiyong.png";
 import { NavLink } from "react-router-dom";
+import Logout from "../../../pages/home/Logout";
 
-function Header() {
+function HeaderAdmin({ user }) {
   const [isOpen, setIsOpen] = useState(false);
   const toogleMenu = () => {
     setIsOpen((isOpen) => !isOpen);
@@ -14,6 +15,12 @@ function Header() {
   useEffect(() => {
     menuRef.current.classList.add("active");
   }, []);
+
+  // 로그아웃 모달
+  const [modal, setModal] = useState(false);
+  const showModal = () => {
+    setModal(true);
+  };
 
   return (
     <nav className={styles.nav} id="nav">
@@ -59,6 +66,12 @@ function Header() {
         <NavLink to="./admin" style={{ textDecoration: "none", color: "#000" }}>
           <li className={styles.link}>관리자페이지</li>
         </NavLink>
+        <li className={styles.link}>
+          <button onClick={showModal} className={styles.login}>
+            {user.name}님
+          </button>
+          {modal && <Logout setModal={setModal} />}
+        </li>
       </ul>
       <button
         onClick={() => toogleMenu()}
@@ -71,4 +84,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderAdmin;
