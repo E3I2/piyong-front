@@ -51,7 +51,7 @@ function Header() {
           <li className={styles.link}>커뮤니티</li>
         </NavLink>
         <NavLink
-          to="./monitoring"
+          to="./streaming"
           style={{ textDecoration: "none", color: "#000" }}
         >
           <li className={styles.link}>순찰하기</li>

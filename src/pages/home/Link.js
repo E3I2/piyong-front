@@ -7,7 +7,7 @@ import Home from "./Home";
 import CommunityWrite from "../community/CommunityWrite";
 import CommunityDetails from "../community/CommunityDetails";
 import Recode from "../recode/Recode";
-import Monitoring from "../monitoring/Monitoring";
+import Streaming from "../streaming/Streaming";
 import Admin from "../admin/Admin";
 import Update from "../request/Update";
 import ReLogin from "./ReLogin";
@@ -35,7 +35,7 @@ function Link({ user }) {
           path="/community-update/:num"
           element={<CmUpdate user={user} />}
         />
-        <Route path="/monitoring" element={<Monitoring user={user} />} />
+        <Route path="/streaming" element={<Streaming user={user} />} />
         <Route path="/admin" element={<Admin user={user} />} />
         <Route path="/request-update/:num" element={<Update user={user} />} />
         <Route path="/kakaologin" element={<ReLogin />} />

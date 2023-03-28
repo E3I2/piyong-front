@@ -1,0 +1,47 @@
+.main{
+    border: 1px solid black;
+    width: 92vw;
+    text-align: center;
+}
+
+.search{
+    padding: 0;
+    float: right;
+    text-align: center;
+}
+
+.searchOpt{
+    padding: 0;
+    height: 24px;
+}
+
+.searchInput{
+    height: 20px;
+    padding: 0;
+    text-align: right;
+}
+
+.searchBtn{
+    height: 42px;
+}
+
+.title{
+    font-size: 65px;
+}
+
+.tr{
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.btn{
+    width: 128px;
+}
+
