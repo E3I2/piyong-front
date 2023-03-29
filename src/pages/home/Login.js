@@ -11,7 +11,8 @@ function Login({ setModal }) {
 
   // 카카오 로그인
   const REST_API_KEY = "781439d4c65490bbf7fa59a3bee09329";
-  const REDIRECT_URI = "http://192.168.31.158:3000/kakaologin";
+  const REDIRECT_URI =
+    "https://web-piyong-front-luj2cldtwtwnh.sel3.cloudtype.app/kakaologin";
 
   return (
     <div className={styles.container}>

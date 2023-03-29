@@ -36,8 +36,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* USER -> ADMIN으로 변경해야함*/}
-      {user.role == "USER" ? (
+      {user.role == "ADMIN" ? (
         <HeaderAdmin user={user} />
       ) : (
         <Header user={user} />

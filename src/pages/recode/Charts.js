@@ -8,7 +8,7 @@ const MyResponsivePie = () => {
 
   useEffect(() => {
     axios
-      .get("http://192.168.31.142:8080/mafia-chart")
+      .get("https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/mafia-chart")
       .then((res) => setDataChart(res.data))
       .catch((err) => console.log(err));
   }, []);
