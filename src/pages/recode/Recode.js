@@ -78,7 +78,7 @@ function Recode() {
             </div>
           </div>
           <div className={styles.resultArea}>
-            <div className={styles.resultTitle}>나타난 마피아들</div>
+            <div className={styles.resultTitle}>나타난 범죄자들</div>
             <div className={styles.resultBody}>
               <div className={styles.resultSubTitle}>1번째 길</div>
               <img
@@ -112,11 +112,11 @@ function Recode() {
                 alt="mafia"
                 className={styles.img}
               />
-              <div className={styles.resultSubTitle}>마피아</div>
+              <div className={styles.resultSubTitle}>범죄자</div>
               {/* <img src={Mafia1} className={styles.img}></img><img src={Mafia2} className={styles.img}></img><img src={Mafia3} className={styles.img}></img><img src={Mafia4} className={styles.img}></img> */}
-              <img src={Mafia1} className={styles.img} alt="1번 마피아"></img>
-              <img src={Mafia2} className={styles.img} alt="2번 마피아"></img>
-              <img src={Mafia3} className={styles.img} alt="3번 마피아"></img>
+              <img src={Mafia1} className={styles.img} alt="1번 범죄자"></img>
+              <img src={Mafia2} className={styles.img} alt="2번 범죄자"></img>
+              <img src={Mafia3} className={styles.img} alt="3번 범죄자"></img>
               <div className={styles.number}>1번 2번 3번</div>
             </div>
           </div>
