@@ -13,6 +13,7 @@ const MyResponsivePie = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  console.log("datachart: ", datachart);
   useEffect(() => {
     setDataChart([datachart[datachart.length - 1]]);
   }, []);
