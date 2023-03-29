@@ -69,7 +69,7 @@ function Recode() {
     <div>
       <Category category={"순찰일지"} text={"순찰일지"} />
       <div className={styles.main}>
-        {/* <div className={styles.title}>{today} 삐용이 순찰 일지</div> */}
+        <div className={styles.title}>{today} 삐용이 순찰 일지</div>
         <div className={styles.body}>
           <div className={styles.chartArea}>
             <div className={styles.chartTitle}>삐용이 차트</div>
@@ -117,8 +117,7 @@ function Recode() {
               <img src={Mafia1} className={styles.img} alt="1번 마피아"></img>
               <img src={Mafia2} className={styles.img} alt="2번 마피아"></img>
               <img src={Mafia3} className={styles.img} alt="3번 마피아"></img>
-              <img src={Mafia4} className={styles.img} alt="4번 마피아"></img>
-              <div className={styles.number}>1번 2번 3번 4번</div>
+              <div className={styles.number}>1번 2번 3번</div>
             </div>
           </div>
         </div>

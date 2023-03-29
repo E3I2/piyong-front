@@ -17,7 +17,10 @@ function ReLogin() {
       fetch(`${IP}/aaa?code=${KAKAO_CODE}`, {
         method: "GET",
       })
-        .then((res) => res.headers.get("Authorization"))
+        .then((res) => {
+          console.log("rrrr: ", res);
+          res.headers.get("Authorization");
+        })
         .then((token) => localStorage.setItem("token", token))
         .then(() => {
           navi("/");
