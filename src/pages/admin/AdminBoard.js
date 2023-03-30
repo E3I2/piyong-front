@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 import AdminMapping from './AdminMapping';
-import AdminPost from './AdminPost';
+// import AdminPost from './AdminPost';
 import AdminModal from './AdminModal';
 import styles from './AdminTable.module.css';
 
@@ -15,36 +15,19 @@ const AdminBoard = () => {
 
   // 고유 값으로 사용 될 id
   // ref 를 사용하여 변수 담기
-  const nextId = useRef(11);
+  const nextId = useRef(3);
 
-//더미 데이터 호출
-
-  // useEffect(() => {
-  //   if(searchKeyword === ""){
-  //     axios.get('http://localhost:8080/users')
-  //       .then(res => setInfo(res.data))
-  //       .catch(err => console.log(err));
-      
-  //       return;
-  //   }
-  //   axios.post('http://localhost:8080/users/search', {
-  //     keyword: searchKeyword,
-  //     category: searchCategory
-  //   })
-  //     .then(res => setInfo(res.data))
-  //     .catch(err => console.log(err));
-  // }, [searchCategory, searchKeyword])
 
   useEffect(() => {
     if (searchKeyword === "") {
-      axios.get('https://jsonplaceholder.typicode.com/users')
+      axios.get('https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/userlist')
         .then(res => setInfo(res.data))
         .catch(err => console.log(err));
       return;
     }
     let finfo = info.filter(aInfo => aInfo[searchCategory].toLowerCase().includes(searchKeyword))
     setInfo(finfo)
-  }, [searchCategory, searchKeyword, info])
+  }, [searchCategory, searchKeyword])
 
   
 
@@ -55,9 +38,9 @@ const AdminBoard = () => {
         info.map(row => data.id === row.id ? {
           id: data.id,
           name: data.name,
+          username: data.username,
           email: data.email,
-          phone: data.phone,
-          website: data.website,
+          role: data.role,
         } : row))
 
     } else { //바로 추가하기
@@ -77,12 +60,12 @@ const AdminBoard = () => {
         {
           id: nextId.current,
           name: data.name,
+          username: data.username,
           email: data.email,
-          phone: data.phone,
-          website: data.website
+          role: data.role
         }
       ))
-      nextId.current += 1;
+      nextId.current += 3;
     }
   }
 
@@ -95,11 +78,10 @@ const AdminBoard = () => {
     const selectedData = {
       id: item.id,
       name: item.name,
+      username: item.username,
       email: item.email,
-      phone: item.phone,
-      website: item.website
+      role: item.role
     };
-    console.log(selectedData);
     setSelected(selectedData);
   };
 
@@ -108,7 +90,6 @@ const AdminBoard = () => {
   }
 
   const handleEditSubmit = (item) => {
-    console.log(item);
     handleSave(item);
     setModalOn(false);
   }
@@ -119,8 +100,9 @@ const AdminBoard = () => {
       <div className={styles.search}>
       <select className={styles.searchOpt} onChange={e => setSearchCategory(e.target.value)}>
         <option value="name">이름</option>
+        <option value="username">UserName</option>
         <option value="email">이메일</option>
-        <option value="website">웹사이트</option>
+        <option value="role">역활</option>
       </select>
       <input onChange={e => setSearchKeyword(e.target.value)} className={styles.searchInput}></input>
       <button className={styles.searchBtn}>검색</button>
@@ -132,15 +114,15 @@ const AdminBoard = () => {
           <tr>
             <th className={styles.td}>Id.</th>
             <th className={styles.td}>Name</th>
+            <th className={styles.td}>UserName</th>
             <th className={styles.td}>Email</th>
-            <th className={styles.td}>Phone No.</th>
-            <th className={styles.td}>Website</th>
+            <th className={styles.td}>Role</th>
             <th className={styles.td}>Edit & Delete</th>
           </tr>
         </thead>
         <AdminMapping info={info} handleRemove={handleRemove} handleEdit={handleEdit} />
       </table>
-      <AdminPost onSaveData={handleSave} />
+      {/* <AdminPost onSaveData={handleSave} /> */}
       {modalOn && <AdminModal selectedData={selected} handleCancel={handleCancel} 
       handleEditSubmit={handleEditSubmit} />}
     </div>

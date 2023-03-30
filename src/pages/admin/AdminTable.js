@@ -15,9 +15,9 @@ const AdminTable = ({ item, handleRemove, handleEdit }) => {
       <tr>
         <td>{item.id}</td>
         <td>{item.name}</td>
+        <td>{item.username}</td>
         <td>{item.email}</td>
-        <td>{item.phone}</td>
-        <td>{item.website}</td>
+        <td>{item.role}</td>
         <button className={styles.btn} onClick={onEdit}>
           {" "}
           수정

@@ -1,7 +1,7 @@
 import React from "react";
 import AdminTable from "./AdminTable";
 
-const AdminMapping = ({ info, handleRemove, handleEdit }) => {
+const AdminMapping = ({info, handleRemove, handleEdit}) => {
   return (
     <tbody>
       {info.map((item) => {

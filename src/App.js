@@ -42,6 +42,7 @@ function App() {
         <Header user={user} />
       )}
 
+      {/* <HeaderAdmin /> */}
       <Link user={user} />
       <Footer />
     </BrowserRouter>
