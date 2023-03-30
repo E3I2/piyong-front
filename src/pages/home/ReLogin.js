@@ -19,7 +19,7 @@ function ReLogin() {
       })
         .then((res) => {
           console.log("rrrr: ", res);
-          res.headers.get("Authorization");
+          return res.headers.get("Authorization");
         })
         .then((token) => localStorage.setItem("token", token))
         .then(() => {

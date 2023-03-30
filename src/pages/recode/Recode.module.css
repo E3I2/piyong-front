@@ -29,7 +29,8 @@
   margin: 1.5rem;
   border: 2px solid #cbcbcb;
   color: white;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .BodyEndSection {
@@ -138,8 +139,6 @@
   .resultArea {
     float: initial;
     margin-top: 8vh;
-    margin-left: auto;
-    margin-right: auto;
     justify-content: center;
     width: initial;
     height: 100%;
