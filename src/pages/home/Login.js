@@ -10,7 +10,7 @@ function Login({ setModal }) {
   };
 
   // 카카오 로그인
-  const REST_API_KEY = "781439d4c65490bbf7fa59a3bee09329";
+  const REST_API_KEY = "1af93a8bebf7496a0dcba1c3df2126de";
   const REDIRECT_URI =
     "https://web-piyong-front-luj2cldtwtwnh.sel3.cloudtype.app/kakaologin";
 

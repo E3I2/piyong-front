@@ -1,20 +1,20 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-
+import axios from "axios";
+import React, { useState } from "react";
 
 const AdminModal = ({ selectedData, handleCancel, handleEditSubmit }) => {
   const [edited, setEdited] = useState(selectedData);
 
   const onCancel = () => {
     handleCancel();
-  }
+  };
 
   const onEditChange = (e) => {
-    setEdited({ //문법
+    setEdited({
+      //문법
       ...edited,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   // const onSubmitEdit = (e) => {
   //   e.preventDefault();
@@ -23,28 +23,27 @@ const AdminModal = ({ selectedData, handleCancel, handleEditSubmit }) => {
 
   const onSubmitEdit = (e) => {
     e.preventDefault();
-    let role=null;
-    if(edited.role=="User"){
-       role=1;
+    let role = null;
+    if (edited.role == "User") {
+      role = 1;
+    } else if (edited.role == "Admin") {
+      role = 0;
+    } else {
+      role = 2;
     }
-    else if(edited.role=="Admin"){
-     role=0;
-    }
-    else{
-      role=2;
-    }
-    
-    
-    axios.put(`https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/user?id=${edited.id}&role=${edited.role}`)
-      .then(res => {
+
+    axios
+      .put(
+        `https://port-0-pipi-6g2llfcg53ue.sel3.cloudtype.app/user?id=${edited.id}&role=${edited.role}`
+      )
+      .then((res) => {
         console.log(res);
         window.location.reload();
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
-  }
-
+  };
 
   return (
     <div className="">
@@ -55,7 +54,6 @@ const AdminModal = ({ selectedData, handleCancel, handleEditSubmit }) => {
         </div>
         <form onSubmit={onSubmitEdit}>
           <div class="p-3">
-
             <div>ID: {edited.id}</div>
             {/* <div>Name: <input type='text' name='name' 
             value={edited.name} onChange={onEditChange} /></div>
@@ -68,17 +66,24 @@ const AdminModal = ({ selectedData, handleCancel, handleEditSubmit }) => {
             <div>Name: {edited.name}</div>
             <div>UserName: {edited.username}</div>
             <div>Email: {edited.email}</div>
-            <div>Role: 
-            <select type='text' name='role' value={edited.role} onChange={onEditChange}>
+            <div>
+              Role:
+              <select
+                type="text"
+                name="role"
+                value={edited.role}
+                onChange={onEditChange}
+              >
                 <option>===기본값===</option>
-                <option value='0'>Admin</option>
-                <option value='1'>User</option>
-                <option value='2'>Police</option>
-            </select></div>
+                <option value="0">Admin</option>
+                <option value="1">User</option>
+                <option value="2">Police</option>
+              </select>
+            </div>
           </div>
           <div>
             <button onClick={onCancel}>취소</button>
-            <button type='submit'>수정</button>
+            <button type="submit">수정</button>
           </div>
         </form>
       </div>

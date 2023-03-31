@@ -24,6 +24,7 @@ function Header({ user }) {
   const showModal = () => {
     setModal(true);
   };
+
   return (
     <nav className={styles.nav} id="nav">
       <NavLink to="/" style={{ textDecoration: "none", color: "#000" }}>
